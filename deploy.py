@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import shutils
+import shutil
 #
 #==============================================================================
 # deploy configuration files to home folder
@@ -8,10 +8,10 @@ import shutils
 #------------------------------------------------------------------------------
 # deploy bashrc
 #
-shutils.copy('.bashrc', '../')
+shutil.copy('.bashrc', '../')
 
 #------------------------------------------------------------------------------
 # deploy vim
-shutils.copytree('vim/.vim',     '../')
-shutils.copy('vim/.vimrc',       '../')
-shutils.copy('vim/.vimrc.local', '../')
+shutil.copytree('vim/.vim',     '../')
+shutil.copy('vim/.vimrc',       '../')
+shutil.copy('vim/.vimrc.local', '../')
