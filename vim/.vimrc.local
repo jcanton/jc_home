@@ -1,0 +1,13 @@
+"-------------------------------------------------------------------------------
+" vimrc local options
+"-------------------------------------------------------------------------------
+
+" Font
+set guifont=Monospace\ 8
+
+" Colorscheme
+colorscheme default
+if has("gui_running")
+   colorscheme solarized
+   set background=dark
+endif
