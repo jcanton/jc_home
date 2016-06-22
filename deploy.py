@@ -57,7 +57,11 @@ if (usrInVim == 'y'):
 	shutil.copytree('.vim', '../.vim')
 
 shutil.copy('.vimrc',       '../')
-shutil.copy('.vimrc.local', '../')
+
+if (hostname == 'arch10'):
+	shutil.copy('.vimrc.local.arch10', '../.vimrc.local')
+elif (hostname == 'erebos'):
+	shutil.copy('.vimrc.local.erebos', '../.vimrc.local')
 
 #------------------------------------------------------------------------------
 # deploy xoural

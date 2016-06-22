@@ -1,13 +1,6 @@
 "-------------------------------------------------------------------------------
-" vimrc local options
+" vimrc arch10 local options
 "-------------------------------------------------------------------------------
 
 " Font
-set guifont=Monospace\ 10
-
-" Colorscheme
-colorscheme default
-if has("gui_running")
-   colorscheme solarized
-   set background=dark
-endif
+set guifont=Monospace\ 8

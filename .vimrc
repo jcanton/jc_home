@@ -287,6 +287,12 @@ set encoding=utf8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+" Colorscheme
+colorscheme default
+if has("gui_running")
+   colorscheme solarized
+   set background=dark
+endif
 
 "------------------------------------------------------------------------------
 " => Files, backups and undo
