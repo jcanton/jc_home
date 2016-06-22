@@ -14,8 +14,10 @@ print('\n')
 #==============================================================================
 #
 if os.path.exists('../.vim'):
-	print('   WARNING: removing old .vim folder')
-	shutil.rmtree('../.vim')
+	usrInVim = raw_input('   Found .vim folder. Delete? [y/n]')
+	if (usrInVim == 'y'):
+		print('   WARNING: removing old .vim folder')
+		shutil.rmtree('../.vim')
 
 if os.path.exists('../.xournal'):
 	print('   WARNING: removing old .xournal folder')
