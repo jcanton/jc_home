@@ -1,12 +1,19 @@
 #!/usr/bin/env python
-import os, shutil
+import os, shutil, socket
 #
+#==============================================================================
+# get hostname
+#==============================================================================
+
+hostname = socket.gethostname()
+
 #==============================================================================
 # deploy configuration files to home folder
 #==============================================================================
 #
 print('\n')
-print('--- deploying configuration files to home directory ---')
+print('--- Deploying configuration files to home directory ---')
+print('    hostname: ' + hostname + '\n')
 print('\n')
 
 #==============================================================================
@@ -23,6 +30,11 @@ if os.path.exists('../.vim'):
 # deploy bashrc
 #
 shutil.copy('.bashrc', '../')
+
+if (hostname == 'arch10'):
+	shutil.copy('.bashrc.local.arch10', '../.bashrc.local')
+elif (hostname == 'erebos'):
+	shutil.copy('.bashrc.local.erebos', '../.bashrc.local')
 
 #------------------------------------------------------------------------------
 # deploy git

@@ -1,0 +1,182 @@
+# EREBOS specific settings:
+
+export OMP_NUM_THREADS=2
+
+alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
+export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf	
+
+PATH="/scratch/jcanton/software/bin:$PATH"
+PATH="/scratch/jcanton/software/nek5/bin:$PATH"
+PATH="/scratch/jcanton/software/nek5/trunk/tools/scripts:$PATH"
+#PATH="/scratch/jcanton/software/paraview/bin:$PATH"
+#PATH="/scratch/jcanton/software/visit/bin:$PATH"
+PATH="/scratch/jcanton/software/ff++/bin/bin:$PATH"
+PATH="/scratch/jcanton/software/python/bin:$PATH"
+PATH="/scratch/jcanton/software/dropbox:$PATH"
+PATH="/scratch/jcanton/software/thunderbird/:$PATH"
+PATH="/scratch/jcanton/software/mendeley/usr/bin:$PATH"
+
+export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
+
+# FUCKING FUCK FUCK
+export LC_MEASUREMENT=en_US.utf8
+export LC_NUMERIC=en_US.utf8
+export LC_MONETARY=en_US.utf8	
+
+######################################
+# pre-exhistings .basrc found at KTH #
+######################################
+
+# Startup file for bash, to be used as both .bash_profile and .bashrc
+# Support for systems: Linux and Linux64
+# Version 2007-09-18
+
+# Function to set environment variables for all systems
+setup_all() {
+  export PATH=$HOME/bin:$PATH
+  export EDITOR=vim
+  ulimit -d unlimited
+  ulimit -s unlimited
+  ulimit -c 0
+  alias windows1="rdesktop -a 16 -g 80% -d MECH.KTH.SE rdesktop1"
+  alias windows2="rdesktop -a 16 -g 80% -d MECH.KTH.SE rdesktop2"
+}
+
+# Uncomment if you need to use this
+# Function to set Linux environment variables
+#setup_Linux() {
+#  alias hello="echo Hello 32 Bit"
+#}
+
+# Uncomment if you need to use this
+# Function to set Linux64 environment variables
+#setup_Linux64() {
+#  alias hello="echo Hello 64 Bit"
+#}
+
+# Function to do initializations for interactive shells for all systems
+interactive_all() {
+  PS1='\h[\u]\w> '
+  set -o notify
+}
+
+# Modules to load for both Linux and Linux64
+modules_all="intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
+#modules_all="intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
+#modules_all="intel matlab visit/2.6.3"
+
+# Modules to load for Linux (32 bit)
+modules_Linux=""
+
+# Modules to load for Linux64
+modules_Linux64="" 
+
+################################################
+# Should be no reason to change anything below #
+################################################
+
+# Function to set Linux environment variables
+setup_Linux_generic() {
+  export MANPATH=:
+}
+
+# Function to set Linux64 environment variables
+setup_Linux64_generic() {
+  export MANPATH=:
+}
+
+setup_generic() {
+  # Xauthority
+  if [ "$DISPLAY"x != x ]
+  then
+    if [ "$XAUTHORITY"x = x ]
+    then
+      tempvar=`mktemp`
+      export XAUTHORITY=$tempvar
+
+    fi
+  fi
+}
+
+#modules_generic=""
+#modules_Linux_generic=""
+
+#############################################
+# Even less reason to change anything below #
+#############################################
+
+function run_funcs() {
+  _functions="$1_${_carch}_generic $1_$_carch $1_generic $1_all"
+  for _function in $_functions; do
+    if [ "`type -t $_function`" = function ]; then
+      $_function
+    fi
+  done
+}
+
+# Initialize (once)
+if [ "$ENVINIT"x != "$USER"x ]
+then
+    # Read system init
+    if [ -f /etc/profile ]
+   then
+   . /etc/profile
+    fi
+
+    # Load module commands
+    if type module >/dev/null 2>&1
+   then
+   : #Already loaded
+    elif [ -d /pkg/modules/default/init ]
+   then
+   if [ -r /pkg/modules/default/init/`basename $SHELL` ]
+       then
+       . /pkg/modules/default/init/`basename $SHELL`
+   fi
+    fi
+    
+    _carch=`uname`
+
+#   Change -carch for amd64 to Linux64
+    if [ `uname -m` = "x86_64" ]
+    then
+      _carch="Linux64"
+    fi
+
+    run_funcs setup
+
+    if type module >/dev/null 2>&1; then
+      # Remove modules
+      module purge
+
+      # Load the desired modules
+      _variables="modules_${_carch}_generic modules_$_carch modules_generic modules_all"
+      for _variable in $_variables; do
+        if [ x"$_variable" != x"" ]; then
+          for _module in ${!_variable}; do
+       module add $_module
+     done
+        fi
+      done
+    fi
+    
+    export ENVINIT="$USER"
+fi
+
+# Interactive things
+if tty -s; then
+  run_funcs interactive
+fi
+
+unset modules_all modules_generic
+unset modules_Linux modules_Linux_generic 
+unset modules_Linux64 modules_Linux64_generic 
+unset setup_all setup_generic
+unset setup_Linux setup_Linux_generic 
+unset setup_Linux64 setup_Linux64_generic 
+unset interactive_all interactive_generic
+unset interactive_Linux interactive_Linux_generic 
+unset interactive_Linux64 interactive_Linux64_generic 
+
+unset _carch _variables _variable _functions _function _module
+unset run_funcs

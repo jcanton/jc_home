@@ -66,24 +66,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alFh'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -94,6 +76,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# some more ls aliases
+alias ll='ls -alFh'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 
 # my folders
 ## PATH="/scratch/jcanton/software/bin:$PATH"
@@ -106,16 +98,22 @@ fi
 # some more aliases
 alias matlabs='matlab -nodesktop -nosplash'
 alias octave='octave --no-gui'
-# function svim() { gvim "$@" &> /dev/null ;}
-# alias synergy='/scratch/jcanton/software/synergy/synergy_1.3.8-2_amd64/usr/bin/synergys -f -c $HOME/.synergy.conf'
+function svim() { gvim "$@" &> /dev/null ;}
 alias du='du -h --max-depth=1'
 alias fff='mpirun -np 1 FreeFem++-mpi'
 
+# alias synergy='/scratch/jcanton/software/synergy/synergy_1.3.8-2_amd64/usr/bin/synergys -f -c $HOME/.synergy.conf'
+
 alias 2abisko='ssh -Y jcanton@abisko.hpc2n.umu.se'
 alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
+alias 2ferlin='ssh -X jcanton@ferlin.pdc.kth.se'
+alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
+alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
+alias 2sisu='ssh -X pr1s0109@sisu.csc.fi'
 
-# ARCH10 specific:
-export G_FILENAME_ENCODING=@locale
-
-# openMP
-#export OMP_NUM_THREADS=2
+#------------------------------------------------------------------------------
+# machine specific configuration
+#
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
+fi

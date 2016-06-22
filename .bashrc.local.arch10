@@ -1,0 +1,5 @@
+# ARCH10 specific settings:
+
+export OMP_NUM_THREADS=2
+
+export G_FILENAME_ENCODING=@locale
