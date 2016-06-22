@@ -13,7 +13,7 @@ hostname = socket.gethostname()
 #
 print('\n')
 print('--- Deploying configuration files to home directory ---')
-print('    hostname: ' + hostname + '\n')
+print('    hostname: ' + hostname)
 print('\n')
 
 #==============================================================================
@@ -21,7 +21,7 @@ print('\n')
 #==============================================================================
 #
 if os.path.exists('../.vim'):
-	usrInVim = raw_input('   Found .vim folder. Delete? [y/n] ')
+	usrInVim = raw_input('    Found .vim folder. Delete? y/[n] ')
 	if (usrInVim == 'y'):
 		print('   Removing old .vim folder')
 		shutil.rmtree('../.vim')
