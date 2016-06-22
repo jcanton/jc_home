@@ -38,3 +38,12 @@ if os.path.exists('../.xournal'):
 	shutil.rmtree('../.xournal')
 
 shutil.copytree('.xournal', '../.xournal')
+
+#------------------------------------------------------------------------------
+# deploy matplotlib
+#
+if os.path.exists('../.config/matplotlib'):
+	print('   WARNING: removing old .config/matplotlib folder')
+	shutil.rmtree('../.config/matplotlib')
+
+shutil.copytree('.config/matplotlib', '../.config/matplotlib')
