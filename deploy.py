@@ -24,3 +24,8 @@ if os.path.exists('../.vim'):
 shutil.copytree('vim/.vim',     '../.vim')
 shutil.copy('vim/.vimrc',       '../')
 shutil.copy('vim/.vimrc.local', '../')
+
+#------------------------------------------------------------------------------
+# deploy git
+#
+shutil.copy('.gitconfig', '../')
