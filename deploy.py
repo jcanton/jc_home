@@ -21,9 +21,9 @@ if os.path.exists('../.vim'):
 	print('   WARNING: removing old .vim folder')
 	shutil.rmtree('../.vim')
 
-shutil.copytree('vim/.vim',     '../.vim')
-shutil.copy('vim/.vimrc',       '../')
-shutil.copy('vim/.vimrc.local', '../')
+shutil.copytree('.vim',     '../.vim')
+shutil.copy('.vimrc',       '../')
+shutil.copy('.vimrc.local', '../')
 
 #------------------------------------------------------------------------------
 # deploy git
