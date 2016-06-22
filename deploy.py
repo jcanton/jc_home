@@ -29,3 +29,12 @@ shutil.copy('.vimrc.local', '../')
 # deploy git
 #
 shutil.copy('.gitconfig', '../')
+
+#------------------------------------------------------------------------------
+# deploy xoural
+#
+if os.path.exists('../.xournal'):
+	print('   WARNING: removing old .xournal folder')
+	shutil.rmtree('../.xournal')
+
+shutil.copytree('.xournal', '../.xournal')
