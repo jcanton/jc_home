@@ -27,21 +27,9 @@ if os.path.exists('../.xournal'):
 shutil.copy('.bashrc', '../')
 
 #------------------------------------------------------------------------------
-# deploy vim
-#
-shutil.copytree('.vim',     '../.vim')
-shutil.copy('.vimrc',       '../')
-shutil.copy('.vimrc.local', '../')
-
-#------------------------------------------------------------------------------
 # deploy git
 #
 shutil.copy('.gitconfig', '../')
-
-#------------------------------------------------------------------------------
-# deploy xoural
-#
-shutil.copytree('.xournal', '../.xournal')
 
 #------------------------------------------------------------------------------
 # deploy matplotlib
@@ -51,3 +39,15 @@ if not os.path.exists('../.config/matplotlib'):
 	os.makedirs('../.config/matplotlib')
 
 shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
+
+#------------------------------------------------------------------------------
+# deploy vim
+#
+shutil.copytree('.vim',     '../.vim')
+shutil.copy('.vimrc',       '../')
+shutil.copy('.vimrc.local', '../')
+
+#------------------------------------------------------------------------------
+# deploy xoural
+#
+shutil.copytree('.xournal', '../.xournal')
