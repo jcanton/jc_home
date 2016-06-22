@@ -14,14 +14,10 @@ print('\n')
 #==============================================================================
 #
 if os.path.exists('../.vim'):
-	usrInVim = raw_input('   Found .vim folder. Delete? [y/n]')
+	usrInVim = raw_input('   Found .vim folder. Delete? [y/n] ')
 	if (usrInVim == 'y'):
-		print('   WARNING: removing old .vim folder')
+		print('   Removing old .vim folder')
 		shutil.rmtree('../.vim')
-
-if os.path.exists('../.xournal'):
-	print('   WARNING: removing old .xournal folder')
-	shutil.rmtree('../.xournal')
 
 #------------------------------------------------------------------------------
 # deploy bashrc
@@ -45,14 +41,20 @@ shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 #------------------------------------------------------------------------------
 # deploy vim
 #
-shutil.copytree('.vim',     '../.vim')
+if (usrInVim == 'y'):
+	shutil.copytree('.vim', '../.vim')
+
 shutil.copy('.vimrc',       '../')
 shutil.copy('.vimrc.local', '../')
 
 #------------------------------------------------------------------------------
 # deploy xoural
 #
-shutil.copytree('.xournal', '../.xournal')
+if not os.path.exists('../.xournal'):
+	print('   CREATING .xournal folder')
+	os.makedirs('../.xournal')
+
+shutil.copy('.xournal/config', '../.xournal/')
 
 #==============================================================================
 #==============================================================================
