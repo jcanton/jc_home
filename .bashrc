@@ -1,3 +1,10 @@
+#------------------------------------------------------------------------------
+# machine specific configuration
+#
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
+fi
+
 ################################################
 #                 My settings                  #
 ################################################
@@ -110,10 +117,3 @@ alias 2ferlin='ssh -X jcanton@ferlin.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2sisu='ssh -X pr1s0109@sisu.csc.fi'
-
-#------------------------------------------------------------------------------
-# machine specific configuration
-#
-if [ -f ~/.bashrc.local ]; then
-    . ~/.bashrc.local
-fi
