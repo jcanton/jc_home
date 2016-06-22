@@ -8,7 +8,19 @@ import os, shutil
 print('\n')
 print('--- deploying configuration files to home directory ---')
 print('\n')
+
+#==============================================================================
+# clear any previously existig folders
+#==============================================================================
 #
+if os.path.exists('../.vim'):
+	print('   WARNING: removing old .vim folder')
+	shutil.rmtree('../.vim')
+
+if os.path.exists('../.xournal'):
+	print('   WARNING: removing old .xournal folder')
+	shutil.rmtree('../.xournal')
+
 #------------------------------------------------------------------------------
 # deploy bashrc
 #
@@ -17,10 +29,6 @@ shutil.copy('.bashrc', '../')
 #------------------------------------------------------------------------------
 # deploy vim
 #
-if os.path.exists('../.vim'):
-	print('   WARNING: removing old .vim folder')
-	shutil.rmtree('../.vim')
-
 shutil.copytree('.vim',     '../.vim')
 shutil.copy('.vimrc',       '../')
 shutil.copy('.vimrc.local', '../')
@@ -33,17 +41,13 @@ shutil.copy('.gitconfig', '../')
 #------------------------------------------------------------------------------
 # deploy xoural
 #
-if os.path.exists('../.xournal'):
-	print('   WARNING: removing old .xournal folder')
-	shutil.rmtree('../.xournal')
-
 shutil.copytree('.xournal', '../.xournal')
 
 #------------------------------------------------------------------------------
 # deploy matplotlib
 #
-if os.path.exists('../.config/matplotlib'):
-	print('   WARNING: removing old .config/matplotlib folder')
-	shutil.rmtree('../.config/matplotlib')
+if not os.path.exists('../.config/matplotlib'):
+	print('   CREATING .config/matplotlib folder')
+	os.makedirs('../.config/matplotlib')
 
-shutil.copytree('.config/matplotlib', '../.config/matplotlib')
+shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
