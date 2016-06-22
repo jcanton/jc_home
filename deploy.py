@@ -67,7 +67,8 @@ elif (hostname == 'erebos'):
 # deploy xoural
 #
 if not os.path.exists('../.xournal'):
-	print('   CREATING .xournal folder')
+	print('\n')
+	print('    Creating .xournal folder')
 	os.makedirs('../.xournal')
 
 shutil.copy('.xournal/config', '../.xournal/')
