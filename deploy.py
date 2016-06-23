@@ -53,6 +53,11 @@ if not os.path.exists('../.config/matplotlib'):
 shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 
 #------------------------------------------------------------------------------
+# deploy redshift
+#
+shutil.copy('redshift.conf', '../.config/')
+
+#------------------------------------------------------------------------------
 # deploy vim
 #
 if (usrInVim == 'y'):
