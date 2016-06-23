@@ -1,0 +1,5 @@
+# EREBOS specific settings:
+
+export OMP_NUM_THREADS=2
+
+PATH="/nfs2/jcanton/software/mendeley/usr/bin:$PATH"

@@ -32,9 +32,11 @@ if os.path.exists('../.vim'):
 shutil.copy('.bashrc', '../')
 
 if (hostname == 'arch10'):
-	shutil.copy('.bashrc.local.arch10', '../.bashrc.local')
+	shutil.copy('.bashrc.local.arch10',    '../.bashrc.local')
 elif (hostname == 'erebos'):
-	shutil.copy('.bashrc.local.erebos', '../.bashrc.local')
+	shutil.copy('.bashrc.local.erebos',    '../.bashrc.local')
+elif (hostname == 'bernoulli'):
+	shutil.copy('.bashrc.local.bernoulli', '../.bashrc.local')
 
 #------------------------------------------------------------------------------
 # deploy git
@@ -59,9 +61,11 @@ if (usrInVim == 'y'):
 shutil.copy('.vimrc',       '../')
 
 if (hostname == 'arch10'):
-	shutil.copy('.vimrc.local.arch10', '../.vimrc.local')
+	shutil.copy('.vimrc.local.arch10',    '../.vimrc.local')
 elif (hostname == 'erebos'):
-	shutil.copy('.vimrc.local.erebos', '../.vimrc.local')
+	shutil.copy('.vimrc.local.erebos',    '../.vimrc.local')
+elif (hostname == 'bernoulli'):
+	shutil.copy('.vimrc.local.bernoulli', '../.vimrc.local')
 
 #------------------------------------------------------------------------------
 # deploy xoural
