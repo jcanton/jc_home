@@ -58,6 +58,15 @@ shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 shutil.copy('redshift.conf', '../.config/')
 
 #------------------------------------------------------------------------------
+# deploy terminator
+#
+if not os.path.exists('../.config/terminator'):
+	print('   CREATING .config/terminator folder')
+	os.makedirs('../.config/terminator')
+
+shutil.copy('.config/terminator/config', '../.config/terminator/')
+
+#------------------------------------------------------------------------------
 # deploy vim
 #
 if (usrInVim == 'y'):
