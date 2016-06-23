@@ -1,0 +1,15 @@
+[global_config]
+  title_transmit_bg_color = "#242edf"
+[keybindings]
+[profiles]
+  [[default]]
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
