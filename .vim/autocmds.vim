@@ -20,9 +20,11 @@ au!
 autocmd BufRead,BufNewFile,BufEnter *.f setlocal tw=0 autowrite ic et
 augroup END
 
-augroup usr
+augroup nek
 au!
-autocmd BufRead,BufNewFile,BufEnter *.usr setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter *.usr  setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter *.upar setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter SIZE   setlocal tw=0 autowrite ic et syntax=fortran
 augroup END
 
 augroup f90
