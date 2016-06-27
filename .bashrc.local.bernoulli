@@ -5,3 +5,5 @@ export OMP_NUM_THREADS=2
 PATH="/nfs2/jcanton/software/mendeley/usr/bin:$PATH"
 PATH="/nfs2/jcanton/software/redshift/usr/bin:$PATH"
 PATH="/nfs2/jcanton/software/terminator/usr/bin:$PATH"
+PATH="/nfs2/jcanton/software/nek5/bin:$PATH"
+PATH="/nfs2/jcanton/software/nek5/trunk/tools/scripts/bin:$PATH"
