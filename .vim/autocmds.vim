@@ -22,9 +22,11 @@ augroup END
 
 augroup nek
 au!
-autocmd BufRead,BufNewFile,BufEnter *.usr  setlocal tw=0 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter *.upar setlocal tw=0 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter SIZE   setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter *.upar   setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter SIZE     setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter USERPAR  setlocal tw=0 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter CHKPOINT setlocal tw=0 autowrite ic et syntax=fortran
 augroup END
 
 augroup f90
