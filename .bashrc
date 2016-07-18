@@ -108,6 +108,7 @@ alias octave='octave --no-gui'
 function svim() { gvim "$@" &> /dev/null ;}
 alias du='du -h --max-depth=1'
 alias fff='mpirun -np 1 FreeFem++-mpi'
+alias gig='git log --graph --all --decorate --oneline'
 
 # alias synergy='/scratch/jcanton/software/synergy/synergy_1.3.8-2_amd64/usr/bin/synergys -f -c $HOME/.synergy.conf'
 
