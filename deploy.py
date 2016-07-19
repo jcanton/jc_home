@@ -55,7 +55,10 @@ shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 #------------------------------------------------------------------------------
 # deploy redshift
 #
-shutil.copy('redshift.conf', '../.config/')
+if (hostname == 'arch10'):
+	shutil.copy('.config/redshift.conf.arch10', '../.config/redshift.conf')
+else:
+	shutil.copy('.config/redshift.conf.erebos', '../.config/redshift.conf')
 
 #------------------------------------------------------------------------------
 # deploy terminator
