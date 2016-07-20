@@ -13,6 +13,6 @@
 [profiles]
   [[default]]
     background_image = None
-    font = Monospace 10
+    font = Monospace 9
     scrollback_infinite = True
     use_system_font = False
