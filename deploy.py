@@ -20,6 +20,7 @@ print('\n')
 # clear any previously existig folders
 #==============================================================================
 #
+usrInVim = 'n'
 if os.path.exists('../.vim'):
 	usrInVim = raw_input('    Found .vim folder. Delete? y/[n] ')
 	if (usrInVim == 'y'):
@@ -93,8 +94,6 @@ elif (hostname == 'bernoulli'):
 # deploy xoural
 #
 if not os.path.exists('../.xournal'):
-	print('\n')
-	print('    Creating .xournal folder')
 	os.makedirs('../.xournal')
 
 shutil.copy('.xournal/config', '../.xournal/')
