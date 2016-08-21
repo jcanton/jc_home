@@ -3,7 +3,7 @@
 	name = Jacopo Canton
 [core]
 	editor = vim
-[push]
-	default = simple
+#[push]
+#	default = simple
 [credential]
 	helper = cache --timeout=3600
