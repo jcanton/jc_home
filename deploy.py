@@ -26,6 +26,8 @@ if os.path.exists('../.vim'):
 	if (usrInVim == 'y'):
 		print('    Removing old .vim folder')
 		shutil.rmtree('../.vim')
+else:
+	usrInVim = 'y'
 
 #------------------------------------------------------------------------------
 # deploy bashrc
@@ -34,6 +36,8 @@ shutil.copy('.bashrc', '../')
 
 if (hostname == 'arch10'):
 	shutil.copy('.bashrc.local.arch10',    '../.bashrc.local')
+elif (hostname == 'arch14'):
+	shutil.copy('.bashrc.local.arch14',    '../.bashrc.local')
 elif (hostname == 'erebos'):
 	shutil.copy('.bashrc.local.erebos',    '../.bashrc.local')
 elif (hostname == 'bernoulli'):
@@ -70,6 +74,8 @@ if not os.path.exists('../.config/terminator'):
 
 if (hostname == 'arch10'):
 	shutil.copy('.config/terminator/config.arch10',    '../.config/terminator/config')
+elif (hostname == 'arch14'):
+	shutil.copy('.config/terminator/config.arch14',    '../.config/terminator/config')
 elif (hostname == 'erebos'):
 	shutil.copy('.config/terminator/config.erebos',    '../.config/terminator/config')
 elif (hostname == 'bernoulli'):
@@ -85,6 +91,8 @@ shutil.copy('.vimrc',       '../')
 
 if (hostname == 'arch10'):
 	shutil.copy('.vimrc.local.arch10',    '../.vimrc.local')
+elif (hostname == 'arch14'):
+	shutil.copy('.vimrc.local.arch14',    '../.vimrc.local')
 elif (hostname == 'erebos'):
 	shutil.copy('.vimrc.local.erebos',    '../.vimrc.local')
 elif (hostname == 'bernoulli'):
