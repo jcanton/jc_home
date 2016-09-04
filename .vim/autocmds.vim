@@ -37,7 +37,7 @@ augroup END
 
 augroup tex
 au!
-autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
+autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 spell
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> \ll
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> \lv
 " IMPORTANT: grep will sometimes skip displaying the file name if you

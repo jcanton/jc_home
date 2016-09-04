@@ -291,7 +291,7 @@ set ffs=unix,dos,mac
 colorscheme default
 if has("gui_running")
    colorscheme solarized
-   set background=dark
+   set background=light
 endif
 
 "------------------------------------------------------------------------------
