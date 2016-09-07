@@ -36,7 +36,7 @@ interactive_all() {
 }
 
 # Modules to load for both Linux and Linux64
-modules_all="intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
+modules_all="adobe-reader/9.5.5-1 intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
 #modules_all="intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
 #modules_all="intel matlab visit/2.6.3"
 
