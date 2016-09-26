@@ -339,11 +339,13 @@ TexLet g:Tex_Diacritics = 0
 " ',', '/', '`' are preferred values. '' or '\' will lead to a _lot_ of
 " trouble.
 " g:Tex_Leader is also used for visual mode mappings for fonts.
+" ISED TO BE TexLet g:Tex_Leader = '`'
 TexLet g:Tex_Leader = '`tex'
 
 " In order to avoid ambiguity between the large number of visual mode macros
 " provided, the visual mode macros for environments and sections start with a
 " character different from '`'.
+" USED TO BE TexLet g:Tex_Leader2 = ','
 TexLet g:Tex_Leader2 = ',tex'
 
 " }}}
