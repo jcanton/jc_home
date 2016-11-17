@@ -291,7 +291,12 @@ set ffs=unix,dos,mac
 colorscheme default
 if has("gui_running")
    colorscheme solarized
-   set background=light
+	let hour = strftime("%H")
+	if 8 <= hour && hour < 15
+   	set background=light
+	else
+   	set background=dark
+	endif
 endif
 
 "------------------------------------------------------------------------------
