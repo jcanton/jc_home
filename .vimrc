@@ -93,7 +93,8 @@ fun! SetupVAM()
 		"ActivateAddons UltiSnips vim-snippets (python-based alternative which I do not like)
 	"
 	" LaTeX Suite
-	ActivateAddons LaTeX-Suite_aka_Vim-LaTeX
+	" FUCKING FUCK seems not to be cloning anymore
+	""" ActivateAddons LaTeX-Suite_aka_Vim-LaTeX
 	"
 	" File browser
 	ActivateAddons The_NERD_tree

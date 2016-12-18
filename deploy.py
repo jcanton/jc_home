@@ -42,6 +42,8 @@ elif (hostname == 'erebos'):
 	shutil.copy('.bashrc.local.erebos',    '../.bashrc.local')
 elif (hostname == 'bernoulli'):
 	shutil.copy('.bashrc.local.bernoulli', '../.bashrc.local')
+elif (hostname == 'mac13.local'):
+	shutil.copy('.bashrc.local.mac13', '../.bashrc.local')
 
 #------------------------------------------------------------------------------
 # deploy git
@@ -60,26 +62,28 @@ shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 #------------------------------------------------------------------------------
 # deploy redshift
 #
-if (hostname == 'arch10'):
-	shutil.copy('.config/redshift.conf.arch10', '../.config/redshift.conf')
-else:
-	shutil.copy('.config/redshift.conf.erebos', '../.config/redshift.conf')
+if (hostname != 'mac13.local'):
+	if (hostname == 'arch10'):
+		shutil.copy('.config/redshift.conf.arch10', '../.config/redshift.conf')
+	else:
+		shutil.copy('.config/redshift.conf.erebos', '../.config/redshift.conf')
 
 #------------------------------------------------------------------------------
 # deploy terminator
 #
-if not os.path.exists('../.config/terminator'):
-	print('   CREATING .config/terminator folder')
-	os.makedirs('../.config/terminator')
-
-if (hostname == 'arch10'):
-	shutil.copy('.config/terminator/config.arch10',    '../.config/terminator/config')
-elif (hostname == 'arch14'):
-	shutil.copy('.config/terminator/config.arch14',    '../.config/terminator/config')
-elif (hostname == 'erebos'):
-	shutil.copy('.config/terminator/config.erebos',    '../.config/terminator/config')
-elif (hostname == 'bernoulli'):
-	shutil.copy('.config/terminator/config.bernoulli', '../.config/terminator/config')
+if (hostname != 'mac13.local'):
+	if not os.path.exists('../.config/terminator'):
+		print('   CREATING .config/terminator folder')
+		os.makedirs('../.config/terminator')
+	#
+	if (hostname == 'arch10'):
+		shutil.copy('.config/terminator/config.arch10',    '../.config/terminator/config')
+	elif (hostname == 'arch14'):
+		shutil.copy('.config/terminator/config.arch14',    '../.config/terminator/config')
+	elif (hostname == 'erebos'):
+		shutil.copy('.config/terminator/config.erebos',    '../.config/terminator/config')
+	elif (hostname == 'bernoulli'):
+		shutil.copy('.config/terminator/config.bernoulli', '../.config/terminator/config')
 
 #------------------------------------------------------------------------------
 # deploy vim
@@ -97,14 +101,18 @@ elif (hostname == 'erebos'):
 	shutil.copy('.vimrc.local.erebos',    '../.vimrc.local')
 elif (hostname == 'bernoulli'):
 	shutil.copy('.vimrc.local.bernoulli', '../.vimrc.local')
+elif (hostname == 'mac13.local'):
+	shutil.copy('.vimrc.local.mac13', '../.vimrc.local')
+	shutil.copy('mvim', '../.vim/')
 
 #------------------------------------------------------------------------------
 # deploy xoural
 #
-if not os.path.exists('../.xournal'):
-	os.makedirs('../.xournal')
-
-shutil.copy('.xournal/config', '../.xournal/')
+if (hostname != 'mac13.local'):
+	if not os.path.exists('../.xournal'):
+		os.makedirs('../.xournal')
+	
+	shutil.copy('.xournal/config', '../.xournal/')
 
 #==============================================================================
 #==============================================================================

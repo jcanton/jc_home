@@ -94,24 +94,12 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-
-# my folders
-## PATH="/scratch/jcanton/software/bin:$PATH"
-## PATH="/scratch/jcanton/software/nek5/bin:$PATH"
-## PATH="/scratch/jcanton/software/nek5/trunk/tools/scripts:$PATH"
-## PATH="/scratch/jcanton/software/paraview/bin:$PATH"
-## PATH="/scratch/jcanton/software/visit/bin:$PATH"
-## PATH="/scratch/jcanton/software/ff++/bin/bin:$PATH"
-
 # some more aliases
+#
 alias matlabs='matlab -nodesktop -nosplash'
-alias octave='octave --no-gui'
 function svim() { gvim "$@" &> /dev/null ;}
 alias du='du -h --max-depth=1'
-alias fff='mpirun -np 1 FreeFem++-mpi'
 alias gig='git log --graph --all --decorate --oneline'
-
-# alias synergy='/scratch/jcanton/software/synergy/synergy_1.3.8-2_amd64/usr/bin/synergys -f -c $HOME/.synergy.conf'
 
 alias 2abisko='ssh -Y jcanton@abisko.hpc2n.umu.se'
 alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
