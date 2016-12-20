@@ -1,5 +1,8 @@
 # MAC13 specific settings:
 
+# set colors
+export CLICOLOR=1
+
 # set path for mvim
 PATH="~/.vim:${PATH}"
 
