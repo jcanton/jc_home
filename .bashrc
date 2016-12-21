@@ -5,6 +5,12 @@ if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
 
+#------------------------------------------------------------------------------
+# git autocompletion
+#
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
 ################################################
 #                 My settings                  #
 ################################################
