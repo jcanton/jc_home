@@ -94,7 +94,7 @@ fun! SetupVAM()
 	"
 	" LaTeX Suite
 	" FUCKING FUCK seems not to be cloning anymore
-	""" ActivateAddons LaTeX-Suite_aka_Vim-LaTeX
+	ActivateAddons LaTeX-Suite_aka_Vim-LaTeX
 	"
 	" File browser
 	ActivateAddons The_NERD_tree
