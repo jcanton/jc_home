@@ -60,16 +60,6 @@ if not os.path.exists('../.config/matplotlib'):
 shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 
 #------------------------------------------------------------------------------
-# deploy ssh config
-#
-if (hostname == 'mac13'):
-	if not os.path.exists('../.ssh'):
-		print('   CREATING .ssh folder')
-		os.makedirs('../.ssh')
-	#
-	shutil.copy('.ssh/config', '../.ssh/')
-
-#------------------------------------------------------------------------------
 # deploy redshift
 #
 if (hostname != 'mac13'):
