@@ -14,3 +14,6 @@ export PATH
 
 alias svim='mvim'
 alias gvim='mvim'
+
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
+alias acroread='/Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
