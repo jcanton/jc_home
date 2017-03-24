@@ -40,6 +40,8 @@ elif (hostname == 'arch14'):
 	shutil.copy('.bashrc.local.arch14',    '../.bashrc.local')
 elif (hostname == 'erebos'):
 	shutil.copy('.bashrc.local.erebos',    '../.bashrc.local')
+elif (hostname == 'triolith1'):
+	shutil.copy('.bashrc.local.arch14',    '../.bashrc.local')
 elif (hostname == 'bernoulli'):
 	shutil.copy('.bashrc.local.bernoulli', '../.bashrc.local')
 elif (hostname == 'mac13'):
@@ -101,6 +103,8 @@ elif (hostname == 'erebos'):
 	shutil.copy('.vimrc.local.erebos',    '../.vimrc.local')
 elif (hostname == 'bernoulli'):
 	shutil.copy('.vimrc.local.bernoulli', '../.vimrc.local')
+elif (hostname == 'triolith1'):
+	shutil.copy('.vimrc.local.erebos',    '../.vimrc.local')
 elif (hostname == 'mac13'):
 	shutil.copy('.vimrc.local.mac13', '../.vimrc.local')
 	shutil.copy('mvim', '../.vim/')
