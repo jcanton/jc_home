@@ -108,6 +108,7 @@ alias du='du -h --max-depth=1'
 alias gig='git log --graph --all --decorate --oneline'
 
 alias 2abisko='ssh -Y jcanton@abisko.hpc2n.umu.se'
+alias 2kebnekaise='ssh -Y jcanton@kebnekaise.hpc2n.umu.se'
 alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
 alias 2ferlin='ssh -X jcanton@ferlin.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
