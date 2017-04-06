@@ -17,3 +17,5 @@ alias gvim='mvim'
 
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 alias acroread='/Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
+
+alias visit='/Applications/VisIt.app/Contents/MacOS/VisIt'
