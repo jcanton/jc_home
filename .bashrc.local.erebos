@@ -160,7 +160,6 @@ unset run_funcs
 
 export OMP_NUM_THREADS=2
 
-alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf	
 
 PATH="/scratch/jcanton/software/bin:$PATH"
