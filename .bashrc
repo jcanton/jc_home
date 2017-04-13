@@ -95,6 +95,8 @@ fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
+alias du='du -h --max-depth=1'
+alias tree='tree -ahC'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -104,7 +106,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #
 alias matlabs='matlab -nodesktop -nosplash'
 function svim() { gvim "$@" &> /dev/null ;}
-alias du='du -h --max-depth=1'
 alias gig='git log --graph --all --decorate --oneline'
 
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
