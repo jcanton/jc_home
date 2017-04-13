@@ -53,6 +53,15 @@ elif (hostname == 'mac13'):
 shutil.copy('.gitconfig', '../')
 
 #------------------------------------------------------------------------------
+# deploy ipython config
+#
+if not os.path.exists('../.ipython/profile_default'):
+	print('   CREATING .ipython/profile_default folder')
+	os.makedirs('../.ipython/profile_default')
+
+shutil.copy('.ipython/profile_default/ipython_config.py', '../.ipython/profile_default/')
+
+#------------------------------------------------------------------------------
 # deploy matplotlib
 #
 if not os.path.exists('../.config/matplotlib'):
