@@ -218,12 +218,13 @@ TexLet g:Tex_IgnoredWarnings =
 	\'You have requested'."\n".
 	\'Missing number, treated as zero.'."\n".
 	\'There were undefined references'."\n".
+	\'Text page % contains only floats'."\n".
 	\'Citation %.%# undefined'
 
 " the 'ignore level' of the 'efm'. A value of 4 says that the first 4 kinds of
 " warnings in the list above will be ignored. Use the command TCLevel to set a
 " level dynamically.
-TexLet g:Tex_IgnoreLevel = 7
+TexLet g:Tex_IgnoreLevel = 8
 
 " NOTE: The values of g:Tex_Flavor and g:Tex_CompilerFlags are provided as a
 "       way to make compiler/tex.vim standalone. i.e independent of the rest
