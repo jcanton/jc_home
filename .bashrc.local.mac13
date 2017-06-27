@@ -12,10 +12,14 @@ PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
 
-alias svim='mvim'
-alias gvim='mvim'
+function gvim() { mvim "$@" &> /dev/null ;}
+alias svim='gvim'
+alias mvim='gvim'
 
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
+function sim() { skim "$@" &> /dev/null ;}
+
 alias acroread='/Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
 
-alias visit='/Applications/VisIt.app/Contents/MacOS/VisIt'
+alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
+alias visit2.10='/Applications/VisIt2.10.app/Contents/MacOS/VisIt'
