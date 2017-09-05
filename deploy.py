@@ -64,11 +64,16 @@ shutil.copy('.ipython/profile_default/ipython_config.py', '../.ipython/profile_d
 #------------------------------------------------------------------------------
 # deploy matplotlib
 #
-if not os.path.exists('../.config/matplotlib'):
-	print('   CREATING .config/matplotlib folder')
-	os.makedirs('../.config/matplotlib')
-
-shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
+if (hostname == 'mac13'):
+	if not os.path.exists('../.matplotlib'):
+		print('   CREATING .matplotlib folder')
+		os.makedirs('../.matplotlib')
+	shutil.copy('.config/matplotlib/matplotlibrc', '../.matplotlib/')
+else:
+	if not os.path.exists('../.config/matplotlib'):
+		print('   CREATING .config/matplotlib folder')
+		os.makedirs('../.config/matplotlib')
+	shutil.copy('.config/matplotlib/matplotlibrc', '../.config/matplotlib/')
 
 #------------------------------------------------------------------------------
 # deploy redshift
