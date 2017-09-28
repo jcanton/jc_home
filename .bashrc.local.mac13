@@ -6,6 +6,9 @@ export CLICOLOR=1
 # set path for mvim
 PATH="~/.vim:${PATH}"
 
+# set path for cmake
+PATH="/Applications/CMake.app/Contents/bin:${PATH}"
+
 # Setting PATH for Python 2.7
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
