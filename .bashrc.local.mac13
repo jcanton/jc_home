@@ -27,4 +27,4 @@ alias acroread='/Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/Mac
 alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
 
 alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
-alias visit2.10='/Applications/VisIt2.10.app/Contents/MacOS/VisIt'
+#alias visit2.10='/Applications/VisIt2.10.app/Contents/MacOS/VisIt'
