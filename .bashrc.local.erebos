@@ -36,7 +36,7 @@ interactive_all() {
 }
 
 # Modules to load for both Linux and Linux64
-modules_all="adobe-reader/9.5.5-1 intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
+modules_all="adobe-reader/9.5.5-1 intel matlab" # paraview/4.0.1 visit/2.6.3"
 #modules_all="intel matlab/R2013b paraview/4.0.1 visit/2.6.3"
 #modules_all="intel matlab visit/2.6.3"
 
@@ -160,13 +160,17 @@ unset run_funcs
 
 export OMP_NUM_THREADS=2
 
+alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf	
+
+# Load OpenFOAM env
+alias loadFoam='source ~/OpenFOAM/OpenFOAM-5.0/etc/bashrc'
 
 PATH="/scratch/jcanton/software/bin:$PATH"
 PATH="/scratch/jcanton/software/nek5/bin:$PATH"
 PATH="/scratch/jcanton/software/nek5/trunk/tools/scripts:$PATH"
 #PATH="/scratch/jcanton/software/paraview/bin:$PATH"
-#PATH="/scratch/jcanton/software/visit/bin:$PATH"
+PATH="/scratch/jcanton/software/visit/bin:$PATH"
 PATH="/scratch/jcanton/software/ff++/bin/bin:$PATH"
 PATH="/scratch/jcanton/software/python/bin:$PATH"
 #PATH="/scratch/jcanton/software/dropbox:$PATH"
