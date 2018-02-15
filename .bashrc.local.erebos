@@ -178,6 +178,7 @@ PATH="/scratch/jcanton/software/thunderbird/:$PATH"
 PATH="/scratch/jcanton/software/mendeley/usr/bin:$PATH"
 PATH="/scratch/jcanton/software/ffmpeg/:$PATH"
 #PATH="/scratch/jcanton/software/dropbox/usr/bin/:$PATH"
+PATH="/scratch/jcanton/software/gmsh/bin:$PATH"
 
 export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
 
