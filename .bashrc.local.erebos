@@ -159,25 +159,41 @@ unset run_funcs
 # EREBOS specific settings:
 
 export OMP_NUM_THREADS=2
-
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
-export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf	
+export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf
 
+# gmsh and OpenFOAM config
+rm /scratch/jcanton/software/OpenFOAM/OpenFOAM-5.0
+rm /scratch/jcanton/software/gmsh/bin
+rm /scratch/jcanton/software/gmsh/fltk
+rm /scratch/jcanton/software/gmsh/share
+if `uname -a | grep -q -i erebos`; then
+	#echo "creating links for erebos OpenFOAM and gmsh"
+	ln -s /scratch/jcanton/software/OpenFOAM/OpenFOAM-5.0.erebos /scratch/jcanton/software/OpenFOAM/OpenFOAM-5.0
+	ln -s /scratch/jcanton/software/gmsh/bin.erebos /scratch/jcanton/software/gmsh/bin
+	ln -s /scratch/jcanton/software/gmsh/fltk.erebos /scratch/jcanton/software/gmsh/fltk
+	ln -s /scratch/jcanton/software/gmsh/share.erebos /scratch/jcanton/software/gmsh/share
+fi
+if `uname -a | grep -q -i kratzer`; then
+	#echo "creating links for kratzer OpenFOAM and gmsh"
+	ln -s /scratch/jcanton/software/OpenFOAM/OpenFOAM-5.0.kratzer /scratch/jcanton/software/OpenFOAM/OpenFOAM-5.0
+	ln -s /scratch/jcanton/software/gmsh/bin.kratzer /scratch/jcanton/software/gmsh/bin
+	ln -s /scratch/jcanton/software/gmsh/fltk.kratzer /scratch/jcanton/software/gmsh/fltk
+	ln -s /scratch/jcanton/software/gmsh/share.kratzer /scratch/jcanton/software/gmsh/share
+fi
 # Load OpenFOAM env
 alias loadFoam='source ~/OpenFOAM/OpenFOAM-5.0/etc/bashrc'
+
 
 PATH="/scratch/jcanton/software/bin:$PATH"
 PATH="/scratch/jcanton/software/nek5/bin:$PATH"
 PATH="/scratch/jcanton/software/nek5/trunk/tools/scripts:$PATH"
-#PATH="/scratch/jcanton/software/paraview/bin:$PATH"
-PATH="/scratch/jcanton/software/visit/bin:$PATH"
+PATH="/scratch/jcanton/software/visit/2.10.0/bin:$PATH"
 PATH="/scratch/jcanton/software/ff++/bin/bin:$PATH"
 PATH="/scratch/jcanton/software/python/bin:$PATH"
-#PATH="/scratch/jcanton/software/dropbox:$PATH"
 PATH="/scratch/jcanton/software/thunderbird/:$PATH"
 PATH="/scratch/jcanton/software/mendeley/usr/bin:$PATH"
 PATH="/scratch/jcanton/software/ffmpeg/:$PATH"
-#PATH="/scratch/jcanton/software/dropbox/usr/bin/:$PATH"
 PATH="/scratch/jcanton/software/gmsh/bin:$PATH"
 
 export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
