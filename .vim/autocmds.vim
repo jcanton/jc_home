@@ -20,7 +20,7 @@ au!
 autocmd BufRead,BufNewFile,BufEnter *.f setlocal tw=0 autowrite ic et
 augroup END
 
-augroup nek
+augroup usr
 au!
 autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal tw=0 autowrite ic et syntax=fortran
 autocmd BufRead,BufNewFile,BufEnter *.upar   setlocal tw=0 autowrite ic et syntax=fortran
@@ -37,7 +37,7 @@ augroup END
 
 augroup tex
 au!
-autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 spell
+autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> \ll
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> \lv
 " IMPORTANT: grep will sometimes skip displaying the file name if you
@@ -52,7 +52,17 @@ autocmd BufRead,BufNewFile,BufEnter *.tex setlocal iskeyword+=:
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 autocmd BufRead,BufNewFile,BufEnter *.tex let g:tex_flavor='latex'
+" tentative warning for kate-swp
+autocmd BufRead,BufEnter *.tex call CheckKate()
 augroup END
+
+function CheckKate()
+	if filereadable("." . expand('%:t') . ".kate-swp")
+	"if filereadable(expand('%:p'))
+		echoerr "." . expand('%:t') . ".kate-swp" . " Exists"
+		"echoerr "merda"
+	endif
+endfunction
 
 augroup pyton
 au!
