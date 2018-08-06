@@ -44,8 +44,9 @@ elif (hostname == 'triolith1'):
 	shutil.copy('.bashrc.local.arch14',    '../.bashrc.local')
 elif (hostname == 'bernoulli'):
 	shutil.copy('.bashrc.local.bernoulli', '../.bashrc.local')
-elif (hostname == 'mac13'):
+elif (hostname == 'mac13' or hostname == 'work13' ):
 	shutil.copy('.bashrc.local.mac13', '../.bashrc.local')
+	shutil.copy('.bash_profile.mac13', '../.bash_profile')
 
 #------------------------------------------------------------------------------
 # deploy git
@@ -64,7 +65,7 @@ shutil.copy('.ipython/profile_default/ipython_config.py', '../.ipython/profile_d
 #------------------------------------------------------------------------------
 # deploy matplotlib
 #
-if (hostname == 'mac13'):
+if (hostname == 'mac13' or hostname == 'work13' ):
 	if not os.path.exists('../.matplotlib'):
 		print('   CREATING .matplotlib folder')
 		os.makedirs('../.matplotlib')
@@ -78,7 +79,7 @@ else:
 #------------------------------------------------------------------------------
 # deploy redshift
 #
-if (hostname != 'mac13'):
+if (hostname != 'mac13' and hostname != 'work13'):
 	if (hostname == 'arch10'):
 		shutil.copy('.config/redshift.conf.arch10', '../.config/redshift.conf')
 	else:
@@ -87,7 +88,7 @@ if (hostname != 'mac13'):
 #------------------------------------------------------------------------------
 # deploy terminator
 #
-if (hostname != 'mac13'):
+if (hostname != 'mac13' and hostname != 'work13'):
 	if not os.path.exists('../.config/terminator'):
 		print('   CREATING .config/terminator folder')
 		os.makedirs('../.config/terminator')
@@ -119,14 +120,14 @@ elif (hostname == 'bernoulli'):
 	shutil.copy('.vimrc.local.bernoulli', '../.vimrc.local')
 elif (hostname == 'triolith1'):
 	shutil.copy('.vimrc.local.erebos',    '../.vimrc.local')
-elif (hostname == 'mac13'):
+elif (hostname == 'mac13' or hostname == 'work13'):
 	shutil.copy('.vimrc.local.mac13', '../.vimrc.local')
 	shutil.copy('mvim', '../.vim/')
 
 #------------------------------------------------------------------------------
 # deploy xoural
 #
-if (hostname != 'mac13'):
+if (hostname != 'mac13' and hostname != 'work13'):
 	if not os.path.exists('../.xournal'):
 		os.makedirs('../.xournal')
 	
