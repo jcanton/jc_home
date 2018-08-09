@@ -44,9 +44,12 @@ elif (hostname == 'triolith1'):
 	shutil.copy('.bashrc.local.arch14',    '../.bashrc.local')
 elif (hostname == 'bernoulli'):
 	shutil.copy('.bashrc.local.bernoulli', '../.bashrc.local')
-elif (hostname == 'mac13' or hostname == 'work13' ):
+elif (hostname == 'mac13'):
 	shutil.copy('.bashrc.local.mac13', '../.bashrc.local')
 	shutil.copy('.bash_profile.mac13', '../.bash_profile')
+elif (hostname == 'work13' ):
+	shutil.copy('.bashrc.local.work13', '../.bashrc.local')
+	shutil.copy('.bash_profile.mac13',  '../.bash_profile')
 
 #------------------------------------------------------------------------------
 # deploy git

@@ -1,0 +1,39 @@
+# MAC13 specific settings:
+
+# set colors
+export CLICOLOR=1
+
+# set path for mvim
+PATH="~/.vim:${PATH}"
+
+# set path for cmake
+PATH="/Applications/CMake.app/Contents/bin:${PATH}"
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+
+function gvim() { mvim "$@" &> /dev/null ;}
+alias svim='gvim'
+alias mvim='gvim'
+
+alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
+function sim() { skim "$@" &> /dev/null ;}
+
+alias acroread='/Applications/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
+
+alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
+
+alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
+
+alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
+
+# compilers for Cubism
+export CC=gcc-8
+export CXX=g++-8
+export OMPI_CC=gcc-8
+export MPICH_CC=gcc-8
+export OMPI_CX=g++-8
+export MPICH_CXX=g++-8
