@@ -30,6 +30,8 @@ alias visit='/Applications/VisIt.app/Contents/MacOS/VisIt'
 
 alias paraview='/Applications/ParaView-5.5.2.app/Contents/MacOS/paraview'
 
+alias matlab='/Applications/MATLAB_R2018a.app/bin/matlab'
+
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
 # compilers for Cubism
