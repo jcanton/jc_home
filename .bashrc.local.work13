@@ -28,6 +28,8 @@ alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
 
 alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
 
+alias paraview='/Applications/Paraview-5.2.2.app/Contents/MacOS/paraview'
+
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
 # compilers for Cubism
@@ -38,8 +40,7 @@ export MPICH_CC=gcc-8
 export OMPI_CX=g++-8
 export MPICH_CXX=g++-8
 
-# options for Cubism
-export PATH=/Users/jcanton/codes/CubismUP_3D/dependencies/build/cmake-3.11.1/bin:$PATH
+# options for Cbism
 export FFTWDIR=/Users/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
 export HDF5_ROOT=/Users/jcanton/codes/CubismUP_3D/dependencies/build/hdf5-1.10.1-parallel/
 export GSL_ROOT_DIR=/Users/jcanton/codes/CubismUP_3D/dependencies/build/gsl-2.1/
