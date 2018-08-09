@@ -55,6 +55,7 @@ elif (hostname == 'work13' ):
 # deploy git
 #
 shutil.copy('.gitconfig', '../')
+shutil.copy('.git-completion.bash', '../')
 
 #------------------------------------------------------------------------------
 # deploy ipython config
