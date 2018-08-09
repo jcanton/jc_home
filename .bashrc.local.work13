@@ -28,7 +28,7 @@ alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
 
 alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
 
-alias paraview='/Applications/Paraview-5.2.2.app/Contents/MacOS/paraview'
+alias paraview='/Applications/ParaView-5.5.2.app/Contents/MacOS/paraview'
 
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
