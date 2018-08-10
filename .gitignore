@@ -10,3 +10,7 @@
 .vim/vim-addons/vim-addon-mw-utils/
 .vim/vim-addons/vim-pi/
 .vim/vim-addons/vim-snippets/
+
+# added by anaconda
+.ipython/profile_default/history.sqlite
+.ipython/profile_default/startup/

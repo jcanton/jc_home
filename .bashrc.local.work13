@@ -1,19 +1,10 @@
-# MAC13 specific settings:
+# work13 specific settings:
 
 # set colors
 export CLICOLOR=1
 
 # set path for mvim
 PATH="~/.vim:${PATH}"
-
-# set path for cmake
-PATH="/Applications/CMake.app/Contents/bin:${PATH}"
-
-# Setting PATH for Python 2.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-
 
 function gvim() { mvim "$@" &> /dev/null ;}
 alias svim='gvim'
@@ -42,7 +33,10 @@ export MPICH_CC=gcc-8
 export OMPI_CX=g++-8
 export MPICH_CXX=g++-8
 
-# options for Cbism
+# options for Cubism
 export FFTWDIR=/Users/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
 export HDF5_ROOT=/Users/jcanton/codes/CubismUP_3D/dependencies/build/hdf5-1.10.1-parallel/
 export GSL_ROOT_DIR=/Users/jcanton/codes/CubismUP_3D/dependencies/build/gsl-2.1/
+
+# added by Anaconda2 5.2.0 installer
+export PATH="/Users/jcanton/anaconda2/bin:$PATH"
