@@ -1,2 +1,12 @@
 *.swp
 .DS_Store
+
+# want these to be downloaded
+.vim/vim-addons/Solarized/
+.vim/vim-addons/The_NERD_tree/
+.vim/vim-addons/snipmate/
+.vim/vim-addons/tlib/
+.vim/vim-addons/vim-addon-manager/
+.vim/vim-addons/vim-addon-mw-utils/
+.vim/vim-addons/vim-pi/
+.vim/vim-addons/vim-snippets/
