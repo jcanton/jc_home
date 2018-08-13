@@ -87,6 +87,12 @@ elif (system == 'Linux'):
 	check_delete_link('.config/matplotlib', 'matplotlib')
 
 #------------------------------------------------------------------------------
+# deploy atom
+#
+if (system == 'Darwin'):
+	check_delete_link('.atom', 'atom')
+
+#------------------------------------------------------------------------------
 # deploy redshift
 #
 if (system == 'Linux'):
