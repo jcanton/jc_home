@@ -95,8 +95,12 @@ fi
 alias ll='ls -alFh'
 alias la='ls -A'
 alias l='ls -CF'
-alias du='du -h --max-depth=1'
 alias tree='tree -ahC'
+if `uname -a | grep -q -i Darwin`; then
+	alias du='du -h -d 1'
+else
+	alias du='du -h --max-depth=1'
+fi
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
