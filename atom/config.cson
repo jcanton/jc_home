@@ -1,10 +1,20 @@
 "*":
+  "autocomplete-plus":
+    autoActivationDelay: 500
   core:
     audioBeep: false
+    restorePreviousWindowsOnStart: "no"
     telemetryConsent: "no"
-  editor: {}
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+  editor:
+    fontSize: 12
   "exception-reporting":
     userId: "4a57659f-dc6a-4e89-ad5e-a1d53112ee2b"
+  latex:
+    opener: "pdf-view"
   "linter-ui-default": {}
   welcome:
     showOnStartup: false
