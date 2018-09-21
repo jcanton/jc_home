@@ -327,7 +327,7 @@ set ffs=unix,dos,mac
 colorscheme default
 if has("gui_running")
    colorscheme solarized
-   set background=light
+   set background=dark
 	"let hour = strftime("%H")
 	"if 7 <= hour && hour < 20
    "	set background=light
@@ -385,8 +385,8 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 "------------------------------------------------------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
-"map j gj
-"map k gk
+map j gj
+map k gk
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 noremap <space> /
@@ -453,10 +453,13 @@ set viminfo^=%
 noremap <C-n> :NERDTreeToggle<CR>
 
 " Smart way to move between windows
-"map <C-j> <C-W>j
-"map <C-k> <C-W>k
-"map <C-h> <C-W>h
-"map <C-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Change colour for directories
+hi Directory guifg=#FF0000 ctermfg=red
 
 "------------------------------------------------------------------------------
 " File dependent options
