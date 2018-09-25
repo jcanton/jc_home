@@ -90,7 +90,7 @@ fun! SetupVAM()
 	"
 	" snippets
 	ActivateAddons snipmate vim-snippets
-		"ActivateAddons UltiSnips vim-snippets (python-based alternative which I do not like)
+	" ActivateAddons UltiSnips vim-snippets (python-based alternative which I do not like)
 	"
 	" LaTeX Suite
 	" FUCKING FUCK seems not to be cloning anymore
@@ -105,7 +105,7 @@ fun! SetupVAM()
 	" Syntax colors
 	ActivateAddons python%790
 	"
-	" Additional ndentation rules
+	" Additional indentation rules
 	ActivateAddons fortran
 	"
 	" Color schemes
@@ -205,7 +205,7 @@ set nowrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
 	if &wrap
-		"echo "Wrap OFF"
+		echo "Wrap OFF"
 		setlocal nowrap
 		set virtualedit=all
 		silent! nunmap <buffer> <Up>
@@ -217,7 +217,7 @@ function ToggleWrap()
 		silent! iunmap <buffer> <Home>
 		silent! iunmap <buffer> <End>
 	else
-		"echo "Wrap ON"
+		echo "Wrap ON"
 		setlocal wrap linebreak nolist
 		set virtualedit=
 		setlocal display+=lastline
@@ -313,28 +313,30 @@ syntax enable
 if has("gui_running")
     set guioptions-=T
     set guioptions+=e
-    set t_Co=256
     set guitablabel=%M\ %t
+	 " set t_Co=256
+	 let base16colorspace=256
+	 colorscheme base16-monokai
 endif
+
+" " Colorscheme
+" colorscheme default
+" if has("gui_running")
+"    colorscheme solarized
+"    set background=dark
+" 	"let hour = strftime("%H")
+" 	"if 7 <= hour && hour < 20
+"    "	set background=light
+" 	"else
+"    "	set background=dark
+" 	"endif
+" endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
-" Colorscheme
-colorscheme default
-if has("gui_running")
-   colorscheme solarized
-   set background=dark
-	"let hour = strftime("%H")
-	"if 7 <= hour && hour < 20
-   "	set background=light
-	"else
-   "	set background=dark
-	"endif
-endif
 
 "------------------------------------------------------------------------------
 " => Files, backups and undo
@@ -385,8 +387,9 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 "------------------------------------------------------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
+" map j gj
+" map k gk
+" THIS has been moved to the wrapping section
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 noremap <space> /
@@ -459,7 +462,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Change colour for directories
-hi Directory guifg=#FF0000 ctermfg=red
+" hi Directory guifg=#FF0000 ctermfg=red
 
 "------------------------------------------------------------------------------
 " File dependent options
