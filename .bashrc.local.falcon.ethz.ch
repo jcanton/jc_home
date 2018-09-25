@@ -1,0 +1,1 @@
+.bashrc.local.panda.ethz.ch
