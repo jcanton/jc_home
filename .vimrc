@@ -315,14 +315,19 @@ if has("gui_running")
     set guioptions+=e
     set guitablabel=%M\ %t
 	 " set t_Co=256
+	 "
+	 " base16 configuration
 	 let base16colorspace=256
-	 colorscheme base16-monokai
+	 colorscheme base16-solarized-dark
+	 " alternative Solarized addon
+    " colorscheme solarized
 endif
+let base16colorspace=256
+colorscheme base16-xcode-dusk
 
 " " Colorscheme
 " colorscheme default
 " if has("gui_running")
-"    colorscheme solarized
 "    set background=dark
 " 	"let hour = strftime("%H")
 " 	"if 7 <= hour && hour < 20
