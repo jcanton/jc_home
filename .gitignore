@@ -11,6 +11,8 @@
 .vim/vim-addons/vim-pi/
 .vim/vim-addons/vim-snippets/
 
-# added by anaconda
+# no need to track these
 .ipython/profile_default/history.sqlite
 .ipython/profile_default/startup/
+.ipython/profile_default/static
+.ipython/README
