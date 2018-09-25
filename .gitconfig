@@ -1,5 +1,5 @@
 [user]
-	email = jcanton@mech.kth.se
+	#email = jcanton@mech.kth.se
 	name = Jacopo Canton
 [core]
 	editor = vim
@@ -7,3 +7,17 @@
 #	default = simple
 [credential]
 	helper = cache --timeout=3600
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
+	decorate = true
+[color "status"]
+	added = green
+	changed = red bold
+	untracked = magenta bold
+[color "branch"]
+	remote = yellow
