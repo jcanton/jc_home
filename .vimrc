@@ -311,19 +311,20 @@ syntax enable
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set guitablabel=%M\ %t
-	 " set t_Co=256
-	 "
-	 " base16 configuration
-	 let base16colorspace=256
-	 colorscheme base16-solarized-dark
-	 " alternative Solarized addon
-    " colorscheme solarized
+	set guioptions-=T
+	set guioptions+=e
+	set guitablabel=%M\ %t
+	" set t_Co=256
+	"
+	" base16 configuration
+	let base16colorspace=256
+	colorscheme base16-solarized-dark
+	" alternative Solarized addon
+	" colorscheme solarized
+else
+	let base16colorspace=256
+	colorscheme base16-xcode-dusk
 endif
-let base16colorspace=256
-colorscheme base16-xcode-dusk
 
 " " Colorscheme
 " colorscheme default
