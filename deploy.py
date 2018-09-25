@@ -92,17 +92,17 @@ elif (system == 'Linux'):
 #if (system == 'Darwin'):
 #	check_delete_link('.atom', 'atom')
 
-#------------------------------------------------------------------------------
-# deploy redshift
-#
-if (system == 'Linux'):
-	check_delete_link('.config/redshift.conf', 'redshift.conf.'+hostname)
+##------------------------------------------------------------------------------
+## deploy redshift (LET'S FORGET ABOUT THIS)
+##
+#if (system == 'Linux'):
+#	check_delete_link('.config/redshift.conf', 'redshift.conf.'+hostname)
 
-#------------------------------------------------------------------------------
-# deploy terminator
-#
-if (system == 'Linux'):
-	check_delete_link('.config/terminator', 'terminator')
+##------------------------------------------------------------------------------
+## deploy terminator (LET'S FORGET ABOUT THIS)
+##
+#if (system == 'Linux'):
+#	check_delete_link('.config/terminator', 'terminator')
 
 #------------------------------------------------------------------------------
 # deploy vim
@@ -111,11 +111,11 @@ check_delete_link('.vim')
 check_delete_link('.vimrc')
 check_delete_link('.vimrc.local')
 
-#------------------------------------------------------------------------------
-# deploy xoural
-#
-if (system == 'Linux'):
-	check_delete_link('.xournal')
+##------------------------------------------------------------------------------
+## deploy xoural (LET'S FORGET ABOUT THIS)
+##
+#if (system == 'Linux'):
+#	check_delete_link('.xournal')
 
 #==============================================================================
 #==============================================================================
