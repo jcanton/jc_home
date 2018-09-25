@@ -59,6 +59,13 @@ else
 fi
 unset color_prompt force_color_prompt
 
+# Base16 Shell
+export BASE16_SCHEME="monokai"
+if [[ "$TERM" != 'screen-256color' ]]; then
+    BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
+    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+fi
+
 ### # If this is an xterm set the title to user@host:dir
 ### case "$TERM" in
 ### xterm*|rxvt*)
