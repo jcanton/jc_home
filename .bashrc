@@ -128,7 +128,7 @@ alias gig='git log --graph --all --decorate --oneline'
 # tmux configuration
 #
 alias tm='tmux'
-function ssh() { /usr/bin/ssh -t $@ "tmux attach || tmux new";}
+#function ssh() { /usr/bin/ssh -t $@ "tmux attach || tmux new";}
 
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
@@ -138,5 +138,5 @@ alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
 alias 2kratzer='ssh -Y jcanton@kratzer.mech.kth.se'
 alias 2sisu='ssh -X pr1s0109@sisu.csc.fi'
 alias 2triolith='ssh -X x_jacca@triolith.nsc.liu.se'
-alias 2panda='ssh -Y jcanton@panda.ethz.ch'
-alias 2falcon='ssh -Y jcanton@falcon.ethz.ch'
+alias 2panda='ssh -Y jcanton@panda.ethz.ch -t $@ "tmux attach || tmux new"'
+alias 2falcon='ssh -Y jcanton@falcon.ethz.ch -t $@ "tmux attach || tmux new"'
