@@ -124,6 +124,10 @@ alias matlabs='matlab -nodesktop -nosplash'
 function svim() { gvim "$@" &> /dev/null ;}
 alias gig='git log --graph --all --decorate --oneline'
 
+# tmux configuration
+#
+alias tm='tmux'
+
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
 alias 2abisko='ssh -Y jcanton@abisko.hpc2n.umu.se'

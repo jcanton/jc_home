@@ -111,6 +111,11 @@ check_delete_link('.vim')
 check_delete_link('.vimrc')
 check_delete_link('.vimrc.local')
 
+#------------------------------------------------------------------------------
+# deploy tmux
+#
+check_delete_link('.tmux.conf')
+
 ##------------------------------------------------------------------------------
 ## deploy xoural (LET'S FORGET ABOUT THIS)
 ##
