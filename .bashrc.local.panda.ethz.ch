@@ -7,3 +7,5 @@ fi
 
 module purge
 module load gnu openmpi hdf5
+
+PATH="/opt/visit/bin:$PATH"
