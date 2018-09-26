@@ -138,5 +138,8 @@ alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
 alias 2kratzer='ssh -Y jcanton@kratzer.mech.kth.se'
 alias 2sisu='ssh -X pr1s0109@sisu.csc.fi'
 alias 2triolith='ssh -X x_jacca@triolith.nsc.liu.se'
+
 alias 2panda='ssh -Y jcanton@panda.ethz.ch -t $@ "tmux attach || tmux new"'
 alias 2falcon='ssh -Y jcanton@falcon.ethz.ch -t $@ "tmux attach || tmux new"'
+alias 2pandan='ssh -Y jcanton@panda.ethz.ch'
+alias 2falconn='ssh -Y jcanton@falcon.ethz.ch'
