@@ -76,6 +76,7 @@ if [[ "$TERM" != 'screen-256color' ]]; then
     BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
     [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi
+export TERM="screen-256color"
 
 # Set the title to user@host dir
 PS1='[\u@\h \W]\$ '
