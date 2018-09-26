@@ -128,6 +128,7 @@ alias gig='git log --graph --all --decorate --oneline'
 # tmux configuration
 #
 alias tm='tmux'
+function ssh() { /usr/bin/ssh -t $@ "tmux attach || tmux new";}
 
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
