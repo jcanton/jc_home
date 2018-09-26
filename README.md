@@ -1,3 +1,3 @@
 # jc home
 
-home configuration files
+*NIX configuration files
