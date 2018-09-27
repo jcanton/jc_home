@@ -116,15 +116,12 @@ elif (system == 'Linux'):
 #------------------------------------------------------------------------------
 # deploy tmux
 #
-if (system == 'Darwin'):
-	check_delete_link('.tmux',             'tmux-config/tmux')
-	check_delete_link('.tmux.conf',        'tmux-config/tmux/tmux.conf')
-	check_delete_link('.tmux.remote.conf', 'tmux-config/tmux/tmux.remote.conf')
-	os.chdir('tmux-config')
-	call('./install.sh', shell=True)
-	os.chdir('..')
-elif (system == 'Linux'):
-	check_delete_link('.tmux.conf')
+check_delete_link('.tmux',             'tmux-config/tmux')
+check_delete_link('.tmux.conf',        'tmux-config/tmux/tmux.conf')
+check_delete_link('.tmux.remote.conf', 'tmux-config/tmux/tmux.remote.conf')
+os.chdir('tmux-config')
+call('./install.sh', shell=True)
+os.chdir('..')
 
 #------------------------------------------------------------------------------
 # deploy vim
