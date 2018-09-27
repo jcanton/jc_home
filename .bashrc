@@ -1,19 +1,14 @@
-#------------------------------------------------------------------------------
-# machine specific configuration
-#
-if [ -f ~/.bashrc.local ]; then
-    . ~/.bashrc.local
+# load /etc/bashrc
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
 fi
 
-#------------------------------------------------------------------------------
-# git autocompletion
-#
-if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
-fi
 ################################################
 #                 My settings                  #
 ################################################
+
+# Set the title to user@host dir
+PS1='[\u@\h \W]\$ '
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -29,64 +24,18 @@ HISTFILESIZE=20000
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# OLD configuration for colors, stolen from Debian's default .bashrc, now
-# substituted with base16 (see below)
-## # set a fancy prompt (non-color, unless we know we "want" color)
-## case "$TERM" in
-##     xterm-color) color_prompt=yes;;
-## esac
-## 
-## # uncomment for a colored prompt, if the terminal has the capability; turned
-## # off by default to not distract the user: the focus in a terminal window
-## # should be on the output of commands, not on the prompt
-## #force_color_prompt=yes
-
-## if [ -n "$force_color_prompt" ]; then
-##     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-##    # We have color support; assume it's compliant with Ecma-48
-##    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-##    # a case would tend to support setf rather than setaf.)
-##    color_prompt=yes
-##     else
-##    color_prompt=
-##     fi
-## fi
-## 
-## if [ "$color_prompt" = yes ]; then
-##     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-##     PS1='[\u@\h \W]\$ '
-## else
-##     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-##     PS1='[\u@\h \W]\$ '
-## fi
-## unset color_prompt force_color_prompt
-## 
-## # If this is an xterm set the title to user@host:dir
-## case "$TERM" in
-## xterm*|rxvt*)
-##     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-##     ;;
-## *)
-##     ;;
-## esac
-
 # Base16 Shell
 export BASE16_SCHEME="monokai"
+export TERM="screen-256color"
 if [[ "$TERM" != 'screen-256color' ]]; then
     BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
     [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi
-export TERM="screen-256color"
-
-# Set the title to user@host dir
-PS1='[\u@\h \W]\$ '
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
     alias grep='grep  --color=auto'
     alias grepl='grep -n'
     alias fgrep='fgrep --color=auto'
@@ -124,11 +73,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias matlabs='matlab -nodesktop -nosplash'
 function svim() { gvim "$@" &> /dev/null ;}
 alias gig='git log --graph --all --decorate --oneline'
-
-# tmux configuration
-#
 alias tm='tmux'
-#function ssh() { /usr/bin/ssh -t $@ "tmux attach || tmux new";}
 
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
@@ -143,3 +88,17 @@ alias 2panda='ssh -Y jcanton@panda.ethz.ch -t $@ "tmux attach || tmux new"'
 alias 2falcon='ssh -Y jcanton@falcon.ethz.ch -t $@ "tmux attach || tmux new"'
 alias 2pandan='ssh -Y jcanton@panda.ethz.ch'
 alias 2falconn='ssh -Y jcanton@falcon.ethz.ch'
+
+#------------------------------------------------------------------------------
+# git autocompletion
+#
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
+
+#------------------------------------------------------------------------------
+# machine specific configuration
+#
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
+fi
