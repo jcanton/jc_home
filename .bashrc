@@ -26,11 +26,11 @@ HISTFILESIZE=20000
 
 # Base16 Shell
 export BASE16_SCHEME="monokai"
-export TERM="screen-256color"
 if [[ "$TERM" != 'screen-256color' ]]; then
     BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
     [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 fi
+export TERM="screen-256color"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
