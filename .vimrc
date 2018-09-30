@@ -205,7 +205,7 @@ set nowrap
 noremap <silent> <Leader>w :call ToggleWrap()<CR>
 function ToggleWrap()
 	if &wrap
-		echo "Wrap OFF"
+		" echo "Wrap OFF"
 		setlocal nowrap
 		set virtualedit=all
 		silent! nunmap <buffer> <Up>
@@ -217,7 +217,7 @@ function ToggleWrap()
 		silent! iunmap <buffer> <Home>
 		silent! iunmap <buffer> <End>
 	else
-		echo "Wrap ON"
+		" echo "Wrap ON"
 		setlocal wrap linebreak nolist
 		set virtualedit=
 		setlocal display+=lastline
