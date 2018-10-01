@@ -9,12 +9,12 @@
 # Function to set environment variables for all systems
 setup_all() {
   export PATH=$HOME/bin:$PATH
-  export EDITOR=vim
+  # export EDITOR=vim
   ulimit -d unlimited
   ulimit -s unlimited
   ulimit -c 0
-  alias windows1="rdesktop -a 16 -g 80% -d MECH.KTH.SE rdesktop1"
-  alias windows2="rdesktop -a 16 -g 80% -d MECH.KTH.SE rdesktop2"
+  # alias windows1="rdesktop -a 16 -g 80% -d MECH.KTH.SE rdesktop1"
+  # alias windows2="rdesktop -a 16 -g 80% -d MECH.KTH.SE rdesktop2"
 }
 
 # Uncomment if you need to use this
@@ -30,10 +30,10 @@ setup_all() {
 #}
 
 # Function to do initializations for interactive shells for all systems
-interactive_all() {
-  PS1='\h[\u]\w> '
-  set -o notify
-}
+#interactive_all() {
+#  #PS1='\h[\u]\w> '
+#  #set -o notify
+#}
 
 # Modules to load for both Linux and Linux64
 modules_all="adobe-reader/9.5.5-1 intel matlab" # paraview/4.0.1 visit/2.6.3"
@@ -51,27 +51,27 @@ modules_Linux64=""
 ################################################
 
 # Function to set Linux environment variables
-setup_Linux_generic() {
-  export MANPATH=:
-}
+#setup_Linux_generic() {
+#  #export MANPATH=:
+#}
 
 # Function to set Linux64 environment variables
-setup_Linux64_generic() {
-  export MANPATH=:
-}
+#setup_Linux64_generic() {
+#  #export MANPATH=:
+#}
 
-setup_generic() {
-  # Xauthority
-  if [ "$DISPLAY"x != x ]
-  then
-    if [ "$XAUTHORITY"x = x ]
-    then
-      tempvar=`mktemp`
-      export XAUTHORITY=$tempvar
-
-    fi
-  fi
-}
+# setup_generic() {
+#   ## Xauthority
+#   #if [ "$DISPLAY"x != x ]
+#   #then
+#   #  if [ "$XAUTHORITY"x = x ]
+#   #  then
+#   #    tempvar=`mktemp`
+#   #    export XAUTHORITY=$tempvar
+# 
+#   #  fi
+#   #fi
+# }
 
 #modules_generic=""
 #modules_Linux_generic=""
@@ -158,6 +158,8 @@ unset run_funcs
 
 # EREBOS specific settings:
 
+# module purge
+# module load adobe-reader/9.5.5-1 intel matlab
 export OMP_NUM_THREADS=2
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf
@@ -195,6 +197,10 @@ PATH="/scratch/jcanton/software/thunderbird/:$PATH"
 PATH="/scratch/jcanton/software/mendeley/usr/bin:$PATH"
 PATH="/scratch/jcanton/software/ffmpeg/:$PATH"
 PATH="/scratch/jcanton/software/gmsh/bin:$PATH"
+PATH="/scratch/jcanton/software/tmux/build/bin:$PATH"
+
+LD_LIBRARY_PATH="/scratch/jcanton/software/tmux/libevent-2.1.8-stable/build/lib:$LD_LIBRARY_PATH"
+LD_RUN_PATH="/scratch/jcanton/software/tmux/libevent-2.1.8-stable/build/lib:$LD_RUN_PATH"
 
 export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
 
