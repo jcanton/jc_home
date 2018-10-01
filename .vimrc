@@ -280,6 +280,9 @@ set incsearch
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
+" Force redraw with C-l
+noremap <c-l> :redraw!<CR>
+
 " For regular expressions turn magic on
 set magic
 
