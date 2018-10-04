@@ -7,3 +7,5 @@ alias visit="vglrun -c proxy /opt/visit/bin/visit"
 alias paraview="vglrun -c proxy paraview"
 
 PATH="/home/jcanton/codes/tmux/bin:$PATH"
+
+export LC_CTYPE="en_US.utf8"
