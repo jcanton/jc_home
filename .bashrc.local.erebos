@@ -124,15 +124,15 @@ then
       # Remove modules
       module purge
 
-      # Load the desired modules
-      _variables="modules_${_carch}_generic modules_$_carch modules_generic modules_all"
-      for _variable in $_variables; do
-        if [ x"$_variable" != x"" ]; then
-          for _module in ${!_variable}; do
-       module add $_module
-     done
-        fi
-      done
+     #  # Load the desired modules
+     #  _variables="modules_${_carch}_generic modules_$_carch modules_generic modules_all"
+     #  for _variable in $_variables; do
+     #    if [ x"$_variable" != x"" ]; then
+     #      for _module in ${!_variable}; do
+     #   module add $_module
+     # done
+     #    fi
+     #  done
     fi
     
     export ENVINIT="$USER"
@@ -158,8 +158,8 @@ unset run_funcs
 
 # EREBOS specific settings:
 
-# module purge
-# module load adobe-reader/9.5.5-1 intel matlab
+module purge
+module load adobe-reader/9.5.5-1 intel matlab
 export OMP_NUM_THREADS=2
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 export KRB5_CONFIG=$HOME/.pdckrb/krb5.conf
@@ -208,4 +208,5 @@ export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
 export LANG="en_US.utf8"
 export LC_MEASUREMENT="en_US.utf8"
 export LC_NUMERIC="en_US.utf8"
-export LC_MONETARY=en_US.utf8	
+export LC_MONETARY="en_US.utf8"
+export LC_CTYPE="en_US.utf8"
