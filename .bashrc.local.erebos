@@ -205,6 +205,7 @@ LD_RUN_PATH="/scratch/jcanton/software/tmux/libevent-2.1.8-stable/build/lib:$LD_
 export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
 
 # FUCKING FUCK FUCK
-export LC_MEASUREMENT=en_US.utf8
-export LC_NUMERIC=en_US.utf8
+export LANG="en_US.utf8"
+export LC_MEASUREMENT="en_US.utf8"
+export LC_NUMERIC="en_US.utf8"
 export LC_MONETARY=en_US.utf8	
