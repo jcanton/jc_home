@@ -1,7 +1,7 @@
 # PANDA and FALCON specific settings:
 
 module purge
-module load gnu openmpi hdf5
+module load gnu openmpi hdf5 fftw
 
 ulimit -s unlimited # for Simson
 
@@ -10,9 +10,9 @@ alias paraview="vglrun -c proxy paraview"
 
 PATH="/home/jcanton/codes/tmux/bin:$PATH"
 
-# FUCKING FUCK FUCK
-export LANG="en_US.utf8"
-export LC_MEASUREMENT="en_US.utf8"
-export LC_NUMERIC="en_US.utf8"
-export LC_MONETARY="en_US.utf8"
-export LC_CTYPE="en_US.utf8"
+## FUCKING FUCK FUCK
+#export LANG="en_US.utf8"
+#export LC_MEASUREMENT="en_US.utf8"
+#export LC_NUMERIC="en_US.utf8"
+#export LC_MONETARY="en_US.utf8"
+#export LC_CTYPE="en_US.utf8"
