@@ -26,18 +26,18 @@ HISTFILESIZE=20000
 
 # Base16 Shell
 BASE16_SCHEME="monokai"
-#if [[ "$TERM" != 'screen-256color' ]]; then
-#    BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
-#    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-#fi
-BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
+if [[ "$TERM" != 'screen-256color' ]]; then
+    BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
+    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+fi
+#BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
 TERM="screen-256color"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias grep='grep  --color=auto'
+    alias grep="grep  --color=auto --exclude='tags'"
     alias grepl='grep -n'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
