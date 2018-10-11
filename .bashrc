@@ -37,10 +37,11 @@ TERM="screen-256color"
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias grep="grep  --color=auto --exclude='tags'"
+    alias grep='grep  --color=auto'
     alias grepl='grep -n'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias gr="grep --exclude='tags'"
 fi
 
 # enable programmable completion features (you don't need to enable
