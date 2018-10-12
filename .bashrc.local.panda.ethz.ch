@@ -1,7 +1,12 @@
 # PANDA and FALCON specific settings:
 
 module purge
-module load gnu openmpi hdf5 fftw
+module load gnu openmpi # hdf5 fftw
+
+# for CubismUP
+export FFTWDIR=/home/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
+export HDF5_ROOT=/home/jcanton/codes/CubismUP_3D/dependencies/build/hdf5-1.10.1-parallel/
+export GSL_ROOT_DIR=/home/jcanton/codes/CubismUP_3D/dependencies/build/gsl-2.1/
 
 ulimit -s unlimited # for Simson
 
