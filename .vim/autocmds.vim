@@ -7,13 +7,11 @@
 " FILETYPES
 "------------------------------------------------------------------------------
 
-"augroup cfiles
-"au!
-"autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h setlocal tw=0 cin noic autowrite
-"autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h setlocal tw=0 cin noic autowrite
-"autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h setlocal tw=0 cin noic autowrite
-"autocmd BufRead,BufNewFile,BufEnter *.l,*.y setlocal tw=0 smartindent noic autowrite
-"augroup END
+
+augroup CSELabCppfiles
+au!
+autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h setlocal tw=80 cin noic autowrite expandtab shiftwidth=2 tabstop=2
+augroup END
 
 augroup f77
 au!
