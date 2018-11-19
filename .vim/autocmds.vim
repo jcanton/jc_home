@@ -38,6 +38,7 @@ au!
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> \ll
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> \lv
+autocmd BufRead,BufNewFile,BufEnter *.tex call pencil#init()
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
@@ -52,7 +53,6 @@ autocmd BufRead,BufNewFile,BufEnter *.tex setlocal iskeyword+=:
 autocmd BufRead,BufNewFile,BufEnter *.tex let g:tex_flavor='latex'
 " tentative warning for kate-swp
 autocmd BufEnter *.tex call CheckKate()
-autocmd BufRead *.tex call ToggleWrap()
 augroup END
 
 function CheckKate()
@@ -76,6 +76,12 @@ augroup END
 augroup txt
 au!
 "autocmd BufRead,BufNewFile,BufEnter *.txt setlocal spell
+autocmd BufRead,BufNewFile,BufEnter *.txt call pencil#init()
+augroup END
+
+augroup markdown
+au!
+autocmd BufRead,BufNewFile,BufEnter *.md call pencil#init()
 augroup END
 
 augroup edp
