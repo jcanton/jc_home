@@ -2,6 +2,7 @@
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 " Sections:
+"    -> Vim-plug
 "    -> Vim Addon Manager
 "    -> General
 "    -> VIM user interface
@@ -20,6 +21,15 @@
 "
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"
+"
+"------------------------------------------------------------------------------
+" => Vim-plug
+"------------------------------------------------------------------------------
+call plug#begin()
+Plug 'ikicic/vim-tmux-navigator'
+call plug#end()
+
 
 "------------------------------------------------------------------------------
 " => Vim Addon Manager
@@ -369,7 +379,7 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " Treat long lines as break lines (useful when moving around in them)
 " map j gj
 " map k gk
-" THIS has been moved to the wrapping section
+" THIS has been substituted by Pencil
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 noremap <space> /
@@ -436,10 +446,10 @@ set viminfo^=%
 noremap <C-n> :NERDTreeToggle<CR>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 " Change colour for directories
 " hi Directory guifg=#FF0000 ctermfg=red
