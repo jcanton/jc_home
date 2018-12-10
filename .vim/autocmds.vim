@@ -65,10 +65,10 @@ endfunction
 
 augroup pyton
 au!
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic noet autowrite
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic et autowrite
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldlevel=99
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal sw=3 ts=3
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal sw=4 ts=4
 "autocmd BufRead,BufNewFile,BufEnter *.py setlocal omnifunc=pythoncomplete#Complete
 "autocmd BufRead,BufNewFile,BufEnter *.py setlocal completeopt=menuone,longest,preview
 augroup END
