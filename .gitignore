@@ -1,5 +1,6 @@
 *.swp
 .DS_Store
+*.pyc
 
 # want these to be downloaded
 .vim/vim-addons/Solarized/
@@ -16,4 +17,8 @@
 .ipython/profile_default/history.sqlite
 .ipython/profile_default/startup/
 .ipython/profile_default/static
+.ipython/profile_default/db/
 .ipython/README
+matplotlib/fontList.json
+matplotlib/fontlist-v300.json
+matplotlib/tex.cache/

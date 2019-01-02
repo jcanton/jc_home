@@ -10,3 +10,6 @@
 [submodule "tmux-config"]
 	path = tmux-config
 	url = https://github.com/jcanton/tmux-config.git
+[submodule ".vim/plugged/vim-tmux-navigator"]
+	path = .vim/plugged/vim-tmux-navigator
+	url = https://git::@github.com/ikicic/vim-tmux-navigator.git

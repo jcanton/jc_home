@@ -25,18 +25,28 @@ alias matlab='/Applications/MATLAB_R2018a.app/bin/matlab'
 
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
-# compilers for Cubism
-export CC=gcc-8
-export CXX=g++-8
-export OMPI_CC=gcc-8
-export MPICH_CC=gcc-8
-export OMPI_CX=g++-8
-export MPICH_CXX=g++-8
 
-# options for Cubism
-export FFTWDIR=/Users/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
-export HDF5_ROOT=/Users/jcanton/codes/CubismUP_3D/dependencies/build/hdf5-1.10.1-parallel/
-export GSL_ROOT_DIR=/Users/jcanton/codes/CubismUP_3D/dependencies/build/gsl-2.1/
 
-# added by Anaconda2 5.2.0 installer
-export PATH="/Users/jcanton/anaconda2/bin:$PATH"
+## # compilers for Cubism
+## export CC=gcc-8
+## export CXX=g++-8
+## export OMPI_CC=gcc-8
+## export MPICH_CC=gcc-8
+## export OMPI_CX=g++-8
+## export MPICH_CXX=g++-8
+## 
+## # options for Cubism
+## export FFTWDIR=/Users/jcanton/Documents/postdoc/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
+## export FFTW_DIR=/Users/jcanton/Documents/postdoc/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
+## export HDF5_ROOT=/Users/jcanton/Documents/postdoc/codes/CubismUP_3D/dependencies/build/hdf5-1.10.1-parallel/
+## export GSL_ROOT_DIR=/Users/jcanton/Documents/postodc/codes/CubismUP_3D/dependencies/build/gsl-2.1/
+
+## # pythonpath for spectralDNS
+## export PYTHONPATH=/Users/jcanton/Documents/postdoc/codes/spectralDNS/build/lib/python3.7/site-packages/
+
+# # initialize pyenv
+# eval "$(pyenv init -)"
+
+# set default python3
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+alias ipython='/usr/local/bin/ipython3'
