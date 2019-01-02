@@ -9,10 +9,14 @@ PATH="~/.vim:${PATH}"
 # set path for cmake
 PATH="/Applications/CMake.app/Contents/bin:${PATH}"
 
-# Setting PATH for Python 2.7
-# The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+#
+# # default to python 3
+# export PATH=/usr/local/opt/python/libexec/bin:$PATH
+
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 function gvim() { mvim "$@" &> /dev/null ;}
 alias svim='gvim'
@@ -29,3 +33,6 @@ alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
 #alias visit2.10='/Applications/VisIt2.10.app/Contents/MacOS/VisIt'
 
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
+
+alias 2pi='ssh -Y pi@192.168.1.101 -t $@ "tmux attach || tmux new"'
+alias 2pin='ssh -Y pi@192.168.1.101'
