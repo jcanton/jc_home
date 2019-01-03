@@ -10,12 +10,13 @@
 
 augroup CSELabCppfiles
 au!
-autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h setlocal tw=80 cin noic autowrite expandtab shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h setlocal tw=80 cin noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 
 augroup f77
 au!
-autocmd BufRead,BufNewFile,BufEnter *.f setlocal tw=0 autowrite ic et
+autocmd BufRead,BufNewFile,BufEnter *.f setlocal tw=80 autowrite ic et syntax=fortran
 augroup END
 
 augroup usr
@@ -36,9 +37,10 @@ augroup END
 augroup tex
 au!
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
-autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> \ll
-autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> \lv
 autocmd BufRead,BufNewFile,BufEnter *.tex call pencil#init()
+autocmd BufRead,BufNewFile,BufEnter *.tex setlocal conceallevel=0
+autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> :!make<CR>
+autocmd BufRead,BufNewFile,BufEnter *.tex map <F5> :!make clean<NL>
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
@@ -65,10 +67,10 @@ endfunction
 
 augroup pyton
 au!
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic et autowrite
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=80 noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal expandtab shiftwidth=4 tabstop=4
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldlevel=99
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal sw=4 ts=4
 "autocmd BufRead,BufNewFile,BufEnter *.py setlocal omnifunc=pythoncomplete#Complete
 "autocmd BufRead,BufNewFile,BufEnter *.py setlocal completeopt=menuone,longest,preview
 augroup END
