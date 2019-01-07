@@ -44,9 +44,11 @@ alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 ## # pythonpath for spectralDNS
 ## export PYTHONPATH=/Users/jcanton/Documents/postdoc/codes/spectralDNS/build/lib/python3.7/site-packages/
 
-# # initialize pyenv
-# eval "$(pyenv init -)"
+# initialize pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-# set default python3
-export PATH=/usr/local/opt/python/libexec/bin:$PATH
-alias ipython='/usr/local/bin/ipython3'
+# # set default python3
+# export PATH=/usr/local/opt/python/libexec/bin:$PATH
+# alias ipython='/usr/local/bin/ipython3'
