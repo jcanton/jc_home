@@ -24,14 +24,19 @@ HISTFILESIZE=20000
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# Base16 Shell
-BASE16_SCHEME="monokai"
-if [[ "$TERM" != 'screen-256color' ]]; then
-    BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
-    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-fi
-#BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
-TERM="screen-256color"
+# # Base16 Shell
+# BASE16_SCHEME="monokai"
+# if [[ "$TERM" != 'screen-256color' ]]; then
+#     BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
+#     [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+# fi
+# #BASE16_SHELL="$HOME/jc_home/base16-shell/scripts/base16-$BASE16_SCHEME.sh"
+# TERM="screen-256color"
+BASE16_SHELL="$HOME/jc_home/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+base16_monokai
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

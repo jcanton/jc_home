@@ -307,7 +307,11 @@ if has("gui_running")
 	" colorscheme solarized
 else
 	let base16colorspace=256
-	colorscheme base16-xcode-dusk
+	if filereadable(expand("~/.vimrc_background"))
+		source ~/.vimrc_background
+	else
+		colorscheme base16-xcode-dusk
+	endif
 endif
 
 " " Colorscheme
