@@ -97,6 +97,9 @@ alias 2falcon='ssh -Y jcanton@falcon.ethz.ch -t $@ "tmux attach || tmux new"'
 alias 2pandan='ssh -Y jcanton@panda.ethz.ch'
 alias 2falconn='ssh -Y jcanton@falcon.ethz.ch'
 
+alias 2euler='ssh -Y jcanton@euler.ethz.ch -t $@ "tmux attach || tmux new"'
+alias 2eulern='ssh -Y jcanton@euler.ethz.ch'
+
 #------------------------------------------------------------------------------
 # git autocompletion
 #
