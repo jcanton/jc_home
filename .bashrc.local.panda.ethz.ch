@@ -36,3 +36,6 @@ export FLUIDDYN_PATH_SCRATCH=/scratch/jcanton/fluidsim/scratch
 # for smarties
 export PATH=/opt/mpich/bin/:$PATH
 export LD_LIBRARY_PATH=/opt/mpich/lib/:$LD_LIBRARY_PATH
+
+# git
+#export PATH="/home/jcanton/bin:$PATH"
