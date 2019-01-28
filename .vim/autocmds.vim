@@ -67,7 +67,7 @@ endfunction
 
 augroup pyton
 au!
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=80 noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic autowrite
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal expandtab shiftwidth=4 tabstop=4
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldlevel=99
