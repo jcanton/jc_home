@@ -19,9 +19,9 @@ alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
 
 alias visit='/Applications/VisIt.app/Contents/MacOS/VisIt'
 
-alias paraview='/Applications/ParaView-5.5.2.app/Contents/MacOS/paraview'
+alias paraview='/Applications/ParaView.app/Contents/MacOS/paraview'
 
-alias matlab='/Applications/MATLAB_R2018a.app/bin/matlab'
+alias matlab='/Applications/MATLAB_R2018b.app/bin/matlab'
 
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
@@ -48,6 +48,8 @@ alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+# installing so matplotlib does not complain
+#PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.7.1
 
 # # set default python3
 # export PATH=/usr/local/opt/python/libexec/bin:$PATH
