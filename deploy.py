@@ -42,7 +42,7 @@ def check_delete_link(fname, lfname=''):
 	if os.path.exists(fpath):
 		if (not os.path.islink(fpath)):
 			# old file
-			usrIn = raw_input('\tFound '+fname+' delete? y/[n] ')
+			usrIn = input('\tFound '+fname+' delete? y/[n] ')
 			if (usrIn == 'y'):
 				print('    Removing old '+fname)
 				delete(fpath)
@@ -129,6 +129,12 @@ os.chdir('..')
 check_delete_link('.vim')
 check_delete_link('.vimrc')
 check_delete_link('.vimrc.local')
+
+#------------------------------------------------------------------------------
+# deploy karabiner
+#
+if (system == 'Darwin'):
+	check_delete_link('.config/karabiner', 'karabiner')
 
 ##------------------------------------------------------------------------------
 ## deploy xoural (LET'S FORGET ABOUT THIS)
