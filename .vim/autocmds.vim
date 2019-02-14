@@ -10,8 +10,8 @@
 
 augroup CSELabCppfiles
 au!
-autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h setlocal tw=80 cin noic autowrite
-autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h setlocal expandtab shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal tw=80 cin noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal expandtab shiftwidth=4 tabstop=4
 augroup END
 
 augroup f77
@@ -97,12 +97,12 @@ augroup END
 
 augroup makable
 au!
-autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
-autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
-autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
-autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
-autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
-autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
+autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
+autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
+autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
 augroup END
 
 augroup scripts
