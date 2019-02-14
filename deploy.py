@@ -71,7 +71,10 @@ call("git submodule update", shell=True)
 #
 check_delete_link('.bashrc')
 
-check_delete_link('.bashrc.local', '.bashrc.local.'+hostname)
+if (hostname[0:8] == 'eu-login'): # we are on Euler.ethz.ch
+    check_delete_link('.bashrc.local', '.bashrc.local.euler.ethz.ch')
+else:
+    check_delete_link('.bashrc.local', '.bashrc.local.'+hostname)
 
 if (system == 'Darwin'):
 	check_delete_link('.bash_profile', '.bash_profile.osx')
