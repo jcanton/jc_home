@@ -1,7 +1,7 @@
 # PANDA and FALCON specific settings:
 
 module purge
-module load gnu openmpi/3.1.3 fftw # hdf5 fftw
+module load gnu mpich #openmpi/3.1.3 fftw # hdf5 fftw
 
 ## # for CubismUP
 ## export FFTWDIR=/home/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
@@ -24,11 +24,10 @@ PATH="/home/jcanton/codes/tmux/bin:$PATH"
 #export LC_MONETARY="en_US.utf8"
 #export LC_CTYPE="en_US.utf8"
 
-# export PYTHONPATH="/home/jcanton/codes/spectralDNS/build/lib/python2.7/site-packages/"
-
-export PATH="/home/jcanton/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+# initialize pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
 export FLUIDSIM_PATH=/scratch/jcanton/fluidsim/Data
 export FLUIDDYN_PATH_SCRATCH=/scratch/jcanton/fluidsim/scratch
