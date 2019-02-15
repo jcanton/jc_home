@@ -81,6 +81,9 @@ alias matlabs='matlab -nodesktop -nosplash'
 function svim() { gvim "$@" &> /dev/null ;}
 alias gig='git log --graph --all --decorate --oneline'
 alias tm='tmux'
+alias tml='tmux ls'
+alias tmn='tmux new -s'
+alias tma='tmux attach -t'
 
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
@@ -92,7 +95,7 @@ alias 2sisu='ssh -X pr1s0109@sisu.csc.fi'
 alias 2triolith='ssh -X x_jacca@triolith.nsc.liu.se'
 alias 2panda='ssh -Y jcanton@panda.ethz.ch'
 alias 2falcon='ssh -Y jcanton@falcon.ethz.ch'
-alias 2euler='ssh -Y jcanton@euler.ethz.ch'
+alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
 
 #------------------------------------------------------------------------------
 # git autocompletion

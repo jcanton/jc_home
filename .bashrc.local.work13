@@ -3,12 +3,12 @@
 # set colors
 export CLICOLOR=1
 
-# set path for mvim
-PATH="~/.vim:${PATH}"
+# # set path for mvim
+# PATH="~/.vim:${PATH}"
 
-function gvim() { mvim "$@" &> /dev/null ;}
-alias svim='gvim'
-alias mvim='gvim'
+# function gvim() { mvim "$@" &> /dev/null ;}
+# alias svim='gvim'
+# alias mvim='gvim'
 
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 function sim() { skim "$@" &> /dev/null ;}
