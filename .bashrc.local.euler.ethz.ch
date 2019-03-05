@@ -21,7 +21,8 @@ LD_LIBRARY_PATH="/cluster/home/jcanton/codes/lib:$LD_LIBRARY_PATH"
 # for smarties
 module purge
 #module load new modules gcc/6.3.0 mvapich2/2.2 binutils/2.25 hwloc/1.11.0 openblas/0.2.13_seq
-module load new gcc/6.3.0 open_mpi/2.1.1 hwloc/1.11.0 fftw_sp/3.3.4 openblas/0.2.13_seq python/3.6.1
+module load new gcc/6.3.0 open_mpi/2.1.1 hwloc/1.11.0 fftw_sp/3.3.4 openblas/0.2.13_seq #python/3.6.1
 
-# # git
-# #export PATH="/home/jcanton/bin:$PATH"
+# # pyenv
+# export PATH="/cluster/home/jcanton/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
