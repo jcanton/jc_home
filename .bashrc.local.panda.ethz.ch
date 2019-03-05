@@ -17,24 +17,16 @@ alias paraview="vglrun -c proxy paraview"
 
 PATH="/home/jcanton/codes/tmux/bin:$PATH"
 
-## FUCKING FUCK FUCK
-#export LANG="en_US.utf8"
-#export LC_MEASUREMENT="en_US.utf8"
-#export LC_NUMERIC="en_US.utf8"
-#export LC_MONETARY="en_US.utf8"
-#export LC_CTYPE="en_US.utf8"
-
 # initialize pyenv
+export PATH="/home/jcanton/.pyenv/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+#alias pip="python -m pip"
 
-export FLUIDSIM_PATH=/scratch/jcanton/fluidsim/Data
-export FLUIDDYN_PATH_SCRATCH=/scratch/jcanton/fluidsim/scratch
-
-# for smarties
-export PATH=/opt/mpich/bin/:$PATH
-export LD_LIBRARY_PATH=/opt/mpich/lib/:$LD_LIBRARY_PATH
-
-# git
-#export PATH="/home/jcanton/bin:$PATH"
+#export FLUIDSIM_PATH=/scratch/jcanton/fluidsim/Data
+#export FLUIDDYN_PATH_SCRATCH=/scratch/jcanton/fluidsim/scratch
+#
+## for smarties
+#export PATH=/opt/mpich/bin/:$PATH
+#export LD_LIBRARY_PATH=/opt/mpich/lib/:$LD_LIBRARY_PATH
