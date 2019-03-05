@@ -25,3 +25,8 @@
 	remote = yellow
 [push]
 	default = current
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
