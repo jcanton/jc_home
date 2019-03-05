@@ -8,7 +8,7 @@ BASE16_SHELL="$HOME/jc_home/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-base16_monokai
+base16_solarized-light
 
 
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
@@ -21,6 +21,7 @@ alias paraview='/Applications/ParaView.app/Contents/MacOS/paraview'
 alias matlab='/Applications/MATLAB_R2018b.app/bin/matlab'
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
+export CC=g++-8
 
 ## # compilers for Cubism
 ## export CC=gcc-8
