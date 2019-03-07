@@ -28,7 +28,13 @@
 "------------------------------------------------------------------------------
 call plug#begin()
 Plug 'ikicic/vim-tmux-navigator'
+Plug 'fcpg/vim-osc52'
 call plug#end()
+
+augroup SendClipboard
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' | call SendViaOSC52(getreg('+')) | endif
+augroup END
 
 
 "------------------------------------------------------------------------------
