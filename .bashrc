@@ -83,6 +83,8 @@ alias 2panda='ssh -Y jcanton@panda.ethz.ch'
 alias 2falcon='ssh -Y jcanton@falcon.ethz.ch'
 alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
 
+PATH="$HOME/.local/bin:$PATH"
+
 #------------------------------------------------------------------------------
 # git autocompletion
 #
