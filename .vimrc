@@ -20,19 +20,15 @@
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
-"
 "------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
 call plug#begin()
-Plug 'ikicic/vim-tmux-navigator'
-Plug 'fcpg/vim-osc52'
+Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
+"Plug 'fcpg/vim-osc52' " test copy to clipboard not really working well
+Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
+Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
 call plug#end()
-
-" augroup SendClipboard
-"     autocmd!
-"     autocmd TextYankPost * if v:event.operator ==# 'y' | call SendViaOSC52(getreg('+')) | endif
-" augroup END
 
 
 "------------------------------------------------------------------------------
@@ -339,8 +335,8 @@ set ffs=unix,dos,mac
 set smarttab
 
 " 1 tab = 3 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=3
+set tabstop=3
 
 " convert all tabs to spaces when opening a file that has tabs in it
 " if has("autocmd")
