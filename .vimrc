@@ -7,9 +7,7 @@
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
-"    -> Files and backups
 "    -> Text, tab and indent related
-"    -> Visual mode related
 "    -> Moving around, tabs and buffers
 "    -> Status line
 "    -> miniBuf
@@ -31,10 +29,10 @@ Plug 'ikicic/vim-tmux-navigator'
 Plug 'fcpg/vim-osc52'
 call plug#end()
 
-augroup SendClipboard
-    autocmd!
-    autocmd TextYankPost * if v:event.operator ==# 'y' | call SendViaOSC52(getreg('+')) | endif
-augroup END
+" augroup SendClipboard
+"     autocmd!
+"     autocmd TextYankPost * if v:event.operator ==# 'y' | call SendViaOSC52(getreg('+')) | endif
+" augroup END
 
 
 "------------------------------------------------------------------------------
@@ -158,6 +156,10 @@ call SetupVAM()
 " => General
 "------------------------------------------------------------------------------
 
+" Do not wait after a keystroke if there is no command defined with that key
+" as first
+set ttimeoutlen=0
+
 " Always autosave everything when focus is lost
 :au FocusLost * :wa
 
@@ -252,8 +254,8 @@ set ruler
 " set hid
 
 " Configure backspace so it acts as it should act
-" set backspace=eol,start,indent
-" set whichwrap+=<,>,h,l
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 " When searching try to be smart about cases
 set smartcase
@@ -320,33 +322,11 @@ else
 	endif
 endif
 
-" " Colorscheme
-" colorscheme default
-" if has("gui_running")
-"    set background=dark
-" 	"let hour = strftime("%H")
-" 	"if 7 <= hour && hour < 20
-"    "	set background=light
-" 	"else
-"    "	set background=dark
-" 	"endif
-" endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
-
-"------------------------------------------------------------------------------
-" => Files, backups and undo
-"------------------------------------------------------------------------------
-
-" Turn backup off, since most stuff is in SVN, git et.c anyway...
-" set nobackup
-" set nowb
-" set noswapfile
-
 
 "------------------------------------------------------------------------------
 " => Text, tab and indent related
@@ -359,8 +339,8 @@ set ffs=unix,dos,mac
 set smarttab
 
 " 1 tab = 3 spaces
-set shiftwidth=3
-set tabstop=3
+set shiftwidth=4
+set tabstop=4
 
 " convert all tabs to spaces when opening a file that has tabs in it
 " if has("autocmd")
@@ -373,23 +353,13 @@ set linebreak
 " set textwidth=80
 
 "------------------------------------------------------------------------------
-" => Visual mode related
-"------------------------------------------------------------------------------
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
-
-
-"------------------------------------------------------------------------------
 " => Moving around, tabs, windows and buffers
 "------------------------------------------------------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
 " map j gj
 " map k gk
-" THIS has been substituted by Pencil
+" substituted with Pencil
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 noremap <space> /
