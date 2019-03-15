@@ -306,7 +306,7 @@ if has("gui_running")
 	"
 	" base16 configuration
 	let base16colorspace=256
-	colorscheme base16-solarized-dark
+	colorscheme base16-solarized-light
 	" alternative Solarized addon
 	" colorscheme solarized
 else
