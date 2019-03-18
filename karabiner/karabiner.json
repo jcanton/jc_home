@@ -19,7 +19,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "left_command",
+                                    "key_code": "fn",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -28,7 +28,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "left_command"
+                                        "key_code": "fn"
                                     }
                                 ],
                                 "to_after_key_up": [
@@ -46,7 +46,7 @@
                                     "key_code": "m",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_command"
+                                            "fn"
                                         ],
                                         "optional": [
                                             "any"
