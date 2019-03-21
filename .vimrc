@@ -21,6 +21,21 @@
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 "------------------------------------------------------------------------------
+" very controversial test:
+"------------------------------------------------------------------------------
+"noremap ; l
+"noremap l k
+"noremap k j
+"noremap j h
+
+" Smart way to move between windows
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
+"noremap <C-;> <C-W>;
+
+"------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
 call plug#begin()
@@ -420,12 +435,6 @@ set viminfo^=%
 
 " Re-map NERDtree
 noremap <C-n> :NERDTreeToggle<CR>
-
-" Smart way to move between windows
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-h> <C-W>h
-noremap <C-l> <C-W>l
 
 " Change colour for directories
 " hi Directory guifg=#FF0000 ctermfg=red
