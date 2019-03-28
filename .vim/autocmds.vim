@@ -39,11 +39,12 @@ au!
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
 autocmd BufRead,BufNewFile,BufEnter *.tex call pencil#init()
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal conceallevel=0
-autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> :!make<CR>
-autocmd BufRead,BufNewFile,BufEnter *.tex map <F5> :!make clean<NL>
 "autocmd BufRead,BufNewFile,BufEnter *.tex imap <C-i> <Plug>IMAP_JumpForward
 autocmd BufRead,BufNewFile,BufEnter *.tex nmap <C-i> <Plug>IMAP_JumpForward
 "autocmd BufRead,BufNewFile,BufEnter *.tex iunmap <Tab>
+autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> <ESC>:w<CR><leader>ll
+autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> <ESC>:w<CR><leader>lv
+"
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
