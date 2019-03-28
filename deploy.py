@@ -131,7 +131,10 @@ os.chdir('..')
 #
 check_delete_link('.vim')
 check_delete_link('.vimrc')
-check_delete_link('.vimrc.local')
+if (system == 'Darwin'):
+    check_delete_link('.vimrc.local', '.vimrc.local.osx')
+else:
+    check_delete_link('.vimrc.local')
 
 #------------------------------------------------------------------------------
 # deploy karabiner

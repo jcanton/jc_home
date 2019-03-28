@@ -4,3 +4,7 @@
 
 " Font
 set guifont=Monospace\ 10
+
+
+" Change the NERDTree delimiter but only on mac
+let g:NERDTreeNodeDelimiter = "\u00a0"
