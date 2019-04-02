@@ -85,6 +85,9 @@ alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
 
 # my compiled software
 PATH="$HOME/.local/bin:$PATH"
+INCLUDE="$HOME/.local/include:$INCLUDE"
+LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
+
 
 #------------------------------------------------------------------------------
 # git autocompletion

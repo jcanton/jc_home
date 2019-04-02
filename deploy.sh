@@ -41,5 +41,6 @@ cd tmux
 git pull
 ./autogen.sh
 ./configure --prefix=$TARGET
+./configure --prefix=$TARGET CFLAGS="-I$TARGET/include" LDFLAGS="-L$TARGET/lib"
 make -j$JOBS
 make install
