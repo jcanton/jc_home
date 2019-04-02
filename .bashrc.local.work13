@@ -21,7 +21,7 @@ alias paraview='/Applications/ParaView.app/Contents/MacOS/paraview'
 alias matlab='/Applications/MATLAB_R2018b.app/bin/matlab'
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
-export CC=g++-8
+export CC=gcc-8
 
 ## # compilers for Cubism
 ## export CC=gcc-8
