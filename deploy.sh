@@ -39,8 +39,7 @@ cd $TARGET/repo
 git clone --depth 1 https://github.com/tmux/tmux.git || true
 cd tmux
 git pull
-./autogen.sh
-./configure --prefix=$TARGET
-./configure --prefix=$TARGET CFLAGS="-I$TARGET/include" LDFLAGS="-L$TARGET/lib"
+./autogen.sh                 # the following is needed on computers without libevents
+./configure --prefix=$TARGET #CFLAGS="-I$TARGET/include" LDFLAGS="-L$TARGET/lib"
 make -j$JOBS
 make install
