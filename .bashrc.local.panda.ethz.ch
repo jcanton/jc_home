@@ -15,8 +15,6 @@ ulimit -s unlimited
 alias visit="vglrun -c proxy /opt/visit/bin/visit"
 alias paraview="vglrun -c proxy paraview"
 
-PATH="/home/jcanton/codes/tmux/bin:$PATH"
-
 # initialize pyenv
 export PATH="/home/jcanton/.pyenv/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
