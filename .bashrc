@@ -65,7 +65,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #
 alias matlabs='matlab -nodesktop -nosplash'
 function svim() { gvim "$@" &> /dev/null ;}
+
 alias gig='git log --graph --all --decorate --oneline'
+alias gis='git status'
+alias gic='git commit'
+alias gia='git add'
+
 alias tm='tmux'
 alias tml='tmux ls'
 alias tmn='tmux new -s'
@@ -82,6 +87,8 @@ alias 2triolith='ssh -X x_jacca@triolith.nsc.liu.se'
 alias 2panda='ssh -Y jcanton@panda.ethz.ch'
 alias 2falcon='ssh -Y jcanton@falcon.ethz.ch'
 alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
+alias 2ela='ssh -Y jcanton@ela.cscs.ch'
+alias 2daint='ssh -Y jcanton@daint.cscs.ch'
 
 # my compiled software
 PATH="$HOME/.local/bin:$PATH"
