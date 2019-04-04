@@ -73,6 +73,8 @@ check_delete_link('.bashrc')
 
 if (hostname[0:8] == 'eu-login'): # we are on Euler.ethz.ch
     check_delete_link('.bashrc.local', '.bashrc.local.euler.ethz.ch')
+elif (hostname[0:3] == 'ela'): # we are on ela
+    check_delete_link('.bashrc.local', '.bashrc.local.ela.cscs.ch')
 else:
     check_delete_link('.bashrc.local', '.bashrc.local.'+hostname)
 
