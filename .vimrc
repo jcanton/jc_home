@@ -344,14 +344,14 @@ set ffs=unix,dos,mac
 "------------------------------------------------------------------------------
 
 " Use spaces instead of tabs
-" set expandtab
+set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
 
-" 1 tab = 3 spaces
-set shiftwidth=3
-set tabstop=3
+" 1 tab = 4 spaces
+set shiftwidth=4
+set tabstop=4
 
 " convert all tabs to spaces when opening a file that has tabs in it
 " if has("autocmd")
@@ -450,6 +450,15 @@ if has("autocmd")
 
 	endif
 endif
+
+"------------------------------------------------------------------------------
+" Project dependent options
+"------------------------------------------------------------------------------
+" This allows per-project configuration files by reading .vimrc files in
+" non-home folders
+
+set exrc
+set secure
 
 "-------------------------------------------------------------------------------
 " Fortran stuff
