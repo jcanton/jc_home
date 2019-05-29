@@ -2,6 +2,9 @@ mkdir -p $HOME/.local/repo
 
 TARGET=$HOME/.local
 
+# BEFORE INSTALLING VIM with python support, install whatever python3 version with:
+# env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.7.1
+
 # vim
 cd $TARGET/repo
 git clone --depth 1 https://github.com/vim/vim.git || true
