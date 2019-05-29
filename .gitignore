@@ -22,3 +22,5 @@
 matplotlib/fontList.json
 matplotlib/fontlist-v300.json
 matplotlib/tex.cache/
+karabiner/automatic_backups
+.vim/plugged
