@@ -58,7 +58,7 @@ autocmd BufRead,BufNewFile,BufEnter *.tex setlocal iskeyword+=:
 " The following changes the default filetype back to 'tex':
 autocmd BufRead,BufNewFile,BufEnter *.tex let g:tex_flavor='latex'
 " tentative warning for kate-swp
-autocmd BufEnter *.tex call CheckKate()
+"autocmd BufEnter *.tex call CheckKate()
 augroup END
 
 function CheckKate()

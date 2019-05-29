@@ -3,14 +3,13 @@
 "
 " Sections:
 "    -> Vim-plug
-"    -> Vim Addon Manager
-"    -> General
+"    -> Utilsnips
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Text, tab and indent related
 "    -> Moving around, tabs and buffers
 "    -> Status line
-"    -> miniBuf
+"    -> The NERDTree
 "    -> File specific autocmds
 "    -> Fortran stuff
 "
@@ -43,125 +42,45 @@ Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 "Plug 'fcpg/vim-osc52' " test copy to clipboard not really working well
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
+Plug 'lervag/vimtex' " let's try this latex plugin
+Plug 'w0rp/ale' " Asynchronous Lint Engine
+Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs
+Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
+Plug 'honza/vim-snippets'  " snippets for the engine above
+Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
+Plug 'scrooloose/nerdtree' " The NERDTree
+Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 call plug#end()
 
 
 "------------------------------------------------------------------------------
-" => Vim Addon Manager
+" => Utilsnips
 "------------------------------------------------------------------------------
 
-set nocompatible | filetype indent plugin on | syn on
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-fun! EnsureVamIsOnDisk(plugin_root_dir)
-	" windows users may want to use http://mawercer.de/~marc/vam/index.php
-	" to fetch VAM, VAM-known-repositories and the listed plugins
-	" without having to install curl, 7-zip and git tools first
-	" -> BUG [4] (git-less installation)
-	let vam_autoload_dir = a:plugin_root_dir.'/vim-addon-manager/autoload'
-	if isdirectory(vam_autoload_dir)
-		return 1
-	else
-		if 1 == confirm("Clone VAM into ".a:plugin_root_dir."?","&Y\n&N")
-			" I'm sorry having to add this reminder. Eventually it'll pay off.
-			call confirm("Remind yourself that most plugins ship with ".
-			            \"documentation (README*, doc/*.txt). It is your ".
-			            \"first source of knowledge. If you can't find ".
-			            \"the info you're looking for in reasonable ".
-			            \"time ask maintainers to improve documentation")
-			call mkdir(a:plugin_root_dir, 'p')
-			execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '.
-			            \ shellescape(a:plugin_root_dir, 1).'/vim-addon-manager'
-			" VAM runs helptags automatically when you install or update
-			" plugins
-			exec 'helptags '.fnameescape(a:plugin_root_dir.'/vim-addon-manager/doc')
-		endif
-		return isdirectory(vam_autoload_dir)
-	endif
-endfun
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
-fun! SetupVAM()
-	" Set advanced options like this:
-	" let g:vim_addon_manager = {}
-	" let g:vim_addon_manager.key = value
-	"     Pipe all output into a buffer which gets written to disk
-	" let g:vim_addon_manager.log_to_buf =1
-	"
-	" Example: drop git sources unless git is in PATH. Same plugins can
-	" be installed from www.vim.org. Lookup MergeSources to get more control
-	" let g:vim_addon_manager.drop_git_sources = !executable('git')
-	" let g:vim_addon_manager.debug_activation = 1
+"------------------------------------------------------------------------------
+" => gutentags
+"------------------------------------------------------------------------------
 
-	" VAM install location:
-	let c = get(g:, 'vim_addon_manager', {})
-	let g:vim_addon_manager = c
-	let c.plugin_root_dir = expand('$HOME/.vim/vim-addons', 1)
-	if !EnsureVamIsOnDisk(c.plugin_root_dir)
-		echohl ErrorMsg | echomsg "No VAM found!" | echohl NONE
-		return
-	endif
-	let &rtp.=(empty(&rtp)?'':',').c.plugin_root_dir.'/vim-addon-manager'
-
-	" Tell VAM which plugins to fetch & load:
-	" call vam#ActivateAddons([], {'auto_install' : 0})
-	" sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
-	" Also See "plugins-per-line" below
-	call vam#ActivateAddons([], {})
-	"
-	" vim-pi: vim plugin index, lists all known vim plugins
-	ActivateAddons vim-pi
-	"
-	" some utility libraries
-	ActivateAddons tlib vim-addon-mw-utils
-	"
-	" snippets
-	ActivateAddons snipmate vim-snippets
-	" ActivateAddons UltiSnips vim-snippets (python-based alternative which I do not like)
-	"
-	" LaTeX Suite
-	" FUCKING FUCK seems not to be cloning anymore
-	ActivateAddons LaTeX-Suite_aka_Vim-LaTeX
-	"
-	" File browser
-	ActivateAddons The_NERD_tree
-	"
-	" Mini Buffer tabs
-	"ActivateAddons minibufexplorer
-	"
-	" Syntax colors
-	ActivateAddons python%790
-	"
-	" Additional indentation rules
-	ActivateAddons fortran
-	"
-	" Color schemes
-	"ActivateAddons Solarized
-	"
-	" Vim Pencil
-	ActivateAddons vim-pencil
-
-
-	" Addons are put into plugin_root_dir/plugin-name directory
-	" unless those directories exist. Then they are activated.
-	" Activating means adding addon dirs to rtp and do some additional
-	" magic
-
-	" How to find addon names?
-	" - look up source from pool
-	" - (<c-x><c-p> complete plugin names):
-	" You can use name rewritings to point to sources:
-	" ..ActivateAddons(["github:foo", .. => github://foo/vim-addon-foo
-	" ..ActivateAddons(["github:user/repo", .. => github://user/repo
-	" Also see section "2.2. names of addons and addon sources" in VAM's documentation
-endfun
-
-call SetupVAM()
-" experimental [E1]: load plugins lazily depending on filetype, See
-" NOTES
-" experimental [E2]: run after gui has been started (gvim) [3]
-" option1: au VimEnter * call SetupVAM()
-" option2: au GUIEnter * call SetupVAM()
-" See BUGS sections below [*]
-" Vim 7.0 users see BUGS section [3]
+let g:gutentags_project_root = ['.git', '.svn', '.root', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q', '--c++-kinds=+px', '--c-kinds=+px']
+let g:gutentags_trace = 1
+let g:gutentags_file_list_command = {
+            \  'markers': {
+                \  '.git': 'git ls-files',
+                \  '.hg': 'hg files',
+                \  }
+            \  }
 
 "------------------------------------------------------------------------------
 " => General
@@ -425,13 +344,8 @@ set viminfo^=%
 "set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
 
 "------------------------------------------------------------------------------
-" MiniBufExplorer and NERDtree
+" NERDtree
 "------------------------------------------------------------------------------
-
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1 
 
 " Re-map NERDtree
 noremap <C-n> :NERDTreeToggle<CR>
@@ -459,24 +373,6 @@ endif
 
 set exrc
 set secure
-
-"-------------------------------------------------------------------------------
-" Fortran stuff
-
-function SaneFortran (foo)
-    if a:foo == 'f95'
-        let g:fortran_have_tabs=1
-        let g:fortran_more_precise=1
-        let b:fortran_free_source=1
-        let b:fortran_fixed_source=0
-        let b:fortran_dialect="f95"
-        let b:fortran_do_enddo=1
-        source $HOME/.vim/vim-addons/fortran/indent/fortran.vim
-    else
-        unlet! fortran_free_source
-    endif
-    return 0
-endfunction
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "

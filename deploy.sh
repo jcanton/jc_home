@@ -8,7 +8,7 @@ git clone --depth 1 https://github.com/vim/vim.git || true
 cd vim
 git pull
 cd src
-./configure --prefix=$TARGET --with-features=huge
+./configure --prefix=$TARGET --with-features=huge --enable-python3interp --enable-multibyte
 make -j$JOBS
 make install
 
