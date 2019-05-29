@@ -8,3 +8,7 @@ set guifont=Monospace\ 10
 
 " Change the NERDTree delimiter but only on mac
 let g:NERDTreeNodeDelimiter = "\u00a0"
+
+" Set vimtex pdf viewer
+let g:vimtex_view_method = 'skim'
+let g:vimtex_view_general_viewer = 'skim'

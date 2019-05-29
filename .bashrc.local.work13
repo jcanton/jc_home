@@ -12,6 +12,7 @@ base16_solarized-light
 
 
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
+PATH="/Applications/Skim.app/Contents/MacOS:$PATH"
 function sim() { skim "$@" &> /dev/null ;}
 
 alias acroread='/Applications/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
