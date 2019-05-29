@@ -126,16 +126,11 @@ vnoremap <M-k> :m '<-2<CR>gv=gv
 " => VIM user interface
 "------------------------------------------------------------------------------
 
-"  " Changing the cursor shape between insert and normal mode
-"  if &term =~ "xterm\\|rxvt"
-"    " use an blue cursor in insert mode
-"    let &t_SI = "\<Esc>]12;blue\x7"
-"    " use a red cursor otherwise
-"    let &t_EI = "\<Esc>]12;red\x7"
-"    silent !echo -ne "\033]12;red\007"
-"    " reset cursor when vim exits
-"    autocmd VimLeave * silent !echo -ne "\003]12;gray\007"
-"  endif
+" Changing the cursor shape between insert and normal mode
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" 
+
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 " set so=7
