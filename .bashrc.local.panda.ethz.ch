@@ -1,7 +1,7 @@
 # PANDA and FALCON specific settings:
 
-module purge
-module load gnu mpich #openmpi/3.1.3 fftw # hdf5 fftw
+#module purge
+#module load gnu mpich #openmpi/3.1.3 fftw # hdf5 fftw
 
 ## # for CubismUP
 ## export FFTWDIR=/home/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
@@ -10,7 +10,7 @@ module load gnu mpich #openmpi/3.1.3 fftw # hdf5 fftw
 ## export PATH=/home/jcanton/codes/CubismUP_3D/dependencies/build/cmake-3.11.1/bin:$PATH
 
 # for Simson
-ulimit -s unlimited
+#ulimit -s unlimited
 
 alias visit="vglrun -c proxy /opt/visit/bin/visit"
 alias paraview="vglrun -c proxy paraview"
