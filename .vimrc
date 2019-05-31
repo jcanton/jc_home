@@ -45,7 +45,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tm
 Plug 'lervag/vimtex' " let's try this latex plugin
 Plug 'w0rp/ale' " Asynchronous Lint Engine
 Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs
-Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
+"Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
 Plug 'honza/vim-snippets'  " snippets for the engine above
 Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
 Plug 'scrooloose/nerdtree' " The NERDTree
@@ -97,8 +97,8 @@ set ttimeoutlen=0
 set history=700
 
 " Enable filetype plugins (already enabled for vim-addon-manager)
-"filetype plugin on
-"filetype indent on
+filetype plugin on
+filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
