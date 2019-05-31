@@ -57,6 +57,9 @@ call plug#end()
 " => Utilsnips
 "------------------------------------------------------------------------------
 
+" Directories for the snippets:
+let g:UltiSnipsSnippetDirectories=["ultiSnips"]
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
