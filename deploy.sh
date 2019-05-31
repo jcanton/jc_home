@@ -11,7 +11,12 @@ git clone --depth 1 https://github.com/vim/vim.git || true
 cd vim
 git pull
 cd src
-./configure --prefix=$TARGET --with-features=huge --enable-python3interp --enable-multibyte
+./configure --prefix=$TARGET \
+            --with-features=huge \
+            --enable-multibyte \
+            --enable-pythoninterp \
+            --enable-cscope
+            #--with-python3-config-dir=$HOME/.pyenv/versions/3.7.1/lib
 make -j$JOBS
 make install
 
