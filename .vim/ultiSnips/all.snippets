@@ -1,0 +1,28 @@
+# This file contains snippets that are always defined
+
+priority -50
+
+global !p
+from vimsnippets import make_box, get_comment_format
+endglobal
+
+#######################################################################
+#                           snippets follow                           #
+#######################################################################
+
+
+#`!p snip.rv=get_comment_format()[0]` XXX: [jcanton@ethz.ch; `!v strftime('%Y-%m-%d')`] $0
+snippet note "NOTE comment"
+// XXX: [jcanton@ethz.ch; `!v strftime('%Y-%m-%d')`] $0
+endsnippet
+
+snippet points "Points Header" b
+/******************************************************************************
+* Points:          ${2} / 8
+*
+* Corrected:       `!v strftime('%Y-%m-%d')`
+* TAs:             jcanton@ethz.ch & fabianw@mavt.ethz.ch
+* Description:     ${3}
+*****************************************************************************/
+${0}
+endsnippet

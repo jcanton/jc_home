@@ -39,26 +39,11 @@ au!
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
 autocmd BufRead,BufNewFile,BufEnter *.tex call pencil#init()
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal conceallevel=0
-"autocmd BufRead,BufNewFile,BufEnter *.tex imap <C-i> <Plug>IMAP_JumpForward
 autocmd BufRead,BufNewFile,BufEnter *.tex nmap <C-i> <Plug>IMAP_JumpForward
 "autocmd BufRead,BufNewFile,BufEnter *.tex iunmap <Tab>
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> <ESC>:w<CR><leader>ll
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> <ESC>:w<CR><leader>lv
-"
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-autocmd BufRead,BufNewFile,BufEnter *.tex setlocal grepprg=grep\ -nH\ $*
-" TIP: if you write your \label's as \label{fig:something}, then if you
-" type in \ref{fig: and press <C-n> you will automatically cycle through
-" all the figure labels. Very useful!
-autocmd BufRead,BufNewFile,BufEnter *.tex setlocal iskeyword+=:
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-autocmd BufRead,BufNewFile,BufEnter *.tex let g:tex_flavor='latex'
-" tentative warning for kate-swp
-"autocmd BufEnter *.tex call CheckKate()
+autocmd BufRead,BufNewFile,BufEnter *.tex ALEDisable
 augroup END
 
 function CheckKate()
