@@ -14,11 +14,6 @@ autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal tw=80 cin noic auto
 autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal expandtab shiftwidth=4 tabstop=4
 augroup END
 
-augroup f77
-au!
-autocmd BufRead,BufNewFile,BufEnter *.f setlocal tw=80 autowrite ic et syntax=fortran
-augroup END
-
 augroup usr
 au!
 autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal tw=0 autowrite ic et syntax=fortran
@@ -28,10 +23,20 @@ autocmd BufRead,BufNewFile,BufEnter USERPAR  setlocal tw=0 autowrite ic et synta
 autocmd BufRead,BufNewFile,BufEnter CHKPOINT setlocal tw=0 autowrite ic et syntax=fortran
 augroup END
 
-augroup f90
+augroup fortran
 au!
-autocmd BufRead,BufNewFile,BufEnter *.f90 setlocal tw=0 ic autowrite et
-autocmd BufRead,BufNewFile,BufEnter *.f90 call SaneFortran('f95') 
+autocmd BufRead,BufNewFile,BufEnter *.f   setlocal tw=80 autowrite ic et syntax=fortran
+autocmd BufRead,BufNewFile,BufEnter *.f90 setlocal tw=0  autowrite ic et
+augroup END
+
+augroup pyton
+au!
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal expandtab shiftwidth=4 tabstop=4
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldlevel=99
+"autocmd BufRead,BufNewFile,BufEnter *.py setlocal omnifunc=pythoncomplete#Complete
+"autocmd BufRead,BufNewFile,BufEnter *.py setlocal completeopt=menuone,longest,preview
 augroup END
 
 augroup tex
@@ -53,16 +58,6 @@ function CheckKate()
 		"echoerr "merda"
 	endif
 endfunction
-
-augroup pyton
-au!
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic autowrite
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal expandtab shiftwidth=4 tabstop=4
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldlevel=99
-"autocmd BufRead,BufNewFile,BufEnter *.py setlocal omnifunc=pythoncomplete#Complete
-"autocmd BufRead,BufNewFile,BufEnter *.py setlocal completeopt=menuone,longest,preview
-augroup END
 
 augroup txt
 au!
@@ -87,17 +82,10 @@ augroup END
 
 augroup makable
 au!
-autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
+autocmd BufRead    *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
 autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
-autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
-autocmd BufRead *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+autocmd BufEnter   *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :make<CR>
+autocmd BufRead    *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
 autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
-autocmd BufEnter *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+autocmd BufEnter   *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
 augroup END
-
-augroup scripts
-au!
-"autocmd BufRead,BufNewFile,BufEnter *.pl setlocal tw=0 smartindent noic 
-"autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 smartindent noic "ts=3 sw=3
-augroup END
-
