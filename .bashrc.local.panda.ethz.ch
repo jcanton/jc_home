@@ -3,6 +3,9 @@
 #module purge
 #module load gnu mpich #openmpi/3.1.3 fftw # hdf5 fftw
 
+module load intel openmpi
+export PATH="/home/jcanton/codes/nek5000_master/bin:$PATH:"
+
 ## # for CubismUP
 ## export FFTWDIR=/home/jcanton/codes/CubismUP_3D/dependencies/build/fftw-3.3.7/
 ## export HDF5_ROOT=/home/jcanton/codes/CubismUP_3D/dependencies/build/hdf5-1.10.1-parallel/
@@ -28,3 +31,6 @@ fi
 ## for smarties
 #export PATH=/opt/mpich/bin/:$PATH
 #export LD_LIBRARY_PATH=/opt/mpich/lib/:$LD_LIBRARY_PATH
+export SMARTIES_INCLUDE="/home/jcanton/codes/smarties_cartf90pole/include"
+export SMARTIES_LIB="/home/jcanton/codes/smarties_cartf90pole/lib"
+export SMARTIES_ROOT="/home/jcanton/codes/smarties_cartf90pole"
