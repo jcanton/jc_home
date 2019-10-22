@@ -215,6 +215,11 @@ PATH="/scratch/jcanton/software/gmsh/bin:$PATH"
 #LD_LIBRARY_PATH="/scratch/jcanton/software/tmux/libevent-2.1.8-stable/build/lib:$LD_LIBRARY_PATH"
 #LD_RUN_PATH="/scratch/jcanton/software/tmux/libevent-2.1.8-stable/build/lib:$LD_RUN_PATH"
 
+export LOCAL_LIBS="/home/mech/jcanton/.local/lib"
+export LD_LIBRARY_PATH="$LOCAL_LIBS:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/repo/libevent/.libs"
+export LD_RUN_PATH="$LOCAL_LIBS:$LD_RUN_PATH"
+
 #export PYTHONPATH="/scratch/jcanton/software/python/lib/python2.7/site-packages"
 
 # FUCKING FUCK FUCK
