@@ -16,17 +16,11 @@ augroup END
 
 augroup usr
 au!
-autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal tw=0 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter *.upar   setlocal tw=0 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter SIZE     setlocal tw=0 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter USERPAR  setlocal tw=0 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter CHKPOINT setlocal tw=0 autowrite ic et syntax=fortran
-augroup END
-
-augroup fortran
-au!
-autocmd BufRead,BufNewFile,BufEnter *.f   setlocal tw=80 autowrite ic et syntax=fortran
-autocmd BufRead,BufNewFile,BufEnter *.f90 setlocal tw=0  autowrite ic et
+autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
+autocmd BufRead,BufNewFile,BufEnter *.upar   setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
+autocmd BufRead,BufNewFile,BufEnter SIZE     setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
+autocmd BufRead,BufNewFile,BufEnter USERPAR  setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
+autocmd BufRead,BufNewFile,BufEnter CHKPOINT setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
 augroup END
 
 augroup pyton
