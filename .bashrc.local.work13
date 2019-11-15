@@ -79,5 +79,11 @@ sshmount() {
         sshfs daint:/scratch/snx3000/jcanton/  sshfsVolumes/daint   -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/daint
 
+    elif [ "$1" == "erebos" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/erebos
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@erebos.mech.kth.se:/scratch/jcanton ./sshfsVolumes/erebos
+        cd sshfsVolumes/erebos
+
     fi
 }
