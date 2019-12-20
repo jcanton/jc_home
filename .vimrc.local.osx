@@ -10,5 +10,16 @@ set guifont=Monospace\ 10
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 " Set vimtex pdf viewer
-let g:vimtex_view_method = 'skim'
-let g:vimtex_view_general_viewer = 'skim'
+let g:vimtex_view_method = 'mupdf'
+let g:vimtex_view_general_viewer = 'mupdf'
+"let g:vimtex_compiler_callback_hooks = ['MyTestHook']
+"function MyTestHook(status)
+"    echom a:status
+"endfunction
+
+" Needs:
+" brew install xdotool
+" defaults write org.x.X11 enable_test_extensions -boolean true
+" defaults write org.macosforge.xquartz.X11 enable_test_extensions -boolean true
+" brew install mupdf
+" ln -s /usr/local/bin/mupdf-gl /usr/local/bin/mupdf
