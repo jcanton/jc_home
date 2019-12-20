@@ -55,6 +55,12 @@ sshmount() {
         sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@panda.ethz.ch:/scratch/jcanton ./sshfsVolumes/panda
         cd sshfsVolumes/panda
 
+    elif [ "$1" == "pandaHome" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/pandaHome
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@panda.ethz.ch:/home/jcanton ./sshfsVolumes/pandaHome
+        cd sshfsVolumes/pandaHome
+
     elif [ "$1" == "falcon" ]; then
         cd
         diskutil umount force ./sshfsVolumes/falcon
@@ -66,6 +72,12 @@ sshmount() {
         diskutil umount force ./sshfsVolumes/barry
         sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@barry.ethz.ch:/scratch/jcanton ./sshfsVolumes/barry
         cd sshfsVolumes/barry
+
+    elif [ "$1" == "barryHome" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/barryHome
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@barry.ethz.ch:/home/jcanton ./sshfsVolumes/barryHome
+        cd sshfsVolumes/barryHome
 
     elif [ "$1" == "euler" ]; then
         cd
