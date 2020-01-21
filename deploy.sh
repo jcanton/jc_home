@@ -20,7 +20,7 @@ cd src
 make -j$JOBS
 make install
 
-# git
+# git (on mac use `brew install git` and `git config --global credential.helper osxkeychain`)
 cd $TARGET/repo
 git clone --depth 1 https://github.com/git/git.git || true
 cd git
