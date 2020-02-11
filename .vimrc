@@ -20,32 +20,15 @@
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 "------------------------------------------------------------------------------
-" very controversial test:
-"------------------------------------------------------------------------------
-"noremap ; l
-"noremap l k
-"noremap k j
-"noremap j h
-
-" Smart way to move between windows
-noremap <C-h> <C-W>h
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-l> <C-W>l
-"noremap <C-;> <C-W>;
-
-"------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
 call plug#begin()
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
-"Plug 'fcpg/vim-osc52' " test copy to clipboard not really working well
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
 Plug 'lervag/vimtex' " let's try this latex plugin
 Plug 'w0rp/ale' " Asynchronous Lint Engine
 Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs
-" Plug 'lambdalisue/vim-pyenv' " See if this fixes pyenv issues
 Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
 Plug 'honza/vim-snippets'  " snippets for the engine above
 Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
@@ -104,6 +87,12 @@ let g:gutentags_file_list_command = {
 "------------------------------------------------------------------------------
 " => General
 "------------------------------------------------------------------------------
+
+" Smart way to move between windows
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
 
 " Do not wait after a keystroke if there is no command defined with that key
 " as first
