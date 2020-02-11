@@ -34,6 +34,7 @@ Plug 'honza/vim-snippets'  " snippets for the engine above
 Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
 Plug 'scrooloose/nerdtree' " The NERDTree
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
+Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 call plug#end()
 
 "------------------------------------------------------------------------------
