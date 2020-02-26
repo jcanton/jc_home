@@ -1,0 +1,50 @@
+{
+    "languageserver": {
+
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        },
+
+        "fortran": {
+            "command": "fortls",
+            "filetypes": ["fortran"],
+            "rootPatterns": [".fortls", ".git/"]
+        },
+
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
+    },
+
+    //"suggest.noselect": false,
+    "suggest.triggerAfterInsertEnter": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "json",
+    "c",
+    "cpp",
+    "python",
+    "fortran"
+  ]
+}
