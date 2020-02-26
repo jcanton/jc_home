@@ -8,7 +8,7 @@
 "------------------------------------------------------------------------------
 
 
-augroup CSELabCppfiles
+augroup Cpp
 au!
 autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal tw=80 cin noic autowrite
 autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal expandtab shiftwidth=4 tabstop=4

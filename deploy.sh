@@ -20,7 +20,7 @@ cd src
 make -j$JOBS
 make install
 
-# git
+# git (on mac use `brew install git` and `git config --global credential.helper osxkeychain`)
 cd $TARGET/repo
 git clone --depth 1 https://github.com/git/git.git || true
 cd git
@@ -51,3 +51,10 @@ git pull
 ./configure --prefix=$TARGET #CFLAGS="-I$TARGET/include" LDFLAGS="-L$TARGET/lib"
 make -j$JOBS
 make install
+
+# Nerd fonts
+cd $TARGET/repo
+git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git
+cd nerd-fonts
+git pull
+./install.sh IBMPlexMono # AND set 'BlexMono Nerd Font -> Medium - 13' as terminal font

@@ -71,6 +71,8 @@ alias gis='git status'
 alias gic='git commit'
 alias gia='git add'
 
+alias vim='nvim'
+
 alias tm='tmux'
 alias tml='tmux ls'
 alias tmn='tmux new -s'

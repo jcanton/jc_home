@@ -10,8 +10,11 @@
 "    -> Moving around, tabs and buffers
 "    -> Status line
 "    -> The NERDTree
+"    -> The NERDCommenter
+"    -> CoC configuration
+"    -> Project dependent options
 "    -> File specific autocmds
-"    -> Fortran stuff
+"    -> Local vimrc
 "
 "    take a look at this when you have the time
 "    https://github.com/nathanaelkane/vim-indent-guides
@@ -20,37 +23,27 @@
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
 "------------------------------------------------------------------------------
-" very controversial test:
-"------------------------------------------------------------------------------
-"noremap ; l
-"noremap l k
-"noremap k j
-"noremap j h
-
-" Smart way to move between windows
-noremap <C-h> <C-W>h
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-l> <C-W>l
-"noremap <C-;> <C-W>;
-
-"------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
 call plug#begin()
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
-"Plug 'fcpg/vim-osc52' " test copy to clipboard not really working well
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
 Plug 'lervag/vimtex' " let's try this latex plugin
-Plug 'w0rp/ale' " Asynchronous Lint Engine
-Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs
-" Plug 'lambdalisue/vim-pyenv' " See if this fixes pyenv issues
-Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
-Plug 'honza/vim-snippets'  " snippets for the engine above
-Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
-Plug 'scrooloose/nerdtree' " The NERDTree
+" Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs (propably needed for synctex, maybe not)
+" Plug 'dense-analysis/ale' " Asynchronous Lint Engine Substituted  with CoC
+" Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
+" Plug 'honza/vim-snippets'  " snippets for the engine above
+" Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
+Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree' " The NERDTree
+Plug 'preservim/nerdcommenter' " The NERDcommenter
+Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks. 
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
+Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
 call plug#end()
 
 "------------------------------------------------------------------------------
@@ -61,28 +54,29 @@ call plug#end()
 let g:UltiSnipsSnippetDirectories=["ultiSnips"]
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Vim's popup menu doesn't select the first completion item, but rather just
-" inserts the longest common text of all matches; and the menu will come up
-" even if there's only one match
-set completeopt=longest,menuone
-
-" Change the behavior of the <Enter> key when the popup menu is visible. In
-" that case the Enter key will simply select the highlighted menu item, just
-" as <C-Y> does
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" This is probably all old stuff for omnicomplete but I am not 100% sure
+" " Vim's popup menu doesn't select the first completion item, but rather just
+" " inserts the longest common text of all matches; and the menu will come up
+" " even if there's only one match
+" set completeopt=longest,menuone
+" 
+" " Change the behavior of the <Enter> key when the popup menu is visible. In
+" " that case the Enter key will simply select the highlighted menu item, just
+" " as <C-Y> does
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" 
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+"   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" 
+" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+"   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 "------------------------------------------------------------------------------
 " => gutentags
@@ -105,10 +99,16 @@ let g:gutentags_file_list_command = {
 " => General
 "------------------------------------------------------------------------------
 
+" Smart way to move between windows
+noremap <C-h> <C-W>h
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-l> <C-W>l
+
 " Do not wait after a keystroke if there is no command defined with that key
 " as first
 " set ttimeoutlen=0
-set timeoutlen=1000 ttimeoutlen=0
+" set timeoutlen=1000 ttimeoutlen=0
 
 
 " Always autosave everything when focus is lost
@@ -127,13 +127,6 @@ set autoread
 " Enable extended % matching (make it work with if/elseif/else/end)
 runtime macros/matchit.vim
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-" let mapleader = ","
-" let g:mapleader = ","
-
-" Fast saving
-" nmap <leader>w :w!<cr>
 
 " Moving lines
 nnoremap <M-j> :m .+1<CR>==
@@ -174,9 +167,9 @@ let g:pencil#wrapModeDefault = 'soft'
 " highlight current line (slows down scrolling)
 " set cursorline
 
-" some gui options (as hide menus)
-set guioptions=agirLM"mT
-set vb t_vb=
+" " some gui options (as hide menus)
+" set guioptions=agirLM"mT
+" set vb t_vb=
 
 " display vertical bar at 81st column
 " set cc=81
@@ -192,12 +185,6 @@ set wildmode=list:longest
 
 "Always show current position
 set ruler
-
-" Height of the command bar
-" set cmdheight=2
-
-" A buffer becomes hidden when it is abandoned
-" set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -307,12 +294,14 @@ set linebreak
 " map k gk
 " substituted with Pencil
 
+" Conflicts with other mappings
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-noremap <space> /
-noremap <c-space> ?
+" noremap <space> /
+" noremap <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 noremap <silent> <leader><cr> :noh<cr>
+noremap <silent> <Space><cr> :noh<cr>
 
 " Close the current buffer
 " map <leader>bd :Bclose<cr>
@@ -366,19 +355,63 @@ set viminfo^=%
 " Re-map NERDtree
 noremap <C-n> :NERDTreeToggle<CR>
 
-" Change colour for directories
-" hi Directory guifg=#FF0000 ctermfg=red
+" open NERDTree automatically
+" autocmd VimEnter * NERDTree | wincmd p
+
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" " Sync the open file with NERDTree
+" " Check if NERDTree is open or active
+" function! IsNERDTreeOpen()        
+"     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+" endfunction
+" " Call NERDTreeFind iff NERDTree is active, current window contains a
+" " modifiable file, and we are not in vimdiff
+" function! SyncTree()
+"     if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"         NERDTreeFind
+"         wincmd p
+"     endif
+" endfunction
+" " Highlight currently open buffer in NERDTree
+" autocmd BufEnter * call SyncTree()
 
 "------------------------------------------------------------------------------
-" File dependent options
+" NERDCommenter
 "------------------------------------------------------------------------------
+vmap <Space>/ <plug>NERDCommenterToggle
+nmap <Space>/ <plug>NERDCommenterToggle
 
-if has("autocmd")
-	if filereadable(glob("$HOME/.vim/autocmds.vim"))
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
-		source $HOME/.vim/autocmds.vim
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
 
-	endif
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+"------------------------------------------------------------------------------
+" Load CoC configuration
+"------------------------------------------------------------------------------
+if filereadable(glob("$HOME/.vim/coc-config.vim"))
+   source $HOME/.vim/coc-config.vim
 endif
 
 "------------------------------------------------------------------------------
@@ -389,6 +422,16 @@ endif
 
 set exrc
 set secure
+
+"------------------------------------------------------------------------------
+" File specific autocmds
+"------------------------------------------------------------------------------
+
+if has("autocmd")
+	if filereadable(glob("$HOME/.vim/autocmds.vim"))
+		source $HOME/.vim/autocmds.vim
+	endif
+endif
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
