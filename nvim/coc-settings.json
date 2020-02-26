@@ -1,4 +1,15 @@
 {
+    //"suggest.noselect": false,
+    "suggest.autoTrigger": "trigger",
+    "suggest.triggerAfterInsertEnter": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "javascript",
+        "json",
+        "c",
+        "cpp",
+        "python",
+        "fortran"
+    ],
     "languageserver": {
 
         "ccls": {
@@ -35,16 +46,5 @@
             "filetypes": ["sh"],
             "ignoredRootPaths": ["~"]
         }
-    },
-
-    //"suggest.noselect": false,
-    "suggest.triggerAfterInsertEnter": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "json",
-    "c",
-    "cpp",
-    "python",
-    "fortran"
-  ]
+    }
 }

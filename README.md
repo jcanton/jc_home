@@ -4,6 +4,7 @@
 
 on osX:
 `brew install neovim`
+`pip install neovim`
 
 The following is for CoC to work in neovim
 `brew install node`

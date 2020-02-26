@@ -7,6 +7,12 @@
 " FILETYPES
 "------------------------------------------------------------------------------
 
+augroup Coc
+au!
+autocmd BufRead,BufNewFile,BufEnter
+            \ *.cpp,*.h,*.hpp,*.c,*.usr,SIZE,USERPAR,CHKPOINT,*.py,*.tex,*.md,*.f,*.f90,*.vim
+            \ call coc#config("suggest.autoTrigger", "always")
+augroup END
 
 augroup Cpp
 au!
@@ -42,7 +48,6 @@ autocmd BufRead,BufNewFile,BufEnter *.tex nmap <C-i> <Plug>IMAP_JumpForward
 "autocmd BufRead,BufNewFile,BufEnter *.tex iunmap <Tab>
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> <ESC>:w<CR><leader>ll
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> <ESC>:w<CR><leader>lv
-autocmd BufRead,BufNewFile,BufEnter *.tex ALEDisable
 augroup END
 
 function CheckKate()
