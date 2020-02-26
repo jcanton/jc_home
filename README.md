@@ -12,3 +12,5 @@ The following is for CoC to work in neovim
 
 `npm i -g bash-language-server`
 `pip install fortran-language-server`
+
+run :checkhealth in neovim
