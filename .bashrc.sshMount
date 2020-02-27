@@ -1,0 +1,58 @@
+sshmount() {
+
+    if [ "$1" == "panda" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/panda
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@panda.ethz.ch:/scratch/jcanton ./sshfsVolumes/panda
+        cd sshfsVolumes/panda
+
+    elif [ "$1" == "pandaHome" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/pandaHome
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@panda.ethz.ch:/home/jcanton ./sshfsVolumes/pandaHome
+        cd sshfsVolumes/pandaHome
+
+    elif [ "$1" == "falcon" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/falcon
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@falcon.ethz.ch:/scratch/jcanton ./sshfsVolumes/falcon
+        cd sshfsVolumes/falcon
+
+    elif [ "$1" == "falconHome" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/falconHome
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@falcon.ethz.ch:/home/jcanton ./sshfsVolumes/falconHome
+        cd sshfsVolumes/falconHome
+
+    elif [ "$1" == "barry" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/barry
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@barry.ethz.ch:/scratch/jcanton ./sshfsVolumes/barry
+        cd sshfsVolumes/barry
+
+    elif [ "$1" == "barryHome" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/barryHome
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@barry.ethz.ch:/home/jcanton ./sshfsVolumes/barryHome
+        cd sshfsVolumes/barryHome
+
+    elif [ "$1" == "euler" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/euler
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@euler.ethz.ch:/cluster/home/jcanton ./sshfsVolumes/euler
+        cd sshfsVolumes/euler/
+
+    elif [ "$1" == "daint" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/daint
+        sshfs daint:/scratch/snx3000/jcanton/  sshfsVolumes/daint   -o auto_cache,reconnect,defer_permissions,noappledouble
+        cd sshfsVolumes/daint
+
+    elif [ "$1" == "erebos" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/erebos
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@erebos.mech.kth.se:/scratch/jcanton ./sshfsVolumes/erebos
+        cd sshfsVolumes/erebos
+
+    fi
+}
