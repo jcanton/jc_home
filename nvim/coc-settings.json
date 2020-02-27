@@ -2,14 +2,14 @@
     //"suggest.noselect": false,
     "suggest.autoTrigger": "trigger",
     "suggest.triggerAfterInsertEnter": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "javascript",
-        "json",
-        "c",
-        "cpp",
-        "python",
-        "fortran"
-    ],
+    //"coc.preferences.formatOnSaveFiletypes": [
+    //    "javascript",
+    //    "json",
+    //    "c",
+    //    "cpp",
+    //    "python",
+    //    "fortran"
+    //],
     "languageserver": {
 
         "ccls": {
@@ -17,27 +17,33 @@
             "filetypes": [
                 "c",
                 "cpp",
+                "cuda",
                 "objc",
                 "objcpp"
             ],
-            "rootPatterns": [
-                ".ccls",
-                "compile_commands.json",
-                ".vim/",
-                ".git/",
-                ".hg/"
-            ],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
+            "rootPatterns": [".ccls-root", "compile_commands.json"],
+			"initializationOptions": {
+				"cache": {
+					"directory": ".ccls-cache"
+				},
+				"client": {
+					"snippetSupport": true
+            	},
+                "clang": {
+                    "extraArgs": [
+                        //"-lstdc++",
+                        "-isysroot", "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+                        "-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1"
+                    ],
+                    //"resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1"
                 }
-            }
+			}
         },
 
         "fortran": {
             "command": "fortls",
             "filetypes": ["fortran"],
-            "rootPatterns": [".fortls", ".git/"]
+            "rootPatterns": [".fortls"]
         },
 
         "bash": {
