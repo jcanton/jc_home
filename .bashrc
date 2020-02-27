@@ -107,6 +107,13 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 #------------------------------------------------------------------------------
+# sshMount
+#
+if [ -f ~/jc_home/.bashrc.sshMount ]; then
+    . ~/jc_home/.bashrc.sshMount
+fi
+
+#------------------------------------------------------------------------------
 # machine specific configuration
 #
 if [ -f ~/.bashrc.local ]; then
