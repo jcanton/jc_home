@@ -35,6 +35,6 @@ fi
 # installing so matplotlib does not complain
 #PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.7.1
 
-# compilers
-export CC=gcc
-export CXX=g++
+# # compilers
+# export CC=gcc
+# export CXX=g++
