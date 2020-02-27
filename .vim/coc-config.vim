@@ -1,6 +1,6 @@
 " CoC config
 
-" run prittier when saving
+" Setup Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " TextEdit might fail if hidden is not set.
