@@ -12,14 +12,17 @@
         "ccls": {
             "command": "ccls",
             "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-            "rootPatterns": [".ccls-root", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "rootPatterns": [
+                ".ccls-root",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
             "initializationOptions": {
-                "cache": {
-                    "directory": ".ccls-cache"
-                },
-                "client": {
-                    "snippetSupport": true
-                },
+                "highlight": { "lsRanges": true },
+                "cache": { "directory": ".ccls-cache" },
+                "client": { "snippetSupport": true },
                 "clang": {
                     "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1",
                     "extraArgs": [
