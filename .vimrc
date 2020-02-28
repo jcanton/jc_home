@@ -25,6 +25,7 @@
 " => Vim-plug
 "------------------------------------------------------------------------------
 call plug#begin()
+Plug 'chriskempson/base16-vim' " Base16 for Vim
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
@@ -192,24 +193,26 @@ autocmd GUIEnter * set visualbell t_vb=
 " Enable syntax highlighting
 syntax enable
 
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions+=e
-    set guitablabel=%M\ %t
-    " set t_Co=256
-    "
-    " base16 configuration
-    let base16colorspace=256
-    colorscheme base16-solarized-light
-else
-    let base16colorspace=256
-    if filereadable(expand("~/.vimrc_background"))
-        source ~/.vimrc_background
-    else
-        colorscheme base16-xcode-dusk
-    endif
-endif
+" let base16colorspace=256
+" colorscheme base16-solarized-light
+" " Set extra options when running in GUI mode
+" if has("gui_running")
+"     set guioptions-=T
+"     set guioptions+=e
+"     set guitablabel=%M\ %t
+"     " set t_Co=256
+"     "
+"     " base16 configuration
+"     let base16colorspace=256
+"     colorscheme base16-solarized-light
+" else
+"     let base16colorspace=256
+"     if filereadable(expand("~/.vimrc_background"))
+"         source ~/.vimrc_background
+"     else
+"         colorscheme base16-xcode-dusk
+"     endif
+" endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=UTF-8
