@@ -16,8 +16,10 @@ augroup END
 
 augroup Cpp
 au!
-autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal tw=80 cin noic autowrite
-autocmd BufRead,BufNewFile,BufEnter *.cpp,*.h,*.hpp setlocal expandtab shiftwidth=4 tabstop=4
+autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp setlocal tw=80 cin noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp setlocal expandtab shiftwidth=4 tabstop=4
+" Enable clang-format by default on write
+autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp ClangFormatAutoEnable
 augroup END
 
 augroup usr
