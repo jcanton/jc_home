@@ -33,8 +33,8 @@ Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
 Plug 'lervag/vimtex' " let's try this latex plugin
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
-" Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
-Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above
+Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
+" Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above but fucks up colors
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " The NERDTree
@@ -98,12 +98,6 @@ vnoremap <M-k> :m '<-2<CR>gv=gv
 "------------------------------------------------------------------------------
 " VIM user interface
 "------------------------------------------------------------------------------
-
-" " Changing the cursor shape between insert and normal mode
-" let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-" let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-" let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
 
 " Set 7 lines to the cursor - when moving vertically using j/k
 " set so=7
@@ -175,16 +169,8 @@ set mat=2
 " let loaded_matchparen = 1
 
 " No annoying sound on errors
-" set noerrorbells
-" set novisualbell
-" set t_vb=
-" "set tm=500
-" if has("gui_running")
-"   set vb t_vb=
-" endif
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
-
 
 "------------------------------------------------------------------------------
 " Colors and Fonts
@@ -416,35 +402,3 @@ endif
 if filereadable(glob("$HOME/.vimrc.local"))
    source $HOME/.vimrc.local
 endif
-
-"------------------------------------------------------------------------------
-" Utilsnips and omnicomplete
-"------------------------------------------------------------------------------
-
-" " Directories for the snippets:
-" let g:UltiSnipsSnippetDirectories=["ultiSnips"]
-"
-" " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<c-s>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-"
-" " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-
-" This is probably all old stuff for omnicomplete but I am not 100% sure
-" " Vim's popup menu doesn't select the first completion item, but rather just
-" " inserts the longest common text of all matches; and the menu will come up
-" " even if there's only one match
-" set completeopt=longest,menuone
-"
-" " Change the behavior of the <Enter> key when the popup menu is visible. In
-" " that case the Enter key will simply select the highlighted menu item, just
-" " as <C-Y> does
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"
-" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-"   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-"
-" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-"   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
