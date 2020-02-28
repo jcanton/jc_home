@@ -3,7 +3,6 @@
 "
 " Sections:
 "    -> Vim-plug
-"    -> Utilsnips
 "    -> VIM user interface
 "    -> Colors and Fonts
 "    -> Text, tab and indent related
@@ -29,75 +28,33 @@ call plug#begin()
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
+Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light as air
+Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
 Plug 'lervag/vimtex' " let's try this latex plugin
-" Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs (propably needed for synctex, maybe not)
-" Plug 'dense-analysis/ale' " Asynchronous Lint Engine Substituted  with CoC
-" Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
-" Plug 'honza/vim-snippets'  " snippets for the engine above
-" Plug 'ludovicchabant/vim-gutentags' " Gutentags is a plugin that takes care of the much needed management of tags files in Vim
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
+Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
+Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
-Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks. 
+Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
+" Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs (propably needed for synctex, maybe not)
+" Plug 'dense-analysis/ale' " Asynchronous Lint Engine Substituted  with CoC
+" next two are now in CoC
+" Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
+" Plug 'honza/vim-snippets'  " snippets for the engine above
 call plug#end()
 
 "------------------------------------------------------------------------------
-" => Utilsnips and omnicomplete
+" General
 "------------------------------------------------------------------------------
 
-" " Directories for the snippets:
-" let g:UltiSnipsSnippetDirectories=["ultiSnips"]
-" 
-" " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<c-s>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" 
-" " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
-
-" This is probably all old stuff for omnicomplete but I am not 100% sure
-" " Vim's popup menu doesn't select the first completion item, but rather just
-" " inserts the longest common text of all matches; and the menu will come up
-" " even if there's only one match
-" set completeopt=longest,menuone
-" 
-" " Change the behavior of the <Enter> key when the popup menu is visible. In
-" " that case the Enter key will simply select the highlighted menu item, just
-" " as <C-Y> does
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" 
-" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-"   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-" 
-" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-"   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" "------------------------------------------------------------------------------
-" " => gutentags
-" "------------------------------------------------------------------------------
-" 
-" let g:gutentags_project_root = ['.git', '.svn', '.root', '.hg', '.project']
-" let g:gutentags_ctags_tagfile = '.tags'
-" let s:vim_tags = expand('~/.cache/tags')
-" let g:gutentags_cache_dir = s:vim_tags
-" let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q', '--c++-kinds=+px', '--c-kinds=+px']
-" " let g:gutentags_trace = 1
-" let g:gutentags_file_list_command = {
-"             \  'markers': {
-"                 \  '.git': 'git ls-files',
-"                 \  '.hg': 'hg files',
-"                 \  }
-"             \  }
-
-"------------------------------------------------------------------------------
-" => General
-"------------------------------------------------------------------------------
+" Remove all trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
 
 " Smart way to move between windows
 noremap <C-h> <C-W>h
@@ -137,13 +94,13 @@ vnoremap <M-j> :m '>+1<CR>gv=gv
 vnoremap <M-k> :m '<-2<CR>gv=gv
 
 "------------------------------------------------------------------------------
-" => VIM user interface
+" VIM user interface
 "------------------------------------------------------------------------------
 
 " " Changing the cursor shape between insert and normal mode
 " let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 " let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-" let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\" 
+" let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 
 " Set 7 lines to the cursor - when moving vertically using j/k
@@ -221,14 +178,14 @@ set mat=2
 " set t_vb=
 " "set tm=500
 " if has("gui_running")
-" 	set vb t_vb=
+"   set vb t_vb=
 " endif
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
 
 "------------------------------------------------------------------------------
-" => Colors and Fonts
+" Colors and Fonts
 "------------------------------------------------------------------------------
 
 " Enable syntax highlighting
@@ -236,33 +193,31 @@ syntax enable
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-	set guioptions-=T
-	set guioptions+=e
-	set guitablabel=%M\ %t
-	" set t_Co=256
-	"
-	" base16 configuration
-	let base16colorspace=256
-	colorscheme base16-solarized-light
-	" alternative Solarized addon
-	" colorscheme solarized
+    set guioptions-=T
+    set guioptions+=e
+    set guitablabel=%M\ %t
+    " set t_Co=256
+    "
+    " base16 configuration
+    let base16colorspace=256
+    colorscheme base16-solarized-light
 else
-	let base16colorspace=256
-	if filereadable(expand("~/.vimrc_background"))
-		source ~/.vimrc_background
-	else
-		colorscheme base16-xcode-dusk
-	endif
+    let base16colorspace=256
+    if filereadable(expand("~/.vimrc_background"))
+        source ~/.vimrc_background
+    else
+        colorscheme base16-xcode-dusk
+    endif
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=UTF-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
 "------------------------------------------------------------------------------
-" => Text, tab and indent related
+" Text, tab and indent related
 "------------------------------------------------------------------------------
 
 " Use spaces instead of tabs
@@ -286,7 +241,7 @@ set linebreak
 " set textwidth=80
 
 "------------------------------------------------------------------------------
-" => Moving around, tabs, windows and buffers
+" Moving around, tabs, windows and buffers
 "------------------------------------------------------------------------------
 
 " Treat long lines as break lines (useful when moving around in them)
@@ -339,14 +294,45 @@ set viminfo^=%
 
 
 "------------------------------------------------------------------------------
-" => Status line
+" Status line
 "------------------------------------------------------------------------------
 
-" Always show the status line
-"set laststatus=2
+" Select vim-airline theme
+let g:airline_theme='papercolor'
 
-" Format the status line
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" " unicode symbols
+" let g:airline_left_sep = '»'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '«'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒'
+" let g:airline_symbols.linenr = '☰'
+" let g:airline_symbols.linenr = '␊'
+" let g:airline_symbols.linenr = '␤'
+" let g:airline_symbols.linenr = '¶'
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.maxlinenr = '㏑'
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'ρ'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.paste = '∥'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
 
 "------------------------------------------------------------------------------
 " NERDtree
@@ -363,7 +349,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " " Sync the open file with NERDTree
 " " Check if NERDTree is open or active
-" function! IsNERDTreeOpen()        
+" function! IsNERDTreeOpen()
 "     return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 " endfunction
 " " Call NERDTreeFind iff NERDTree is active, current window contains a
@@ -404,7 +390,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
 "------------------------------------------------------------------------------
@@ -428,9 +414,9 @@ set secure
 "------------------------------------------------------------------------------
 
 if has("autocmd")
-	if filereadable(glob("$HOME/.vim/autocmds.vim"))
-		source $HOME/.vim/autocmds.vim
-	endif
+    if filereadable(glob("$HOME/.vim/autocmds.vim"))
+        source $HOME/.vim/autocmds.vim
+    endif
 endif
 
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -438,3 +424,35 @@ endif
 if filereadable(glob("$HOME/.vimrc.local"))
    source $HOME/.vimrc.local
 endif
+
+"------------------------------------------------------------------------------
+" Utilsnips and omnicomplete
+"------------------------------------------------------------------------------
+
+" " Directories for the snippets:
+" let g:UltiSnipsSnippetDirectories=["ultiSnips"]
+"
+" " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<c-s>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+"
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
+
+" This is probably all old stuff for omnicomplete but I am not 100% sure
+" " Vim's popup menu doesn't select the first completion item, but rather just
+" " inserts the longest common text of all matches; and the menu will come up
+" " even if there's only one match
+" set completeopt=longest,menuone
+"
+" " Change the behavior of the <Enter> key when the popup menu is visible. In
+" " that case the Enter key will simply select the highlighted menu item, just
+" " as <C-Y> does
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+"   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"
+" inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+"   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
