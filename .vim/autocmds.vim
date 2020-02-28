@@ -49,11 +49,11 @@ autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> <ESC>:w<CR><leader>lv
 augroup END
 
 function CheckKate()
-	if filereadable("." . expand('%:t') . ".kate-swp")
-	"if filereadable(expand('%:p'))
-		echoerr "." . expand('%:t') . ".kate-swp" . " Exists"
-		"echoerr "merda"
-	endif
+    if filereadable("." . expand('%:t') . ".kate-swp")
+    "if filereadable(expand('%:p'))
+        echoerr "." . expand('%:t') . ".kate-swp" . " Exists"
+        "echoerr "merda"
+    endif
 endfunction
 
 augroup txt
