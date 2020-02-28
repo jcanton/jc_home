@@ -11,7 +11,7 @@ augroup Coc
 au!
 autocmd BufRead,BufNewFile,BufEnter
             \ *.cpp,*.h,*.hpp,*.c,*.usr,SIZE,USERPAR,CHKPOINT,*.py,*.tex,*.md,*.f,*.f90,*.vim
-            \ call coc#config("suggest.autoTrigger", "always")
+            \ call coc#config("suggest.autoTrigger", "always") " Always show CoC
 augroup END
 
 augroup Cpp
@@ -22,7 +22,7 @@ autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp setlocal expandtab shift
 autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp ClangFormatAutoEnable
 augroup END
 
-augroup usr
+augroup Nek
 au!
 autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
 autocmd BufRead,BufNewFile,BufEnter *.upar   setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
@@ -35,10 +35,7 @@ augroup pyton
 au!
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal tw=0 noic autowrite
 autocmd BufRead,BufNewFile,BufEnter *.py setlocal expandtab shiftwidth=4 tabstop=4
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent
-autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldlevel=99
-"autocmd BufRead,BufNewFile,BufEnter *.py setlocal omnifunc=pythoncomplete#Complete
-"autocmd BufRead,BufNewFile,BufEnter *.py setlocal completeopt=menuone,longest,preview
+autocmd BufRead,BufNewFile,BufEnter *.py setlocal foldmethod=indent foldlevel=99
 augroup END
 
 augroup tex
@@ -47,7 +44,6 @@ autocmd BufRead,BufNewFile,BufEnter *.tex setlocal noic autowrite cc=81 "spell
 autocmd BufRead,BufNewFile,BufEnter *.tex call pencil#init()
 autocmd BufRead,BufNewFile,BufEnter *.tex setlocal conceallevel=0
 autocmd BufRead,BufNewFile,BufEnter *.tex nmap <C-i> <Plug>IMAP_JumpForward
-"autocmd BufRead,BufNewFile,BufEnter *.tex iunmap <Tab>
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F2> <ESC>:w<CR><leader>ll
 autocmd BufRead,BufNewFile,BufEnter *.tex map <F3> <ESC>:w<CR><leader>lv
 augroup END
@@ -62,7 +58,6 @@ endfunction
 
 augroup txt
 au!
-"autocmd BufRead,BufNewFile,BufEnter *.txt setlocal spell
 autocmd BufRead,BufNewFile,BufEnter *.txt call pencil#init()
 augroup END
 
@@ -70,11 +65,6 @@ augroup markdown
 au!
 autocmd BufRead,BufNewFile,BufEnter *.md call pencil#init()
 autocmd BufRead,BufNewFile,BufEnter *.md setlocal conceallevel=0
-augroup END
-
-augroup edp
-au!
-autocmd BufRead,BufNewFile,BufEnter *.edp setf edp
 augroup END
 
 "------------------------------------------------------------------------------

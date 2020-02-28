@@ -32,7 +32,8 @@ Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
 Plug 'lervag/vimtex' " let's try this latex plugin
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
-Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
+" Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
+Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " The NERDTree
