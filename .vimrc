@@ -36,7 +36,9 @@ Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 " Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above but fucks up colors
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
+Plug 'nvie/vim-flake8' " Flake8 plugin for Vim. Press <F7> to run flake8
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
+Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
