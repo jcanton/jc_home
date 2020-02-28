@@ -1,16 +1,16 @@
 # MAC13 specific settings:
 
-# # set colors
-# export CLICOLOR=1
+# set colors
+export CLICOLOR=1
 
-# # Base16 Shell
-# BASE16_SHELL="$HOME/jc_home/base16-shell/"
-# [ -n "$PS1" ] && \
-#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-#         eval "$("$BASE16_SHELL/profile_helper.sh")"
-# base16_solarized-light
-# #base16_gruvbox-dark-pale
-# #base16_gruvbox-light-medium
+# Base16 Shell
+BASE16_SHELL="$HOME/jc_home/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+base16_solarized-light
+#base16_gruvbox-dark-pale
+#base16_gruvbox-light-medium
 
 # set path for cmake
 PATH="/Applications/CMake.app/Contents/bin:${PATH}"

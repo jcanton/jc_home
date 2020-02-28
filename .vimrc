@@ -193,26 +193,14 @@ autocmd GUIEnter * set visualbell t_vb=
 " Enable syntax highlighting
 syntax enable
 
-" let base16colorspace=256
-" colorscheme base16-solarized-light
-" " Set extra options when running in GUI mode
-" if has("gui_running")
-"     set guioptions-=T
-"     set guioptions+=e
-"     set guitablabel=%M\ %t
-"     " set t_Co=256
-"     "
-"     " base16 configuration
-"     let base16colorspace=256
-"     colorscheme base16-solarized-light
-" else
-"     let base16colorspace=256
-"     if filereadable(expand("~/.vimrc_background"))
-"         source ~/.vimrc_background
-"     else
-"         colorscheme base16-xcode-dusk
-"     endif
-" endif
+" The following line enables true color support
+set termguicolors
+
+" Read base16-vim colorscheme
+if filereadable(expand("~/.vimrc_background"))
+    let base16colorspace=256
+    source ~/.vimrc_background
+endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=UTF-8
