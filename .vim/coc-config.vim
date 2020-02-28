@@ -7,9 +7,9 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " A buffer becomes hidden when it is abandoned
 set hidden
 
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
+" " Some servers have issues with backup files, see #649.
+" set nobackup
+" set nowritebackup
 
 " Give more space for displaying messages.
 " Height of the command bar
