@@ -214,6 +214,9 @@ set tabstop=4
 "    au BufReadPost * if &modifiable | retab | endif
 " endif
 
+" add respace command to remove all trailing whitespaces
+command! -nargs=0 Respace :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
 " Linebreak makes vim break lines without cutting words in half
 set linebreak
 " Auto line break on 80th column
