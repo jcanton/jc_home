@@ -14,8 +14,10 @@ cd src
 ./configure --prefix=$TARGET \
             --with-features=huge \
             --enable-multibyte \
+            --enable-cscope \
             --enable-pythoninterp \
-            --enable-cscope
+            --enable-python3interp=yes \
+            --with-python3-config-dir=$(python3-config --configdir)
             #--with-python3-config-dir=$HOME/.pyenv/versions/3.7.1/lib
 make -j$JOBS
 make install
