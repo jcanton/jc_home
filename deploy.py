@@ -144,11 +144,17 @@ else:
 if (system == 'Darwin'):
 	check_delete_link('.config/karabiner', 'karabiner')
 
-##------------------------------------------------------------------------------
-## deploy xoural (LET'S FORGET ABOUT THIS)
-##
-#if (system == 'Linux'):
-#	check_delete_link('.xournal')
+#------------------------------------------------------------------------------
+# deploy neovim
+#
+if (system == 'Darwin'):
+	check_delete_link('.config/nvim', 'nvim')
+
+#------------------------------------------------------------------------------
+# deploy CoC
+#
+if (system == 'Darwin'):
+	check_delete_link('.config/coc', 'coc')
 
 #==============================================================================
 #==============================================================================

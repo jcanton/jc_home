@@ -52,9 +52,9 @@ alias la='ls -A'
 alias l='ls -CF'
 alias tree='tree -ahC'
 if `uname -a | grep -q -i Darwin`; then
-	alias du='du -h -d 1'
+    alias du='du -h -d 1'
 else
-	alias du='du -h --max-depth=1'
+    alias du='du -h --max-depth=1'
 fi
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -70,6 +70,8 @@ alias gig='git log --graph --all --decorate --oneline'
 alias gis='git status'
 alias gic='git commit'
 alias gia='git add'
+
+alias vim='nvim'
 
 alias tm='tmux'
 alias tml='tmux ls'
@@ -102,6 +104,13 @@ LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 #
 if [ -f ~/.git-completion.bash ]; then
     . ~/.git-completion.bash
+fi
+
+#------------------------------------------------------------------------------
+# sshMount
+#
+if [ -f ~/jc_home/.bashrc.sshMount ]; then
+    . ~/jc_home/.bashrc.sshMount
 fi
 
 #------------------------------------------------------------------------------

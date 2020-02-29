@@ -1,0 +1,51 @@
+{
+    "suggest.autoTrigger": "trigger",
+    "suggest.triggerAfterInsertEnter": true,
+
+    "coc.preferences.formatOnSaveFiletypes": ["json", "markdown", "html"],
+    "coc.preferences.formatOnInsertLeave": false,
+    "coc.preferences.formatOnType": false,
+    "tsserver.formatOnType": false,
+    "prettier.tabWidth": 4,
+
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+            "rootPatterns": [
+                ".ccls-root",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "highlight": { "lsRanges": true },
+                "cache": { "directory": ".ccls-cache" },
+                "client": { "snippetSupport": true },
+                "clang": {
+                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1",
+                    "extraArgs": [
+                        "-isysroot",
+                        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+                        "-isystem",
+                        "/Library/Developer/CommandLineTools/usr/include/c++/v1"
+                    ]
+                }
+            }
+        },
+
+        "fortran": {
+            "command": "fortls",
+            "filetypes": ["fortran"],
+            "rootPatterns": [".fortls"]
+        },
+
+        "bash": {
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": ["~"]
+        }
+    }
+}

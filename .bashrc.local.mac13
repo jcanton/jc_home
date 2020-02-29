@@ -9,6 +9,8 @@ BASE16_SHELL="$HOME/jc_home/base16-shell/"
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 base16_solarized-light
+#base16_gruvbox-dark-pale
+#base16_gruvbox-light-medium
 
 # set path for cmake
 PATH="/Applications/CMake.app/Contents/bin:${PATH}"
@@ -32,3 +34,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 # installing so matplotlib does not complain
 #PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.7.1
+
+# # compilers
+# export CC=gcc
+# export CXX=g++

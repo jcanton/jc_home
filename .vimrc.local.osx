@@ -2,16 +2,10 @@
 " vimrc local options
 "-------------------------------------------------------------------------------
 
-" Font
-set guifont=Monospace\ 10
-
-
-" Change the NERDTree delimiter but only on mac
-let g:NERDTreeNodeDelimiter = "\u00a0"
-
 " Set vimtex pdf viewer
 let g:vimtex_view_method = 'mupdf'
 let g:vimtex_view_general_viewer = 'mupdf'
+let g:vimtex_compiler_progname = 'nvr'
 "let g:vimtex_compiler_callback_hooks = ['MyTestHook']
 "function MyTestHook(status)
 "    echom a:status
@@ -23,3 +17,29 @@ let g:vimtex_view_general_viewer = 'mupdf'
 " defaults write org.macosforge.xquartz.X11 enable_test_extensions -boolean true
 " brew install mupdf
 " ln -s /usr/local/bin/mupdf-gl /usr/local/bin/mupdf
+" brew install pstree
+" pip install neovim-remote
+"
+" Zathura:
+" https://github.com/zegervdv/homebrew-zathura
+" brew tap zegervdv/zathura
+" brew install synctex
+" brew install zathura --with-synctex
+"
+" export TARGET=$HOME/.local
+" brew install json-c doxygen check
+" git clone https://git.pwmt.org/pwmt/girara.git
+" cd girara
+" mkdir build
+" meson build
+" cd build
+" ninja
+" DESTDIR=$TARGET ninja install
+"
+" git clone https://git.pwmt.org/pwmt/zathura.git
+" cd zathura
+" mkdir build
+" meson build
+" cd build
+" ninja
+" ninja install
