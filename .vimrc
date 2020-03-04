@@ -76,6 +76,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Default splits below and to the right
+set splitbelow
+set splitright
+
+" Maps for splitting
+tnoremap <C-a>j :sp<CR>
+inoremap <C-a>j :sp<CR>
+nnoremap <C-a>j :sp<CR>
+tnoremap <C-a>k :vs<CR>
+inoremap <C-a>k :vs<CR>
+nnoremap <C-a>k :vs<CR>
 
 " Do not wait after a keystroke if there is no command defined with that key
 " as first
@@ -393,6 +404,21 @@ let g:NERDToggleCheckAllLines = 1
 
 " Return to normal mode with Esc
 tnoremap <Esc> <C-\><C-n>
+
+" Default to insert mode when entering
+let g:previous_window = -1
+function SmartInsert()
+  if &buftype == 'terminal'
+    if g:previous_window != winnr()
+      startinsert
+    endif
+    let g:previous_window = winnr()
+  else
+    let g:previous_window = -1
+  endif
+endfunction
+au BufEnter * call SmartInsert()
+autocmd TermOpen term://* startinsert
 
 "------------------------------------------------------------------------------
 " Load CoC configuration
