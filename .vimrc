@@ -10,6 +10,7 @@
 "    -> Status line
 "    -> The NERDTree
 "    -> The NERDCommenter
+"    -> Terminal
 "    -> CoC configuration
 "    -> Project dependent options
 "    -> File specific autocmds
@@ -61,11 +62,20 @@ call plug#end()
 " Remove all trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-" Smart way to move between windows
-noremap <C-h> <C-W>h
-noremap <C-j> <C-W>j
-noremap <C-k> <C-W>k
-noremap <C-l> <C-W>l
+" Use `Ctrl+{h,j,k,l}` to navigate windows from any mode
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 
 " Do not wait after a keystroke if there is no command defined with that key
 " as first
@@ -376,6 +386,13 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
+
+"------------------------------------------------------------------------------
+" Terminal configuration
+"------------------------------------------------------------------------------
+
+" Return to normal mode with Esc
+tnoremap <Esc> <C-\><C-n>
 
 "------------------------------------------------------------------------------
 " Load CoC configuration
