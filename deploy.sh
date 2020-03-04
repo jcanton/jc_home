@@ -14,8 +14,10 @@ cd src
 ./configure --prefix=$TARGET \
             --with-features=huge \
             --enable-multibyte \
+            --enable-cscope \
             --enable-pythoninterp \
-            --enable-cscope
+            --enable-python3interp=yes \
+            --with-python3-config-dir=$(python3-config --configdir)
             #--with-python3-config-dir=$HOME/.pyenv/versions/3.7.1/lib
 make -j$JOBS
 make install
@@ -58,3 +60,11 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git
 cd nerd-fonts
 git pull
 ./install.sh IBMPlexMono # AND set 'BlexMono Nerd Font -> Medium - 13' as terminal font
+
+# neovim
+cd $TARGET/repo
+git clone --depth 1 git@github.com:neovim/neovim
+cd neovim
+git pull
+make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$TARGET -j$JOBS
+make install
