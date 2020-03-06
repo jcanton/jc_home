@@ -11,6 +11,7 @@
 "    -> The NERDTree
 "    -> The NERDCommenter
 "    -> Terminal
+"    -> Markdown preview
 "    -> CoC configuration
 "    -> Project dependent options
 "    -> File specific autocmds
@@ -43,6 +44,7 @@ Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder f
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
@@ -419,6 +421,13 @@ function SmartInsert()
 endfunction
 au BufEnter * call SmartInsert()
 autocmd TermOpen term://* startinsert
+
+"------------------------------------------------------------------------------
+" MarkdownPreview configuration
+"------------------------------------------------------------------------------
+if filereadable(glob("$HOME/.vim/markdown-preview-config.vim"))
+   source $HOME/.vim/markdown-preview-config.vim
+endif
 
 "------------------------------------------------------------------------------
 " Load CoC configuration
