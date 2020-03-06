@@ -22,6 +22,12 @@ autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp setlocal expandtab shift
 autocmd BufRead,BufNewFile,BufEnter *.c,*.cpp,*.h,*.hpp ClangFormatAutoEnable
 augroup END
 
+augroup Fortran
+au!
+autocmd BufRead,BufNewFile,BufEnter *.f,*.f90 setlocal tw=80 noic autowrite
+autocmd BufRead,BufNewFile,BufEnter *.f,*.f90 setlocal expandtab shiftwidth=2 tabstop=2
+augroup END
+
 augroup Nek
 au!
 autocmd BufRead,BufNewFile,BufEnter *.usr    setlocal expandtab shiftwidth=3 tabstop=3 filetype=fortran
