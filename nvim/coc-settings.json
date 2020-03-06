@@ -5,8 +5,8 @@
     "coc.preferences.formatOnSaveFiletypes": ["json", "markdown", "html"],
     "coc.preferences.formatOnInsertLeave": false,
     "coc.preferences.formatOnType": false,
-    "tsserver.formatOnType": false,
-    "prettier.tabWidth": 4,
+
+    "prettier.tabWidth": 1,
 
     "languageserver": {
         "ccls": {
