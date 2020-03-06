@@ -435,7 +435,7 @@ let g:prettier#config#print_width = 'auto'
 
 " number of spaces per indentation level: a number or 'auto' (use softtabstop)
 " default: 'auto'
-let g:prettier#config#tab_width = 1
+let g:prettier#config#tab_width = 4
 
 " use tabs instead of spaces: true, false, or auto (use the expandtab setting).
 " default: 'auto'

@@ -71,6 +71,7 @@ augroup markdown
 au!
 autocmd BufRead,BufNewFile,BufEnter *.md call pencil#init()
 autocmd BufRead,BufNewFile,BufEnter *.md setlocal conceallevel=0
+autocmd BufRead,BufNewFile,BufEnter *.md let g:prettier#config#tab_width = 1
 augroup END
 
 "------------------------------------------------------------------------------
