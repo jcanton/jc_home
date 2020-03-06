@@ -44,11 +44,13 @@ Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder f
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+"
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
 " Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs (propably needed for synctex, maybe not)
 " Plug 'dense-analysis/ale' " Asynchronous Lint Engine Substituted  with CoC
@@ -263,7 +265,7 @@ set linebreak
 
 " Disable highlight when <leader><cr> is pressed
 noremap <silent> <leader><cr> :noh<cr>
-noremap <silent> <Space><cr> :noh<cr>
+noremap <silent> <space><cr> :noh<cr>
 
 " Close the current buffer
 " map <leader>bd :Bclose<cr>
@@ -421,6 +423,28 @@ function SmartInsert()
 endfunction
 au BufEnter * call SmartInsert()
 autocmd TermOpen term://* startinsert
+
+"------------------------------------------------------------------------------
+" Prettier configuration
+"------------------------------------------------------------------------------
+nmap <space>p :Prettier<CR>
+
+" Max line length that prettier will wrap on: a number or 'auto' (use textwidth).
+" default: 'auto'
+let g:prettier#config#print_width = 'auto'
+
+" number of spaces per indentation level: a number or 'auto' (use softtabstop)
+" default: 'auto'
+let g:prettier#config#tab_width = 1
+
+" use tabs instead of spaces: true, false, or auto (use the expandtab setting).
+" default: 'auto'
+let g:prettier#config#use_tabs = 'false'
+
+" flow|babylon|typescript|css|less|scss|json|graphql|markdown or empty string
+" (let prettier choose).
+" default: ''
+let g:prettier#config#parser = ''
 
 "------------------------------------------------------------------------------
 " MarkdownPreview configuration

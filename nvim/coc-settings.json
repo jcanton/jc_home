@@ -2,12 +2,6 @@
     "suggest.autoTrigger": "trigger",
     "suggest.triggerAfterInsertEnter": true,
 
-    "coc.preferences.formatOnSaveFiletypes": ["json", "markdown", "html"],
-    "coc.preferences.formatOnInsertLeave": false,
-    "coc.preferences.formatOnType": false,
-
-    "prettier.tabWidth": 1,
-
     "languageserver": {
         "ccls": {
             "command": "ccls",
