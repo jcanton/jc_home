@@ -207,8 +207,12 @@ autocmd GUIEnter * set visualbell t_vb=
 " Enable syntax highlighting
 syntax enable
 
-" The following line enables true color support
-set termguicolors
+" The following lines enable true color support
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
 " Read base16-vim colorscheme
 if filereadable(expand("~/.vimrc_background"))
