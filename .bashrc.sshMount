@@ -1,10 +1,10 @@
 sshmount() {
 
-    if [ "$1" == "euler" ]; then
+    if [ "$1" == "ela" ]; then
         cd
-        diskutil umount force ./sshfsVolumes/euler
-        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@euler.ethz.ch:/cluster/home/jcanton ./sshfsVolumes/euler
-        cd sshfsVolumes/euler
+        diskutil umount force ./sshfsVolumes/ela
+        sshfs ela:/users/jcanton/  sshfsVolumes/ela   -o auto_cache,reconnect,defer_permissions,noappledouble
+        cd sshfsVolumes/ela
 
     elif [ "$1" == "daint" ]; then
         cd
@@ -17,6 +17,12 @@ sshmount() {
         diskutil umount force ./sshfsVolumes/daintScratch
         sshfs daint:/scratch/snx3000/jcanton/  sshfsVolumes/daintScratch   -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/daintScratch
+
+    elif [ "$1" == "euler" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/euler
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@euler.ethz.ch:/cluster/home/jcanton ./sshfsVolumes/euler
+        cd sshfsVolumes/euler
 
     elif [ "$1" == "panda" ]; then
         cd
@@ -59,6 +65,9 @@ sshmount() {
         diskutil umount force ./sshfsVolumes/erebos
         sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@erebos.mech.kth.se:/scratch/jcanton ./sshfsVolumes/erebos
         cd sshfsVolumes/erebos
+
+    else
+        echo "Unknown host name"
 
     fi
 }
