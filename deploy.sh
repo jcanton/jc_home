@@ -61,10 +61,29 @@ cd nerd-fonts
 git pull
 ./install.sh IBMPlexMono # AND set 'BlexMono Nerd Font -> Medium - 13' as terminal font
 
-# neovim
+# or download neovim.appcontainer
+# # neovim
+# cd $TARGET/repo
+# git clone --depth 1 git@github.com:neovim/neovim
+# cd neovim
+# git pull
+# make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$TARGET -j$JOBS
+# make install
+
+# nodejs and npm (https://gist.github.com/isaacs/579814)
 cd $TARGET/repo
-git clone --depth 1 git@github.com:neovim/neovim
-cd neovim
-git pull
-make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$TARGET -j$JOBS
+mkdir node-latest-install
+cd node-latest-install
+curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+./configure --prefix=$TARGET
+make install # ok, fine, this step probably takes more than 30 seconds...
+curl https://www.npmjs.org/install.sh | sh
+
+# libffi on daint
+cd $TARGET/repo
+wget https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz
+tar -xvf libffi-3.3.tar.gz
+cd libffi-3.3
+mkdir build; cd build
+../configure --prefix=/users/jcanton/.local
 make install

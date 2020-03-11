@@ -6,6 +6,10 @@ on osX:
 `brew install neovim`
 `pip install neovim`
 
+Tell npm where to store globally installed packages
+`TARGET=${HOME}/.local`
+`npm config set prefix "${TARGET}"`
+
 The following is for CoC to work in neovim
 `brew install ripgrep`
 `brew install node`
