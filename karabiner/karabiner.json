@@ -289,6 +289,14 @@
                         },
                         {
                             "from": {
+                                "key_code": "left_command"
+                            },
+                            "to": {
+                                "key_code": "left_option"
+                            }
+                        },
+                        {
+                            "from": {
                                 "key_code": "left_control"
                             },
                             "to": {
@@ -305,10 +313,50 @@
                         },
                         {
                             "from": {
-                                "key_code": "left_command"
+                                "key_code": "f6"
                             },
                             "to": {
-                                "key_code": "left_option"
+                                "consumer_key_code": "rewind"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "f7"
+                            },
+                            "to": {
+                                "consumer_key_code": "play_or_pause"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "f8"
+                            },
+                            "to": {
+                                "consumer_key_code": "fastforward"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "f9"
+                            },
+                            "to": {
+                                "consumer_key_code": "mute"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "f10"
+                            },
+                            "to": {
+                                "consumer_key_code": "volume_decrement"
+                            }
+                        },
+                        {
+                            "from": {
+                                "key_code": "f11"
+                            },
+                            "to": {
+                                "consumer_key_code": "volume_increment"
                             }
                         }
                     ]
