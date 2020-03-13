@@ -73,10 +73,10 @@ alias gia='git add'
 
 alias vim='nvim'
 
-alias tm='tmux'
+alias tm='tmux -u'
 alias tml='tmux ls'
-alias tmn='tmux new -s'
-alias tma='tmux attach -t'
+alias tmn='tmux -u new -s'
+alias tma='tmux -u attach -t'
 
 alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
 alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
