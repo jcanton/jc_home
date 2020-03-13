@@ -318,10 +318,10 @@ let g:airline#extensions#obsession#enabled = 1
 " Set obsession indicator string
 let g:airline#extensions#obsession#indicator_text = '@o@'
 
-" Add support for bufferline
-let g:airline#extensions#bufferline#enabled = 1
+" Add support for bufferline (actually works nicely on its own)
+let g:airline#extensions#bufferline#enabled = 0
 
-" " Configure tabline USE BUFFERS INSTEAD
+" " Configure tabline - actually USE BUFFERS INSTEAD
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ' ' " ''
 " let g:airline#extensions#tabline#left_alt_sep = '|' " ''
