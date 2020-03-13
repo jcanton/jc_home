@@ -3,20 +3,26 @@ sshmount() {
     if [ "$1" == "ela" ]; then
         cd
         diskutil umount force ./sshfsVolumes/ela
-        sshfs ela:/users/jcanton/  sshfsVolumes/ela   -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs ela:/users/jcanton/  sshfsVolumes/ela  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/ela
 
     elif [ "$1" == "daint" ]; then
         cd
         diskutil umount force ./sshfsVolumes/daint
-        sshfs daint:/users/jcanton/  sshfsVolumes/daint   -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs daint:/users/jcanton/  sshfsVolumes/daint  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/daint
 
     elif [ "$1" == "daintScratch" ]; then
         cd
         diskutil umount force ./sshfsVolumes/daintScratch
-        sshfs daint:/scratch/snx3000/jcanton/  sshfsVolumes/daintScratch   -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs daint:/scratch/snx3000/jcanton/  sshfsVolumes/daintScratch  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/daintScratch
+
+    elif [ "$1" == "daintProject" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/daintProject
+        sshfs daint:/project/pr04/jcanton/  sshfsVolumes/daintProject  -o auto_cache,reconnect,defer_permissions,noappledouble
+        cd sshfsVolumes/daintProject
 
     elif [ "$1" == "euler" ]; then
         cd
