@@ -1,3 +1,0 @@
-# ARCH14 specific settings:
-
-export OMP_NUM_THREADS=2
