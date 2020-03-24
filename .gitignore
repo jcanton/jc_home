@@ -1,6 +1,7 @@
 *.swp
 .DS_Store
 *.pyc
+Session.vim
 
 # want these to be downloaded
 .vim/vim-addons/Solarized/
