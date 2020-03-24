@@ -29,7 +29,7 @@
 call plug#begin()
 Plug 'chriskempson/base16-vim' " Base16 for Vim
 Plug 'tpope/vim-obsession' " Continuously updated session files
-Plug 'bling/vim-bufferline' " Super simple vim plugin to show the list of buffers in the command bar.
+"Plug 'bling/vim-bufferline' " Super simple vim plugin to show the list of buffers in the command bar.
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
