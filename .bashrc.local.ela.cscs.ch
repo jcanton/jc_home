@@ -1,5 +1,7 @@
 # ELA (Daint) specific settings:
 
+module load daint-gpu
+
 # PATH="/cluster/home/jcanton/codes/bin:$PATH"
 # INCLUDE="/cluster/home/jcanton/codes/include:$INCLUDE"
 # LD_LIBRARY_PATH="/cluster/home/jcanton/codes/lib:$LD_LIBRARY_PATH"
@@ -47,12 +49,19 @@ alias mlpy='module load daint-gpu h5py' # also switches to GNU and loads: cray-p
 #export PATH="/users/jcanton/codes/nek5000_master/bin:$PATH"
 #export PATH="/users/jcanton/codes/nek5000_svn_1093/bin:$PATH"
 
-# pyenv
-export PATH="/users/jcanton/.pyenv/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# # pyenv
+# export PATH="/users/jcanton/.pyenv/bin:$PATH"
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+
+# python
+module load cray-python/3.6.5.7
+module load PyExtensions/3.6.5.7-CrayGNU-19.10
 
 
 # COSMO
 PATH="/oprusers/osm/bin:$PATH"
+module load ncview
+#module load cudatoolkit/10.1.105_3.27-7.0.1.1_4.1__ga311ce7
+#module load Boost/1.70.0-CrayGNU-19.10-python3
