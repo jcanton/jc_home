@@ -30,6 +30,7 @@ call plug#begin()
 Plug 'chriskempson/base16-vim' " Base16 for Vim
 Plug 'tpope/vim-obsession' " Continuously updated session files
 "Plug 'bling/vim-bufferline' " Super simple vim plugin to show the list of buffers in the command bar.
+Plug 'gcmt/taboo.vim' " Few utilities for pretty tabs (including rename)
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
@@ -185,8 +186,8 @@ set incsearch
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
 
-" Force redraw with C-l
-noremap <c-l> :redraw!<CR>
+" Force redraw
+nnoremap <C-a>l :redraw!<CR>
 
 " For regular expressions turn magic on
 set magic
@@ -271,7 +272,7 @@ set linebreak
 
 " Disable highlight when <leader><cr> is pressed
 noremap <silent> <leader><cr> :noh<cr>
-noremap <silent> <space><cr> :noh<cr>
+noremap <silent> <C-a><cr> :noh<cr>
 
 " Close the current buffer
 " map <leader>bd :Bclose<cr>
@@ -287,10 +288,22 @@ noremap <silent> <space><cr> :noh<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-" map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+map <C-a>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-" map <leader>cd :cd %:p:h<cr>:pwd<cr>
+map <C-a>cd :cd %:p:h<cr>:pwd<cr>
+
+" Some tmux-like mappings
+" map <C-a>c :tabnew<CR> (see below with Taboo)
+map <C-a>] :tabnext<CR>
+map <C-a>[ :tabprevious<CR>
+map <C-a>c :TabooOpen
+map <C-a>r :TabooRename
+map <C-a>R :TabooReset<CR>
+
+" Taboo is able to remember tab names when you save the current session but
+" you are required to set the following option in your .vimrc file
+set sessionoptions+=tabpages,globals
 
 " Specify the behavior when switching between buffers
 " try
@@ -304,9 +317,25 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+
 " Remember info about open buffers on close
 set viminfo^=%
 
+" Delete hidden buffers
+function! DeleteHiddenBuffers()
+    let tpbl=[]
+    let closed = 0
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        if getbufvar(buf, '&mod') == 0
+            silent execute 'bwipeout' buf
+            let closed += 1
+        endif
+    endfor
+    echo "Closed ".closed." hidden buffers"
+endfunction
+command! DeleteHiddenBuffers call DeleteHiddenBuffers()
+map <space>d :DeleteHiddenBuffers<CR>
 
 "------------------------------------------------------------------------------
 " Status line
@@ -318,25 +347,30 @@ let g:airline#extensions#obsession#enabled = 1
 " Set obsession indicator string
 let g:airline#extensions#obsession#indicator_text = '@o@'
 
+" Convenient obsession mapping
+tnoremap <C-a>o :Obsession<CR>
+nnoremap <C-a>o :Obsession<CR>
+
 " " Add support for bufferline (init function overridden in after/plugin)
 " let g:airline#extensions#bufferline#enabled = 1
 " let g:bufferline_echo = 0
 
-" " Configure tabline - actually USE BUFFERS INSTEAD
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#left_sep = ' ' " ''
-" let g:airline#extensions#tabline#left_alt_sep = '|' " ''
-" let g:airline#extensions#tabline#tab_nr_type = 1         " show tab numbers instead of number of buffers
-" " let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
-" " let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
-" " let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
-" " let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
-" " let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right
-" let g:airline#extensions#tabline#show_buffers = 0      " dont show buffers in the tabline
+" Configure tabline
+let g:taboo_tabline = 0 " First disable Taboo's tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' ' " ''
+let g:airline#extensions#tabline#left_alt_sep = '' " '|'
+let g:airline#extensions#tabline#tab_nr_type = 1         " show tab numbers instead of number of buffers
+" let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
+" let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
+" let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
+" let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
+" let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right
+" let g:airline#extensions#tabline#show_buffers = 1      " dont show buffers in the tabline
 " let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline
-" " let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
-" " let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
-" " let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
+" let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
+" let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
+" let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
 
 " Select vim-airline theme
 let g:airline_theme='papercolor'
@@ -407,8 +441,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "------------------------------------------------------------------------------
 " NERDCommenter
 "------------------------------------------------------------------------------
-vmap <Space>/ <plug>NERDCommenterToggle
-nmap <Space>/ <plug>NERDCommenterToggle
+vnoremap <C-a>/ <plug>NERDCommenterToggle
+nnoremap <C-a>/ <plug>NERDCommenterToggle
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -441,20 +475,22 @@ let g:NERDToggleCheckAllLines = 1
 " Return to normal mode with Esc
 tnoremap <Esc> <C-\><C-n>
 
-" Default to insert mode when entering
-let g:previous_window = -1
-function SmartInsert()
-  if &buftype == 'terminal'
-    if g:previous_window != winnr()
-      startinsert
-    endif
-    let g:previous_window = winnr()
-  else
-    let g:previous_window = -1
-  endif
-endfunction
-au BufEnter * call SmartInsert()
+" Default to insert mode when opening a new term
 autocmd TermOpen term://* startinsert
+
+" " Default to insert mode when entering
+" let g:previous_window = -1
+" function SmartInsert()
+"   if &buftype == 'terminal'
+"     if g:previous_window != winnr()
+"       startinsert
+"     endif
+"     let g:previous_window = winnr()
+"   else
+"     let g:previous_window = -1
+"   endif
+" endfunction
+" au BufEnter * call SmartInsert()
 
 "------------------------------------------------------------------------------
 " Prettier configuration
