@@ -3,9 +3,9 @@
     "coc-git": ">=1.7.7",
     "coc-marketplace": ">=1.7.0",
     "coc-python": ">=1.2.9",
-    "coc-snippets": ">=2.1.22",
+    "coc-snippets": ">=2.1.23",
     "coc-syntax": ">=1.2.4",
-    "coc-vimlsp": ">=0.4.5",
+    "coc-vimlsp": ">=0.5.1",
     "coc-vimtex": ">=1.0.2"
   }
 }
