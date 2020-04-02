@@ -88,12 +88,12 @@ set splitbelow
 set splitright
 
 " Maps for splitting
-tnoremap <C-a>j :sp<CR>
-inoremap <C-a>j :sp<CR>
-nnoremap <C-a>j :sp<CR>
-tnoremap <C-a>k :vs<CR>
-inoremap <C-a>k :vs<CR>
-nnoremap <C-a>k :vs<CR>
+tnoremap <M-j> :sp<CR>
+inoremap <M-j> :sp<CR>
+nnoremap <M-j> :sp<CR>
+tnoremap <M-k> :vs<CR>
+inoremap <M-k> :vs<CR>
+nnoremap <M-k> :vs<CR>
 
 " Do not wait after a keystroke if there is no command defined with that key
 " as first
@@ -118,13 +118,13 @@ set autoread
 runtime macros/matchit.vim
 
 
-" Moving lines
-nnoremap <M-j> :m .+1<CR>==
-nnoremap <M-k> :m .-2<CR>==
-inoremap <M-j> <Esc>:m .+1<CR>==gi
-inoremap <M-k> <Esc>:m .-2<CR>==gi
-vnoremap <M-j> :m '>+1<CR>gv=gv
-vnoremap <M-k> :m '<-2<CR>gv=gv
+" " Moving lines (I never use this)
+" nnoremap <M-j> :m .+1<CR>==
+" nnoremap <M-k> :m .-2<CR>==
+" inoremap <M-j> <Esc>:m .+1<CR>==gi
+" inoremap <M-k> <Esc>:m .-2<CR>==gi
+" vnoremap <M-j> :m '>+1<CR>gv=gv
+" vnoremap <M-k> :m '<-2<CR>gv=gv
 
 "------------------------------------------------------------------------------
 " VIM user interface
@@ -187,7 +187,7 @@ set incsearch
 set lazyredraw
 
 " Force redraw
-nnoremap <C-a>l :redraw!<CR>
+nnoremap <C-l> :redraw!<CR>
 
 " For regular expressions turn magic on
 set magic
@@ -272,7 +272,7 @@ set linebreak
 
 " Disable highlight when <leader><cr> is pressed
 noremap <silent> <leader><cr> :noh<cr>
-noremap <silent> <C-a><cr> :noh<cr>
+noremap <silent> <space><cr> :noh<cr>
 
 " Close the current buffer
 " map <leader>bd :Bclose<cr>
@@ -288,22 +288,22 @@ noremap <silent> <C-a><cr> :noh<cr>
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <C-a>te :tabedit <c-r>=expand("%:p:h")<cr>/
+" map <C-a>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <C-a>cd :cd %:p:h<cr>:pwd<cr>
+map <space>cd :cd %:p:h<cr>:pwd<cr>
 
 " Some tmux-like mappings
 " map <C-a>c :tabnew<CR> (see below with Taboo)
-map <C-a>] :tabnext<CR>
-map <C-a>[ :tabprevious<CR>
-map <C-a>c :TabooOpen
-map <C-a>r :TabooRename
-map <C-a>R :TabooReset<CR>
-
-" Taboo is able to remember tab names when you save the current session but
-" you are required to set the following option in your .vimrc file
-set sessionoptions+=tabpages,globals
+map <M-]> :tabnext<CR>
+map <M-[> :tabprevious<CR>
+map <M-c> :TabooOpen
+map <M-r> :TabooRename
+map <M-R> :TabooReset<CR>
+"
+" " Taboo is able to remember tab names when you save the current session but
+" " you are required to set the following option in your .vimrc file
+" set sessionoptions+=tabpages,globals
 
 " Specify the behavior when switching between buffers
 " try
@@ -348,29 +348,28 @@ let g:airline#extensions#obsession#enabled = 1
 let g:airline#extensions#obsession#indicator_text = '@o@'
 
 " Convenient obsession mapping
-tnoremap <C-a>o :Obsession<CR>
-nnoremap <C-a>o :Obsession<CR>
+noremap <M-o> :Obsession<CR>
 
 " " Add support for bufferline (init function overridden in after/plugin)
 " let g:airline#extensions#bufferline#enabled = 1
 " let g:bufferline_echo = 0
 
 " Configure tabline
-let g:taboo_tabline = 0 " First disable Taboo's tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' ' " ''
-let g:airline#extensions#tabline#left_alt_sep = '' " '|'
-let g:airline#extensions#tabline#tab_nr_type = 1         " show tab numbers instead of number of buffers
-" let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
-" let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
-" let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
-" let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
-" let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right
-" let g:airline#extensions#tabline#show_buffers = 1      " dont show buffers in the tabline
-" let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline
-" let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
-" let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
-" let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
+" let g:taboo_tabline = 0 " First disable Taboo's tabline
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' ' " ''
+" let g:airline#extensions#tabline#left_alt_sep = '' " '|'
+" let g:airline#extensions#tabline#tab_nr_type = 1         " show tab numbers instead of number of buffers
+" " let g:airline#extensions#tabline#show_close_button = 0 " remove 'X' at the end of the tabline
+" " let g:airline#extensions#tabline#tabs_label = ''       " can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
+" " let g:airline#extensions#tabline#buffers_label = ''    " can put text here like TABS to denote tabs (I clear it so nothing is shown)
+" " let g:airline#extensions#tabline#fnamemod = ':t'       " disable file paths in the tab
+" " let g:airline#extensions#tabline#show_tab_count = 0    " dont show tab numbers on the right
+" " let g:airline#extensions#tabline#show_buffers = 1      " dont show buffers in the tabline
+" " let g:airline#extensions#tabline#tab_min_count = 2     " minimum of 2 tabs needed to display the tabline
+" " let g:airline#extensions#tabline#show_splits = 0       " disables the buffer name that displays on the right of the tabline
+" " let g:airline#extensions#tabline#show_tab_nr = 0       " disable tab numbers
+" " let g:airline#extensions#tabline#show_tab_type = 0     " disables the weird ornage arrow on the tabline
 
 " Select vim-airline theme
 let g:airline_theme='papercolor'
@@ -441,8 +440,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "------------------------------------------------------------------------------
 " NERDCommenter
 "------------------------------------------------------------------------------
-vnoremap <C-a>/ <plug>NERDCommenterToggle
-nnoremap <C-a>/ <plug>NERDCommenterToggle
+vnoremap <M-/> <plug>NERDCommenterToggle
+nnoremap <M-/> <plug>NERDCommenterToggle
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
