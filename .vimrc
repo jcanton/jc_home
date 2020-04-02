@@ -66,8 +66,14 @@ call plug#end()
 " General
 "------------------------------------------------------------------------------
 
-" Remove all trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
+" Delete all trailing whitespaces
+function! DeleteTrailingWhitespace()
+    %s/\s\+$//e
+    echo "Deleted trailing whitespaces"
+endfunction
+command! DeleteTrailingWhitespace call DeleteTrailingWhitespace()
+map <M-s> :DeleteTrailingWhitespace<CR>
+" autocmd BufWritePre * %s/\s\+$//e
 
 " Use `Ctrl+{h,j,k,l}` to navigate windows from any mode
 tnoremap <C-h> <C-\><C-N><C-w>h
@@ -187,7 +193,7 @@ set incsearch
 set lazyredraw
 
 " Force redraw
-nnoremap <C-l> :redraw!<CR>
+nnoremap <M-l> :redraw!<CR>
 
 " For regular expressions turn magic on
 set magic
@@ -293,8 +299,7 @@ noremap <silent> <space><cr> :noh<cr>
 " Switch CWD to the directory of the open buffer
 map <space>cd :cd %:p:h<cr>:pwd<cr>
 
-" Some tmux-like mappings
-" map <C-a>c :tabnew<CR> (see below with Taboo)
+" Some mappings
 map <M-]> :tabnext<CR>
 map <M-[> :tabprevious<CR>
 map <M-c> :TabooOpen
