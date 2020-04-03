@@ -72,6 +72,7 @@ alias gic='git commit'
 alias gia='git add'
 
 alias vim='nvim'
+alias vimdiff='nvim -d'
 
 alias tm='tmux -u'
 alias tml='tmux ls'
