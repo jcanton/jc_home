@@ -297,7 +297,7 @@ noremap <silent> <space><cr> :noh<cr>
 " map <C-a>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <space>cd :cd %:p:h<cr>:pwd<cr>
+map <M>cd :cd %:p:h<cr>:pwd<cr>
 
 " Some mappings
 map <M-]> :tabnext<CR>
@@ -340,7 +340,7 @@ function! DeleteHiddenBuffers()
     echo "Closed ".closed." hidden buffers"
 endfunction
 command! DeleteHiddenBuffers call DeleteHiddenBuffers()
-map <space>d :DeleteHiddenBuffers<CR>
+map <M-d> :DeleteHiddenBuffers<CR>
 
 "------------------------------------------------------------------------------
 " Status line
