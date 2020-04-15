@@ -59,7 +59,7 @@ Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plu
 " Plug 'dense-analysis/ale' " Asynchronous Lint Engine Substituted  with CoC
 " next two are now in CoC
 " Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
-" Plug 'honza/vim-snippets'  " snippets for the engine above
+Plug 'honza/vim-snippets'  " snippets for the engine above (somehow disappeared from CoC)
 call plug#end()
 
 "------------------------------------------------------------------------------
