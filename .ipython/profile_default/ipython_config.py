@@ -10,3 +10,4 @@ c.InteractiveShellApp.exec_lines = [
     'import matplotlib.pyplot as plt',
     'np.set_printoptions(precision=4,suppress=False,linewidth=300)'
 ]
+c.InteractiveShellApp.exec_files = ['functions.py'] 
