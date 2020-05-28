@@ -59,9 +59,31 @@ alias mlpy='module load daint-gpu h5py' # also switches to GNU and loads: cray-p
 module load cray-python/3.6.5.7
 module load PyExtensions/3.6.5.7-CrayGNU-19.10
 
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/users/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     #eval "$__conda_setup"
+#     export PATH="/users/jcanton/miniconda3/bin:$PATH"
+#     export PYTHONPATH="/users/jcanton/miniconda3/lib/python3.7/site-packages:$PYTHONPATH"
+# else
+#     if [ -f "/users/jcanton/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/users/jcanton/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/users/jcanton/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
+function conda_setup() {
+    export PATH="/users/jcanton/miniconda3/bin:$PATH"
+    export PYTHONPATH="/users/jcanton/miniconda3/lib/python3.7/site-packages:$PYTHONPATH"
+}
+# alias nvim='conda_setup; nvim'
+# alias ipython='conda_setup; ipython'
 
 # COSMO
 PATH="/oprusers/osm/bin:$PATH"
-module load ncview
+module load ncview NCO
 #module load cudatoolkit/10.1.105_3.27-7.0.1.1_4.1__ga311ce7
 #module load Boost/1.70.0-CrayGNU-19.10-python3
