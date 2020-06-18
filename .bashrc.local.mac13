@@ -26,7 +26,7 @@ alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
 
 alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
 
-alias 2pi='ssh -Y pi@192.168.1.101'
+alias 2pi='ssh -Y pi@192.168.1.115'
 
 # # pyenv
 # if command -v pyenv 1>/dev/null 2>&1; then
