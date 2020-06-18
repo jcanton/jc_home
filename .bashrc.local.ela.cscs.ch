@@ -2,9 +2,9 @@
 
 module load daint-gpu
 
-alias sq='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.18j %.8T %.10S %.10M %.10L %.6D %.5C %.11r %E"'
+alias sq='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.12j %.8T %.10S %.10M %.10L %.6D %.5C %.11r %E"'
 function wsq {
-    watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.18j %.8T %.10S %.10M %.10L %.6D %.5C %.11r %E'"
+    watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.12j %.8T %.10S %.10M %.10L %.6D %.5C %.11r %E'"
 }
 
 # PATH="/cluster/home/jcanton/codes/bin:$PATH"
