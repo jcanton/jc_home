@@ -2,6 +2,11 @@
 
 module load daint-gpu
 
+alias sq='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.18j %.10E %.8T %.10S %.10M %.10L %.6D %.5C %r"'
+function wsq {
+    watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.18j %.10E %.8T %.10S %.10M %.10L %.6D %.5C %r'"
+}
+
 # PATH="/cluster/home/jcanton/codes/bin:$PATH"
 # INCLUDE="/cluster/home/jcanton/codes/include:$INCLUDE"
 # LD_LIBRARY_PATH="/cluster/home/jcanton/codes/lib:$LD_LIBRARY_PATH"
