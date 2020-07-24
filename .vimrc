@@ -45,6 +45,12 @@ Plug 'nvie/vim-flake8' " Flake8 plugin for Vim. Press <F7> to run flake8
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
+Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
+Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
