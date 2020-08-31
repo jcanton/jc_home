@@ -2,6 +2,10 @@
     "suggest.autoTrigger": "trigger",
     "suggest.triggerAfterInsertEnter": true,
 
+    "python": {
+        "pythonPath": "/Users/jcanton/miniconda3/bin/python"
+    },
+
     "languageserver": {
         "ccls": {
             "command": "ccls",
