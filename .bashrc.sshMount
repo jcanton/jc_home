@@ -33,7 +33,7 @@ sshmount() {
     elif [ "$1" == "o3" ]; then
         cd
         diskutil umount force ./sshfsVolumes/o3
-        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog.ethz.ch:/net/o3/hymet_nobackup/jcanton  sshfsVolumes/o3  -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/o3/hymet_nobackup/jcanton  sshfsVolumes/o3  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/o3
 
     elif [ "$1" == "erebos" ]; then
