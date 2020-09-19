@@ -1,5 +1,7 @@
 # MAC13 specific settings:
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # set colors
 export CLICOLOR=1
 
@@ -12,32 +14,7 @@ base16_solarized-light
 #base16_gruvbox-dark-pale
 #base16_gruvbox-light-medium
 
-# set path for cmake
-PATH="/Applications/CMake.app/Contents/bin:${PATH}"
-
-alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
-PATH="/Applications/Skim.app/Contents/MacOS:$PATH"
-function sim() { skim "$@" &> /dev/null ;}
-
-alias acroread='/Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
-alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
-alias visit2.12='/Applications/VisIt2.12.app/Contents/MacOS/VisIt'
-#alias visit2.10='/Applications/VisIt2.10.app/Contents/MacOS/VisIt'
-
-alias kerb='kinit --forwardable -l30d jcanton@NADA.KTH.SE'
-
 alias 2pi='ssh -Y pi@192.168.1.115'
-
-# # pyenv
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
-# installing so matplotlib does not complain
-#PYTHON_CONFIGURE_OPTS="--enable-framework" CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.7.1
-
-# # compilers
-# export CC=gcc
-# export CXX=g++
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

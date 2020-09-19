@@ -14,8 +14,6 @@ base16_solarized-light
 #base16_gruvbox-dark-pale
 #base16_gruvbox-light-medium
 
-alias acroread='/Applications/Adobe\ Acrobat\ DC/Adobe\ Acrobat.app/Contents/MacOS/AdobeAcrobat'
-alias paintbrush='/Applications/Paintbrush.app/Contents/MacOS/Paintbrush'
 alias visit='/Applications/VisIt.app/Contents/MacOS/VisIt'
 
 alias 2pi='ssh -Y pi@192.168.1.115'
