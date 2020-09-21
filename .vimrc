@@ -525,6 +525,11 @@ let g:prettier#config#use_tabs = 'false'
 let g:prettier#config#parser = ''
 
 "------------------------------------------------------------------------------
+" Vimtex configuration
+"------------------------------------------------------------------------------
+let g:tex_flavor = 'latex'
+
+"------------------------------------------------------------------------------
 " MarkdownPreview configuration
 "------------------------------------------------------------------------------
 if filereadable(glob("$HOME/.vim/markdown-preview-config.vim"))
