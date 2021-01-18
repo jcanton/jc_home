@@ -94,8 +94,8 @@ alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
 alias 2ela='ssh -Y jcanton@ela.cscs.ch'
 alias 2daint='ssh -Y jcanton@daint.cscs.ch'
 alias 2fog='ssh -X -Y fog'
-#alias 2o3='ssh -f -N -L localhost:8888:localhost:55000 o3'
 alias 2o3='ssh -X -Y o3'
+alias 2pi='ssh -Y pi@192.168.1.102'
 
 # my compiled software
 PATH="$HOME/.local/bin:$PATH"

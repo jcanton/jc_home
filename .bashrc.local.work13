@@ -14,9 +14,6 @@ base16_solarized-light
 #base16_gruvbox-dark-pale
 #base16_gruvbox-light-medium
 
-alias visit='/Applications/VisIt.app/Contents/MacOS/VisIt'
-
-alias 2pi='ssh -Y pi@192.168.1.115'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -33,3 +30,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
