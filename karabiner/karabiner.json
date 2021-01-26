@@ -14,89 +14,7 @@
                     "basic.to_if_held_down_threshold_milliseconds": 500,
                     "mouse_motion_to_scroll.speed": 100
                 },
-                "rules": [
-                    {
-                        "description": "Change Fn + h/j/k/l to Arrows",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "fn"
-                                        ],
-                                        "optional": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    }
-                ]
+                "rules": []
             },
             "devices": [
                 {
@@ -105,112 +23,26 @@
                     "identifiers": {
                         "is_keyboard": true,
                         "is_pointing_device": false,
-                        "product_id": 631,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "caps_lock"
-                            },
-                            "to": {
-                                "key_code": "left_control"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 30354,
-                        "vendor_id": 3141
+                        "product_id": 5842,
+                        "vendor_id": 2385
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": [
                         {
                             "from": {
-                                "key_code": "f3"
+                                "key_code": "left_option"
                             },
                             "to": {
-                                "key_code": "mission_control"
+                                "key_code": "left_command"
                             }
                         },
                         {
                             "from": {
-                                "key_code": "f8"
+                                "key_code": "left_command"
                             },
                             "to": {
-                                "consumer_key_code": "display_brightness_decrement"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f9"
-                            },
-                            "to": {
-                                "consumer_key_code": "display_brightness_increment"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f10"
-                            },
-                            "to": {
-                                "consumer_key_code": "rewind"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f11"
-                            },
-                            "to": {
-                                "consumer_key_code": "play_or_pause"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f12"
-                            },
-                            "to": {
-                                "consumer_key_code": "fast_forward"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f13"
-                            },
-                            "to": {
-                                "consumer_key_code": "mute"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f14"
-                            },
-                            "to": {
-                                "consumer_key_code": "volume_decrement"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f15"
-                            },
-                            "to": {
-                                "consumer_key_code": "volume_increment"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": {
-                                "key_code": "fn"
+                                "key_code": "left_option"
                             }
                         }
                     ]
@@ -250,178 +82,6 @@
                             }
                         }
                     ]
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 5842,
-                        "vendor_id": 2385
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "key_code": "caps_lock"
-                            },
-                            "to": {
-                                "key_code": "left_control"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f3"
-                            },
-                            "to": {
-                                "key_code": "mission_control"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f6"
-                            },
-                            "to": {
-                                "consumer_key_code": "rewind"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f7"
-                            },
-                            "to": {
-                                "consumer_key_code": "play_or_pause"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f8"
-                            },
-                            "to": {
-                                "consumer_key_code": "fastforward"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f9"
-                            },
-                            "to": {
-                                "consumer_key_code": "mute"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f10"
-                            },
-                            "to": {
-                                "consumer_key_code": "volume_decrement"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "f11"
-                            },
-                            "to": {
-                                "consumer_key_code": "volume_increment"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_command"
-                            },
-                            "to": {
-                                "key_code": "left_option"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_control"
-                            },
-                            "to": {
-                                "key_code": "fn"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "left_option"
-                            },
-                            "to": {
-                                "key_code": "left_command"
-                            }
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_option"
-                            },
-                            "to": {
-                                "key_code": "right_command"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 49291,
-                        "vendor_id": 1133
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": false,
-                        "is_pointing_device": true,
-                        "product_id": 49291,
-                        "vendor_id": 1133
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": [
-                        {
-                            "from": {
-                                "pointing_button": "button4"
-                            },
-                            "to": {
-                                "key_code": "open_bracket",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        },
-                        {
-                            "from": {
-                                "pointing_button": "button5"
-                            },
-                            "to": {
-                                "key_code": "close_bracket",
-                                "modifiers": [
-                                    "command"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 638,
-                        "vendor_id": 1452
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
                 }
             ],
             "fn_function_keys": [
@@ -454,7 +114,7 @@
                         "key_code": "f4"
                     },
                     "to": {
-                        "key_code": "launchpad"
+                        "key_code": "f4"
                     }
                 },
                 {
@@ -462,7 +122,7 @@
                         "key_code": "f5"
                     },
                     "to": {
-                        "key_code": "illumination_decrement"
+                        "key_code": "launchpad"
                     }
                 },
                 {
@@ -470,7 +130,7 @@
                         "key_code": "f6"
                     },
                     "to": {
-                        "key_code": "illumination_increment"
+                        "consumer_key_code": "rewind"
                     }
                 },
                 {
@@ -478,7 +138,7 @@
                         "key_code": "f7"
                     },
                     "to": {
-                        "consumer_key_code": "rewind"
+                        "consumer_key_code": "play_or_pause"
                     }
                 },
                 {
@@ -486,7 +146,7 @@
                         "key_code": "f8"
                     },
                     "to": {
-                        "consumer_key_code": "play_or_pause"
+                        "consumer_key_code": "fast_forward"
                     }
                 },
                 {
@@ -494,7 +154,7 @@
                         "key_code": "f9"
                     },
                     "to": {
-                        "consumer_key_code": "fast_forward"
+                        "consumer_key_code": "mute"
                     }
                 },
                 {
@@ -502,7 +162,7 @@
                         "key_code": "f10"
                     },
                     "to": {
-                        "consumer_key_code": "mute"
+                        "consumer_key_code": "volume_decrement"
                     }
                 },
                 {
@@ -510,7 +170,7 @@
                         "key_code": "f11"
                     },
                     "to": {
-                        "consumer_key_code": "volume_decrement"
+                        "consumer_key_code": "volume_increment"
                     }
                 },
                 {
@@ -518,11 +178,11 @@
                         "key_code": "f12"
                     },
                     "to": {
-                        "consumer_key_code": "volume_increment"
+                        "key_code": "f12"
                     }
                 }
             ],
-            "name": "jack_osx",
+            "name": "jack",
             "parameters": {
                 "delay_milliseconds_before_open_device": 1000
             },
@@ -534,6 +194,17 @@
                     },
                     "to": {
                         "key_code": "left_control"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "f4"
+                    },
+                    "to": {
+                        "key_code": "down_arrow",
+                        "modifiers": [
+                            "left_control"
+                        ]
                     }
                 }
             ],
