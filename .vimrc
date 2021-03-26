@@ -42,6 +42,7 @@ Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 " Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above but fucks up colors
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
 Plug 'nvie/vim-flake8' " Flake8 plugin for Vim. Press <F7> to run flake8
+Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -71,6 +72,18 @@ call plug#end()
 "------------------------------------------------------------------------------
 " General
 "------------------------------------------------------------------------------
+
+" Enhanced add/subtract
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
+endfunction
+nnoremap <silent>         <C-A> :<C-u>call AddSubtract("\<C-A>", '')<CR>
+nnoremap <silent> <Leader><C-A> :<C-u>call AddSubtract("\<C-A>", 'b')<CR>
+nnoremap <silent>         <C-X> :<C-u>call AddSubtract("\<C-X>", '')<CR>
+nnoremap <silent> <Leader><C-X> :<C-u>call AddSubtract("\<C-X>", 'b')<CR>
 
 " Delete all trailing whitespaces
 function! DeleteTrailingWhitespace()
