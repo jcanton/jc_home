@@ -47,7 +47,8 @@ Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'} " too hard to maintain apparently
+"Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'} " too hard to maintain apparently, try the one below
+Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
 Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
@@ -73,17 +74,18 @@ call plug#end()
 " General
 "------------------------------------------------------------------------------
 
-" Enhanced add/subtract
-function! AddSubtract(char, back)
-  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
-  call search(pattern, 'cw' . a:back)
-  execute 'normal! ' . v:count1 . a:char
-  silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
-endfunction
-nnoremap <silent>         <C-C> :<C-u>call AddSubtract("\<C-C>", '')<CR>
-nnoremap <silent> <Leader><C-C> :<C-u>call AddSubtract("\<C-C>", 'b')<CR>
-nnoremap <silent>         <C-X> :<C-u>call AddSubtract("\<C-X>", '')<CR>
-nnoremap <silent> <Leader><C-X> :<C-u>call AddSubtract("\<C-X>", 'b')<CR>
+" Cannot get this to work as I want for now
+" " Enhanced add/subtract
+" function! AddSubtract(char, back)
+"   let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+"   call search(pattern, 'cw' . a:back)
+"   execute 'normal! ' . v:count1 . a:char
+"   silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
+" endfunction
+" nnoremap <silent>         <C-C> :<C-u>call AddSubtract("\<C-C>", '')<CR>
+" nnoremap <silent> <Leader><C-C> :<C-u>call AddSubtract("\<C-C>", 'b')<CR>
+" nnoremap <silent>         <C-X> :<C-u>call AddSubtract("\<C-X>", '')<CR>
+" nnoremap <silent> <Leader><C-X> :<C-u>call AddSubtract("\<C-X>", 'b')<CR>
 
 " Delete all trailing whitespaces
 function! DeleteTrailingWhitespace()
