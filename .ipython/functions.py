@@ -1,6 +1,8 @@
-def simTime(days, hours, wt=24, addT=None):
+def simTime(days, hours, wt=24, addT=None, keepDays=None):
     #
-    nseconds = wt*3600 / (days*24*3600 + hours*3600) * days*24*3600
+    if keepDays is None:
+        keepDays = days
+    nseconds = wt*3600 / (days*24*3600 + hours*3600) * keepDays*24*3600
     nhours   = int(nseconds / 3600)
     nminutes = int(nseconds / 60 - nhours*60)
     nseconds = int(nseconds - nhours*3600 - nminutes*60)
