@@ -71,21 +71,16 @@ Plug 'honza/vim-snippets'  " snippets for the engine above (somehow disappeared 
 call plug#end()
 
 "------------------------------------------------------------------------------
-" General
+" Functions
 "------------------------------------------------------------------------------
 
-" Cannot get this to work as I want for now
-" " Enhanced add/subtract
-" function! AddSubtract(char, back)
-"   let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
-"   call search(pattern, 'cw' . a:back)
-"   execute 'normal! ' . v:count1 . a:char
-"   silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
-" endfunction
-" nnoremap <silent>         <C-C> :<C-u>call AddSubtract("\<C-C>", '')<CR>
-" nnoremap <silent> <Leader><C-C> :<C-u>call AddSubtract("\<C-C>", 'b')<CR>
-" nnoremap <silent>         <C-X> :<C-u>call AddSubtract("\<C-X>", '')<CR>
-" nnoremap <silent> <Leader><C-X> :<C-u>call AddSubtract("\<C-X>", 'b')<CR>
+" Enhanced add/subtract
+function! AddSubtract(char, back)
+  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+  call search(pattern, 'cw' . a:back)
+  execute 'normal! ' . v:count1 . a:char
+  silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
+endfunction
 
 " Delete all trailing whitespaces
 function! DeleteTrailingWhitespace()
@@ -93,34 +88,29 @@ function! DeleteTrailingWhitespace()
     echo "Deleted trailing whitespaces"
 endfunction
 command! DeleteTrailingWhitespace call DeleteTrailingWhitespace()
-map <M-s> :DeleteTrailingWhitespace<CR>
-" autocmd BufWritePre * %s/\s\+$//e
 
-" Use `Ctrl+{h,j,k,l}` to navigate windows from any mode
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Delete hidden buffers
+function! DeleteHiddenBuffers()
+    let tpbl=[]
+    let closed = 0
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        if getbufvar(buf, '&mod') == 0
+            silent execute 'bwipeout' buf
+            let closed += 1
+        endif
+    endfor
+    echo "Closed ".closed." hidden buffers"
+endfunction
+command! DeleteHiddenBuffers call DeleteHiddenBuffers()
+
+"------------------------------------------------------------------------------
+" General
+"------------------------------------------------------------------------------
 
 " Default splits below and to the right
 set splitbelow
 set splitright
-
-" Maps for splitting
-tnoremap <M-j> :sp<CR>
-inoremap <M-j> :sp<CR>
-nnoremap <M-j> :sp<CR>
-tnoremap <M-k> :vs<CR>
-inoremap <M-k> :vs<CR>
-nnoremap <M-k> :vs<CR>
 
 " Do not wait after a keystroke if there is no command defined with that key
 " as first
@@ -143,15 +133,6 @@ set autoread
 
 " Enable extended % matching (make it work with if/elseif/else/end)
 runtime macros/matchit.vim
-
-
-" " Moving lines (I never use this)
-" nnoremap <M-j> :m .+1<CR>==
-" nnoremap <M-k> :m .-2<CR>==
-" inoremap <M-j> <Esc>:m .+1<CR>==gi
-" inoremap <M-k> <Esc>:m .-2<CR>==gi
-" vnoremap <M-j> :m '>+1<CR>gv=gv
-" vnoremap <M-k> :m '<-2<CR>gv=gv
 
 "------------------------------------------------------------------------------
 " VIM user interface
@@ -212,9 +193,6 @@ set incsearch
 
 " Don't redraw while executing macros (good performance config)
 set lazyredraw
-
-" Force redraw
-nnoremap <M-l> :redraw!<CR>
 
 " For regular expressions turn magic on
 set magic
@@ -286,46 +264,6 @@ set linebreak
 "------------------------------------------------------------------------------
 " Moving around, tabs, windows and buffers
 "------------------------------------------------------------------------------
-
-" Treat long lines as break lines (useful when moving around in them)
-" map j gj
-" map k gk
-" substituted with Pencil
-
-" Conflicts with other mappings
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-" noremap <space> /
-" noremap <c-space> ?
-
-" Disable highlight when <leader><cr> is pressed
-noremap <silent> <leader><cr> :noh<cr>
-noremap <silent> <space><cr> :noh<cr>
-
-" Close the current buffer
-" map <leader>bd :Bclose<cr>
-
-" Close all the buffers
-" map <leader>ba :1,1000 bd!<cr>
-
-" Useful mappings for managing tabs
-" map <leader>tn :tabnew<cr>
-" map <leader>to :tabonly<cr>
-" map <leader>tc :tabclose<cr>
-" map <leader>tm :tabmove
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-" map <C-a>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-map <M>cd :cd %:p:h<cr>:pwd<cr>
-
-" Some mappings
-map <M-]> :tabnext<CR>
-map <M-[> :tabprevious<CR>
-map <M-c> :TabooOpen
-map <M-r> :TabooRename
-map <M-R> :TabooReset<CR>
 "
 " " Taboo is able to remember tab names when you save the current session but
 " " you are required to set the following option in your .vimrc file
@@ -347,22 +285,6 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
-" Delete hidden buffers
-function! DeleteHiddenBuffers()
-    let tpbl=[]
-    let closed = 0
-    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-        if getbufvar(buf, '&mod') == 0
-            silent execute 'bwipeout' buf
-            let closed += 1
-        endif
-    endfor
-    echo "Closed ".closed." hidden buffers"
-endfunction
-command! DeleteHiddenBuffers call DeleteHiddenBuffers()
-map <M-d> :DeleteHiddenBuffers<CR>
-
 "------------------------------------------------------------------------------
 " Status line
 "------------------------------------------------------------------------------
@@ -372,9 +294,6 @@ let g:airline#extensions#obsession#enabled = 1
 
 " Set obsession indicator string
 let g:airline#extensions#obsession#indicator_text = '@o@'
-
-" Convenient obsession mapping
-noremap <M-o> :Obsession<CR>
 
 " " Add support for bufferline (init function overridden in after/plugin)
 " let g:airline#extensions#bufferline#enabled = 1
@@ -438,8 +357,6 @@ let g:airline_symbols.maxlinenr = ''
 " NERDtree
 "------------------------------------------------------------------------------
 
-" Re-map NERDtree
-noremap <C-n> :NERDTreeToggle<CR>
 
 " open NERDTree automatically
 " autocmd VimEnter * NERDTree | wincmd p
@@ -466,8 +383,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "------------------------------------------------------------------------------
 " NERDCommenter
 "------------------------------------------------------------------------------
-vnoremap <M-/> <plug>NERDCommenterToggle
-nnoremap <M-/> <plug>NERDCommenterToggle
 
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
@@ -497,8 +412,6 @@ let g:NERDToggleCheckAllLines = 1
 " Terminal configuration
 "------------------------------------------------------------------------------
 
-" Return to normal mode with Esc
-tnoremap <Esc> <C-\><C-n>
 
 " Default to insert mode when opening a new term
 autocmd TermOpen term://* startinsert
@@ -520,7 +433,6 @@ autocmd TermOpen term://* startinsert
 "------------------------------------------------------------------------------
 " Prettier configuration
 "------------------------------------------------------------------------------
-nmap <space>p :Prettier<CR>
 
 " Max line length that prettier will wrap on: a number or 'auto' (use textwidth).
 " default: 'auto'
@@ -566,6 +478,14 @@ endif
 
 set exrc
 set secure
+
+"------------------------------------------------------------------------------
+" All my mappings
+"------------------------------------------------------------------------------
+
+if filereadable(glob("$HOME/.vim/mappings.vim"))
+   source $HOME/.vim/mappings.vim
+endif
 
 "------------------------------------------------------------------------------
 " File specific autocmds
