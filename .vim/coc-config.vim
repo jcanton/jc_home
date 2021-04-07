@@ -29,11 +29,6 @@ set shortmess+=c
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 " Show documentation function (used at top of coc-config)
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
