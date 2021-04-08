@@ -1,5 +1,7 @@
 # o3 setup
 
+module load gcc gfortran cdo netcdf openmpi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
