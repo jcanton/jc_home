@@ -104,6 +104,20 @@ function! DeleteHiddenBuffers()
 endfunction
 command! DeleteHiddenBuffers call DeleteHiddenBuffers()
 
+" Compile stuff
+function! CompileStuff()
+    let current_filetype = &filetype
+    echo current_filetype
+    echo @%
+    :update<CR>
+    if current_filetype == "python"
+        :!python3 %
+    else
+        :make
+    endif
+endfunction
+command! CompileStuff call CompileStuff()
+
 "------------------------------------------------------------------------------
 " General
 "------------------------------------------------------------------------------

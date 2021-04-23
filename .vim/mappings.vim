@@ -23,6 +23,9 @@ map <M-s> :DeleteTrailingWhitespace<CR>
 " Delete hidden buffers
 map <M-d> :DeleteHiddenBuffers<CR>
 
+" Compile stuff
+map <F2> :CompileStuff<CR>
+
 "-------------------------------------------------------------------------------
 " Plugin calls
 "-------------------------------------------------------------------------------
