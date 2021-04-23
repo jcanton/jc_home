@@ -11,10 +11,10 @@ noremap <M-m> :exec 'pedit $HOME/.vim/mappings.vim'<CR>
 
 " Enhanced add/subtract
 " Cannot get this to work as I want for now
-" nnoremap <silent>         <C-C> :<C-u>call AddSubtract("\<C-C>", '')<CR>
-" nnoremap <silent> <Leader><C-C> :<C-u>call AddSubtract("\<C-C>", 'b')<CR>
-" nnoremap <silent>         <C-X> :<C-u>call AddSubtract("\<C-X>", '')<CR>
-" nnoremap <silent> <Leader><C-X> :<C-u>call AddSubtract("\<C-X>", 'b')<CR>
+nnoremap <silent>         <M-]> :<C-u>call AddSubtract("\<C-a>", '')<CR>
+nnoremap <silent> <Leader><M-]> :<C-u>call AddSubtract("\<C-a>", 'b')<CR>
+nnoremap <silent>         <M-[> :<C-u>call AddSubtract("\<C-x>", '')<CR>
+nnoremap <silent> <Leader><M-[> :<C-u>call AddSubtract("\<C-x>", 'b')<CR>
 
 " Delete all trailing whitespaces
 map <M-s> :DeleteTrailingWhitespace<CR>
@@ -43,12 +43,12 @@ nnoremap <M-/> <plug>NERDCommenterToggle
 " Prettier
 nmap <space>p :Prettier<CR>
 
-" Some tabs/Taboo mappings
-map <M-]> :tabnext<CR>
-map <M-[> :tabprevious<CR>
-map <M-c> :TabooOpen
-map <M-r> :TabooRename
-map <M-R> :TabooReset<CR>
+" " Some tabs/Taboo mappings
+" map <M-]> :tabnext<CR>
+" map <M-[> :tabprevious<CR>
+" map <M-c> :TabooOpen
+" map <M-r> :TabooRename
+" map <M-R> :TabooReset<CR>
 
 "-------------------------------------------------------------------------------
 " 'Normal' mappings

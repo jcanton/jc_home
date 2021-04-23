@@ -76,10 +76,10 @@ call plug#end()
 
 " Enhanced add/subtract
 function! AddSubtract(char, back)
-  let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
-  call search(pattern, 'cw' . a:back)
-  execute 'normal! ' . v:count1 . a:char
-  silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
+    let pattern = &nrformats =~ 'alpha' ? '[[:alpha:][:digit:]]' : '[[:digit:]]'
+    call search(pattern, 'cw' . a:back)
+    execute 'normal! ' . v:count1 . a:char
+    silent! call repeat#set(":\<C-u>call AddSubtract('" .a:char. "', '" .a:back. "')\<CR>")
 endfunction
 
 " Delete all trailing whitespaces
