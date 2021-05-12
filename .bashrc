@@ -7,6 +7,10 @@ fi
 #                 My settings                  #
 ################################################
 
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+
 # Set the title to user@host dir
 PS1='[\u@\h \W]\$ '
 
@@ -63,9 +67,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # some more aliases
 #
-alias matlabs='matlab -nodesktop -nosplash'
-function svim() { gvim "$@" &> /dev/null ;}
-
 alias gig='git log --graph --all --decorate --oneline'
 alias gis='git status'
 alias gic='git commit'
@@ -79,14 +80,7 @@ alias tml='tmux ls'
 alias tmn='tmux -u new -s'
 alias tma='tmux -u attach -t'
 
-alias 2beskow='ssh -X jcanton@beskow.pdc.kth.se'
-alias 2tegner='ssh -X jcanton@tegner.pdc.kth.se'
-alias 2abisko='ssh -Y jcanton@abisko.hpc2n.umu.se'
-alias 2kebnekaise='ssh -Y jcanton@kebnekaise.hpc2n.umu.se'
 alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
-alias 2kratzer='ssh -Y jcanton@kratzer.mech.kth.se'
-alias 2sisu='ssh -X pr1s0109@sisu.csc.fi'
-alias 2triolith='ssh -X x_jacca@triolith.nsc.liu.se'
 alias 2panda='ssh -Y jcanton@panda.ethz.ch'
 alias 2falcon='ssh -Y jcanton@falcon.ethz.ch'
 alias 2barry='ssh -Y jcanton@barry.ethz.ch'
