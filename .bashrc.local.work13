@@ -14,6 +14,8 @@ base16_solarized-light
 #base16_gruvbox-dark-pale
 #base16_gruvbox-light-medium
 
+# Ruby and gem stuff
+export PATH="/usr/local/opt/ruby@2.7/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$HOME/.local/share/gem/ruby/2.7.0/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
