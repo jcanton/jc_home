@@ -36,30 +36,29 @@ Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
 Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
-Plug 'lervag/vimtex' " let's try this latex plugin
+" Plug 'lervag/vimtex' " let's try this latex plugin <- now in coc
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 " Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above but fucks up colors
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
-Plug 'nvie/vim-flake8' " Flake8 plugin for Vim. Press <F7> to run flake8
+" Plug 'nvie/vim-flake8' " Flake8 plugin for Vim. Press <F7> to run flake8
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'} " too hard to maintain apparently, try the one below
-Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
-Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
-Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+"Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
+"Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
