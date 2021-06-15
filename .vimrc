@@ -58,7 +58,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
-" Plug 'honza/vim-snippets'  " snippets for the engine above (somehow disappeared from CoC - seems to be back now)
+Plug 'honza/vim-snippets'  " snippets for the engines (somehow disappeared from CoC - seems to be back now, but not working without this?)
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
