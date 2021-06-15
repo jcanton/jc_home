@@ -2,6 +2,8 @@
 
 module load gcc gfortran cdo netcdf openmpi
 
+export PATH="/home/jcanton/.gem/ruby/2.5.0/bin:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"

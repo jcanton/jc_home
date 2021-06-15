@@ -2,6 +2,21 @@
 
 "-------------------------------------------------------------------------------
 
+
+" extensions
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-vimlsp',
+  \ 'coc-json', 
+  \ 'coc-git', 
+  \ 'coc-vimtex', 
+  \ 'coc-pyright', 
+  \ 'coc-pydocstring', 
+  \ 'coc-markdownlint', 
+  \ 'coc-marketplace', 
+  \ ]
+
 " Setup Prettier
 " command! -nargs=0 Prettier :CocCommand prettier.formatFile
 

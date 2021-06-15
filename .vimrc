@@ -29,43 +29,29 @@
 call plug#begin()
 Plug 'chriskempson/base16-vim' " Base16 for Vim
 Plug 'tpope/vim-obsession' " Continuously updated session files
-"Plug 'bling/vim-bufferline' " Super simple vim plugin to show the list of buffers in the command bar.
 Plug 'gcmt/taboo.vim' " Few utilities for pretty tabs (including rename)
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
 Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
-" Plug 'lervag/vimtex' " let's try this latex plugin <- now in coc
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
-" Plug 'jackguo380/vim-lsp-cxx-highlight' " maybe in alternative to the one above but fucks up colors
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
-" Plug 'nvie/vim-flake8' " Flake8 plugin for Vim. Press <F7> to run flake8
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-"Plug 'fannheyward/coc-marketplace', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'neoclide/coc-git', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree' " The NERDTree
 Plug 'preservim/nerdcommenter' " The NERDcommenter
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
-" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
-" Plug 'neomake/neomake' " Neomake is a plugin for Vim/Neovim to asynchronously run programs (propably needed for synctex, maybe not)
-" Plug 'dense-analysis/ale' " Asynchronous Lint Engine Substituted  with CoC
-" next two are now in CoC
-" Plug 'SirVer/ultisnips' " UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
 Plug 'honza/vim-snippets'  " snippets for the engine above (somehow disappeared from CoC)
 call plug#end()
 
@@ -116,6 +102,29 @@ function! CompileStuff()
     endif
 endfunction
 command! CompileStuff call CompileStuff()
+
+" Make undo be usable after closing the file - from Chavo
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+set undodir=$HOME/.vim/undo//
+set directory=$HOME/.vim/swap//
+set backupdir=$HOME/.vim/backup//
+" set viminfo=
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undo')
+    let mySwapDir = expand(vimDir . '/swap')
+    let myBackupDir = expand(vimDir . '/backup')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    call system('mkdir ' . mySwapDir)
+    call system('mkdir ' . myBackupDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
 
 "------------------------------------------------------------------------------
 " General
@@ -468,13 +477,6 @@ let g:prettier#config#parser = ''
 " Vimtex configuration
 "------------------------------------------------------------------------------
 let g:tex_flavor = 'latex'
-
-"------------------------------------------------------------------------------
-" MarkdownPreview configuration
-"------------------------------------------------------------------------------
-if filereadable(glob("$HOME/.vim/markdown-preview-config.vim"))
-   source $HOME/.vim/markdown-preview-config.vim
-endif
 
 "------------------------------------------------------------------------------
 " Load CoC configuration
