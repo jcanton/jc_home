@@ -9,6 +9,8 @@ function wsq {
     watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.12j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
 }
 
+export PATH="/users/jcanton/.gem/ruby/2.5.0/bin:$PATH"
+
 # COSMO
 PATH="/oprusers/osm/bin:$PATH"
 #module load ncview NCO CDO
