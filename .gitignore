@@ -18,4 +18,6 @@ Session.vim
 matplotlib/fontlist*
 matplotlib/tex.cache/
 karabiner/automatic_backups
+karabiner/assets
+karabiner/karabiner.json.*
 coc
