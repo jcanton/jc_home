@@ -49,7 +49,7 @@ Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'preservim/nerdtree' " The NERDTree
-Plug 'preservim/nerdcommenter' " The NERDcommenter
+Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
