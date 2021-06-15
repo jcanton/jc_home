@@ -5,6 +5,21 @@
 " Open this file
 noremap <M-m> :exec 'pedit $HOME/.vim/mappings.vim'<CR>
 
+" Remap pasting to the blackhole register
+vnoremap p "_dP
+
+" " Remap deleting to the blackhole register
+" nnoremap x "_x
+" vnoremap x "_x
+" nnoremap d "_d
+" vnoremap d "_d
+" nnoremap D "_D
+" nnoremap <leader>d ""d
+" vnoremap <leader>d ""d
+" nnoremap <leader>x ""x
+" vnoremap <leader>x ""x
+" nnoremap <leader>D ""D
+
 "-------------------------------------------------------------------------------
 " Function calls
 "-------------------------------------------------------------------------------
