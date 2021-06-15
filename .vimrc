@@ -26,6 +26,12 @@
 "------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
 call plug#begin()
 Plug 'chriskempson/base16-vim' " Base16 for Vim
 Plug 'tpope/vim-obsession' " Continuously updated session files
@@ -52,9 +58,14 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
-Plug 'honza/vim-snippets'  " snippets for the engine above (somehow disappeared from CoC)
+" Plug 'honza/vim-snippets'  " snippets for the engine above (somehow disappeared from CoC - seems to be back now)
 call plug#end()
 
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+"
 "------------------------------------------------------------------------------
 " Functions
 "------------------------------------------------------------------------------
