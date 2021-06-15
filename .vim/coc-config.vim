@@ -6,15 +6,14 @@
 " extensions
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-vimlsp',
-  \ 'coc-json', 
-  \ 'coc-git', 
-  \ 'coc-vimtex', 
-  \ 'coc-pyright', 
-  \ 'coc-pydocstring', 
-  \ 'coc-markdownlint', 
-  \ 'coc-marketplace', 
+  \ 'coc-json',
+  \ 'coc-git',
+  \ 'coc-vimtex',
+  \ 'coc-pyright',
+  \ 'coc-pydocstring',
+  \ 'coc-markdownlint',
+  \ 'coc-marketplace',
   \ ]
 
 " Setup Prettier
