@@ -71,13 +71,15 @@ git pull
 # make install
 
 # nodejs and npm (https://gist.github.com/isaacs/579814)
-cd $TARGET/repo
-mkdir node-latest-install
-cd node-latest-install
-curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
-./configure --prefix=$TARGET
-make install # ok, fine, this step probably takes more than 30 seconds...
-curl https://www.npmjs.org/install.sh | sh
+# cd $TARGET/repo
+# mkdir node-latest-install
+# cd node-latest-install
+# curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1
+# ./configure --prefix=$TARGET
+# make install # ok, fine, this step probably takes more than 30 seconds...
+# curl https://www.npmjs.org/install.sh | sh
+#
+wget https://nodejs.org/dist/v14.17.0/node-v14.17.0-linux-x64.tar.xz # and link in .local
 
 # libffi on daint
 cd $TARGET/repo
