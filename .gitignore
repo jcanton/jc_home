@@ -4,24 +4,18 @@
 Session.vim
 
 # want these to be downloaded
-.vim/vim-addons/Solarized/
-.vim/vim-addons/The_NERD_tree/
-.vim/vim-addons/snipmate/
-.vim/vim-addons/tlib/
-.vim/vim-addons/vim-addon-manager/
-.vim/vim-addons/vim-addon-mw-utils/
-.vim/vim-addons/vim-pi/
-.vim/vim-addons/vim-snippets/
-.vim/vim-addons/vim-pencil/
+.vim/plugged
 
 # no need to track these
+.vim/undo
+.vim/swap
+.vim/backup
 .ipython/profile_default/history.sqlite
 .ipython/profile_default/startup/
 .ipython/profile_default/static
 .ipython/profile_default/db/
 .ipython/README
-matplotlib/fontList.json
-matplotlib/fontlist-v300.json
+matplotlib/fontlist*
 matplotlib/tex.cache/
 karabiner/automatic_backups
-.vim/plugged
+coc
