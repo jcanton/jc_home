@@ -39,10 +39,6 @@ noremap <M-o> :Obsession<CR>
 " NERDtree
 noremap <C-n> :NERDTreeToggle<CR>
 
-" NERDCommenter (not working)
-vnoremap <M-/> <plug>NERDCommenterToggle
-nnoremap <M-/> <plug>NERDCommenterToggle
-
 " Prettier
 nmap <space>p :Prettier<CR>
 
