@@ -63,6 +63,7 @@ Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutte
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
+Plug 'luochen1990/rainbow' " Rainbow Parentheses Improved
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
 Plug 'honza/vim-snippets'  " snippets for the engines (somehow disappeared from CoC - seems to be back now, but not working without this?)
@@ -167,6 +168,9 @@ if has('persistent_undo')
     " finally, enable undo persistence.
     set undofile
 endif
+
+" Turn on Rainbow parenthesis
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 
 "------------------------------------------------------------------------------
