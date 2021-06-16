@@ -45,6 +45,10 @@ map <F2> :CompileStuff<CR>
 " Plugin calls
 "-------------------------------------------------------------------------------
 
+" fugitive shortcuts
+command! Gic :Git commit
+command! Gip :Git push
+
 " tagbar - a plugin that provides code overview, you need to install ctags for it
 nmap <M-t> :TagbarToggle<CR>
 
