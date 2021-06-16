@@ -23,6 +23,13 @@
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 "
+" Set location of vimDir
+let vimDir = '$HOME/.vim'
+if stridx(&runtimepath, expand(vimDir)) == -1
+  " vimDir is not on runtimepath, add it
+  let &runtimepath.=','.vimDir
+endif
+
 "------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
@@ -114,28 +121,6 @@ function! CompileStuff()
 endfunction
 command! CompileStuff call CompileStuff()
 
-" Make undo be usable after closing the file - from Chavo
-" Put plugins and dictionaries in this dir (also on Windows)
-let vimDir = '$HOME/.vim'
-let &runtimepath.=','.vimDir
-set undodir=$HOME/.vim/undo//
-set directory=$HOME/.vim/swap//
-set backupdir=$HOME/.vim/backup//
-" set viminfo=
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undo')
-    let mySwapDir = expand(vimDir . '/swap')
-    let myBackupDir = expand(vimDir . '/backup')
-    " Create dirs
-    call system('mkdir ' . vimDir)
-    call system('mkdir ' . myUndoDir)
-    call system('mkdir ' . mySwapDir)
-    call system('mkdir ' . myBackupDir)
-    let &undodir = myUndoDir
-    set undofile
-endif
-
 
 "------------------------------------------------------------------------------
 " General
@@ -166,6 +151,23 @@ set autoread
 
 " Enable extended % matching (make it work with if/elseif/else/end)
 runtime macros/matchit.vim
+
+" Make undo be usable after closing the file - from Chavo
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    " define a path to store persistent_undo files.
+    let persistentUndoDir = expand(vimDir . '/undo')
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(persistentUndoDir)
+        call system('mkdir -p ' . persistentUndoDir)
+    endif
+    " point Vim to the defined undo directory.
+    let &undodir = persistentUndoDir
+    " finally, enable undo persistence.
+    set undofile
+endif
+
 
 "------------------------------------------------------------------------------
 " VIM user interface
@@ -298,9 +300,9 @@ set linebreak
 " Moving around, tabs, windows and buffers
 "------------------------------------------------------------------------------
 "
-" " Taboo is able to remember tab names when you save the current session but
-" " you are required to set the following option in your .vimrc file
-" set sessionoptions+=tabpages,globals
+" Taboo is able to remember tab names when you save the current session but
+" you are required to set the following option in your .vimrc file
+set sessionoptions+=tabpages,globals
 
 " Specify the behavior when switching between buffers
 " try
@@ -412,34 +414,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " endfunction
 " " Highlight currently open buffer in NERDTree
 " autocmd BufEnter * call SyncTree()
-
-"------------------------------------------------------------------------------
-" NERDCommenter
-"------------------------------------------------------------------------------
-
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
-
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
-
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
 
 "------------------------------------------------------------------------------
 " Terminal configuration
