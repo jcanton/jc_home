@@ -46,7 +46,7 @@ map <F2> :CompileStuff<CR>
 "-------------------------------------------------------------------------------
 
 " tagbar - a plugin that provides code overview, you need to install ctags for it
-nmap <leader>t :TagbarToggle<CR>
+nmap <M-t> :TagbarToggle<CR>
 
 " Convenient obsession mapping
 noremap <M-o> :Obsession<CR>
