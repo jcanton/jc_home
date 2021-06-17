@@ -52,6 +52,9 @@ command! Gip :Git push
 " tagbar - a plugin that provides code overview, you need to install ctags for it
 nmap <M-t> :TagbarToggle<CR>
 
+" markbar
+nmap <M-m> <Plug>ToggleMarkbar
+
 " Convenient obsession mapping
 noremap <M-o> :Obsession<CR>
 
@@ -234,6 +237,3 @@ xmap <silent> <TAB> <Plug>(coc-range-select)
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 "===============================================================================
-
-" Open this file
-noremap <M-m> :exec 'pedit $HOME/.vim/mappings.vim'<CR>

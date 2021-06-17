@@ -64,6 +64,8 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for 
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
 Plug 'luochen1990/rainbow' " Rainbow Parentheses Improved
+Plug 'kshenoy/vim-signature' " Marks on the left side
+Plug 'yilin-yang/vim-markbar' " Mark-bar
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
 Plug 'honza/vim-snippets'  " snippets for the engines (somehow disappeared from CoC - seems to be back now, but not working without this?)
