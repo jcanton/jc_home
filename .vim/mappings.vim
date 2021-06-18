@@ -5,27 +5,11 @@
 " Open this file
 noremap <M-m> :exec 'pedit $HOME/.vim/mappings.vim'<CR>
 
-" Remap pasting to the blackhole register
-vnoremap p "_dP
-
-" " Remap deleting to the blackhole register
-" nnoremap x "_x
-" vnoremap x "_x
-" nnoremap d "_d
-" vnoremap d "_d
-" nnoremap D "_D
-" nnoremap <leader>d ""d
-" vnoremap <leader>d ""d
-" nnoremap <leader>x ""x
-" vnoremap <leader>x ""x
-" nnoremap <leader>D ""D
-
 "-------------------------------------------------------------------------------
 " Function calls
 "-------------------------------------------------------------------------------
 
 " Enhanced add/subtract
-" Cannot get this to work as I want for now
 nnoremap <silent>         <M-]> :<C-u>call AddSubtract("\<C-a>", '')<CR>
 nnoremap <silent> <Leader><M-]> :<C-u>call AddSubtract("\<C-a>", 'b')<CR>
 nnoremap <silent>         <M-[> :<C-u>call AddSubtract("\<C-x>", '')<CR>
@@ -53,13 +37,18 @@ command! Gip :Git push
 nmap <M-t> :TagbarToggle<CR>
 
 " markbar
-nmap <M-m> <Plug>ToggleMarkbar
+" nmap <M-m> <Plug>ToggleMarkbar " I actually don't need this: it appears when pressing '
 
-" Convenient obsession mapping
-noremap <M-o> :Obsession<CR>
+" Undo tree with mundo
+nnoremap <M-u> :MundoToggle<CR>
+let g:mundo_preview_bottom = 1
+let g:mundo_right = 0
 
 " NERDtree
 noremap <C-n> :NERDTreeToggle<CR>
+
+" Convenient obsession mapping
+noremap <M-o> :Obsession<CR>
 
 " Prettier
 nmap <space>p :Prettier<CR>
@@ -74,6 +63,21 @@ nmap <space>p :Prettier<CR>
 "-------------------------------------------------------------------------------
 " 'Normal' mappings
 "-------------------------------------------------------------------------------
+
+" Remap pasting to the blackhole register
+vnoremap p "_dP
+
+" " Remap deleting to the blackhole register
+" nnoremap x "_x
+" vnoremap x "_x
+" nnoremap d "_d
+" vnoremap d "_d
+" nnoremap D "_D
+" nnoremap <leader>d ""d
+" vnoremap <leader>d ""d
+" nnoremap <leader>x ""x
+" vnoremap <leader>x ""x
+" nnoremap <leader>D ""D
 
 " Use `Ctrl+{h,j,k,l}` to navigate windows from any mode
 tnoremap <C-h> <C-\><C-N><C-w>h

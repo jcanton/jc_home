@@ -41,31 +41,35 @@ endif
 
 call plug#begin()
 Plug 'chriskempson/base16-vim' " Base16 for Vim
-Plug 'tpope/vim-obsession' " Continuously updated session files
-Plug 'gcmt/taboo.vim' " Few utilities for pretty tabs (including rename)
 Plug 'ikicic/vim-tmux-navigator' " vim-tmux navigation integration
 Plug 'roxma/vim-tmux-clipboard' " copy to clipboard working well (depends on vim-tmux-focus-events)
 Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tmux.conf
+"
+Plug 'tpope/vim-obsession' " Continuously updated session files
+Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
+Plug 'gcmt/taboo.vim' " Few utilities for pretty tabs (including rename)
 Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
+"
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
-Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
-Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-Plug 'preservim/nerdtree' " The NERDTree
 Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
-Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
 Plug 'luochen1990/rainbow' " Rainbow Parentheses Improved
 Plug 'kshenoy/vim-signature' " Marks on the left side
+"
+Plug 'ctrlpvim/ctrlp.vim' " Full path fuzzy file, buffer, mru, tag, ... finder for Vim
+Plug 'preservim/nerdtree' " The NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin' " Plugin for git colors in NERDTree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Extra syntax and highlight for nerdtree files
 Plug 'yilin-yang/vim-markbar' " Mark-bar
+Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
+Plug 'simnalamburt/vim-mundo' " A Vim plugin to visualizes the Vim undo tree
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
 Plug 'honza/vim-snippets'  " snippets for the engines (somehow disappeared from CoC - seems to be back now, but not working without this?)
