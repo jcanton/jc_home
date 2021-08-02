@@ -12,7 +12,6 @@ let g:coc_global_extensions = [
   \ 'coc-vimtex',
   \ 'coc-pyright',
   \ 'coc-pydocstring',
-  \ 'coc-markdownlint',
   \ 'coc-marketplace',
   \ ]
 
