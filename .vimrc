@@ -58,6 +58,7 @@ Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, 
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
+Plug 'lervag/vimtex' " VimTeX is a modern Vim and Neovim filetype and syntax plugin for LaTeX files.
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'luochen1990/rainbow' " Rainbow Parentheses Improved
@@ -128,6 +129,49 @@ function! CompileStuff()
 endfunction
 command! CompileStuff call CompileStuff()
 
+" follow symlinked file
+" (https://inlehmansterms.net/2014/09/04/sane-vim-working-directories)
+function! FollowSymlink()
+    let current_file = expand('%:p')
+    " check if file type is a symlink
+    if getftype(current_file) == 'link'
+        " if it is a symlink resolve to the actual file path
+        "   and open the actual file
+        let actual_file = resolve(current_file)
+        silent! execute 'file ' . actual_file
+    end
+endfunction
+
+" set working directory to git project root
+" or directory of current file if not git project
+" (https://inlehmansterms.net/2014/09/04/sane-vim-working-directories)
+function! SetProjectRoot()
+    if expand('%:p:h:t') == '.git'
+        return
+    end
+    " default to the current file's directory
+    lcd %:p:h
+    let git_dir = system("git rev-parse --show-toplevel")
+    " See if the command output starts with 'fatal' (if it does, not in a git repo)
+    let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+    " if git project, change local directory to git project root
+    if empty(is_not_git_dir)
+        lcd `=git_dir`
+    endif
+endfunction
+
+" follow symlink and set working directory
+autocmd BufRead *
+    \ call FollowSymlink() |
+    \ call SetProjectRoot()
+
+" netrw: follow symlink and set working directory
+autocmd CursorMoved silent *
+    " short circuit for non-netrw files
+    \ if &filetype == 'netrw' |
+    \     call FollowSymlink() |
+    \     call SetProjectRoot() |
+    \ endif
 
 "------------------------------------------------------------------------------
 " General
@@ -472,7 +516,7 @@ let g:prettier#config#parser = ''
 "------------------------------------------------------------------------------
 " Vimtex configuration
 "------------------------------------------------------------------------------
-let g:tex_flavor = 'latex'
+let g:vimtex_view_method='skim'
 
 "------------------------------------------------------------------------------
 " Load CoC configuration
