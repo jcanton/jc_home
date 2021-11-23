@@ -55,6 +55,7 @@ Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
+Plug 'udalov/kotlin-vim' " Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support 
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
@@ -122,7 +123,12 @@ function! CompileStuff()
     echo @%
     :update<CR>
     if current_filetype == "python"
-        :!python3 %
+        ":!python3 %
+        exec '!python3 '.shellescape('%')
+    elseif current_filetype == "kotlin"
+        ":!kotlinc %
+        exec '!kotlinc '.shellescape('%').' -include-runtime -d exec.jar'
+        exec '!java -jar exec.jar'
     else
         :make
     endif
