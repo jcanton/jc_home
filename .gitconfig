@@ -3,6 +3,7 @@
 	name = Jacopo
 [core]
 	editor = nvim
+	autocrlf = input
 #[push]
 #	default = simple
 [diff]
