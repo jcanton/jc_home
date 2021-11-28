@@ -117,3 +117,5 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
