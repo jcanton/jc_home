@@ -47,6 +47,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " needs `set -g focus-events on` in tm
 "
 Plug 'tpope/vim-obsession' " Continuously updated session files
 Plug 'tpope/vim-repeat' " enable repeating supported plugin maps with .
+Plug 'tpope/vim-endwise' " wisely add end in ruby, endfunction/endif/more in vim script, etc
+Plug 'tpope/vim-surround' " surround.vim: Delete/change/add parentheses/quotes/XML-tags/much more with ease
 Plug 'gcmt/taboo.vim' " Few utilities for pretty tabs (including rename)
 Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
@@ -168,8 +170,9 @@ endfunction
 
 " follow symlink and set working directory
 autocmd BufRead *
-    \ call FollowSymlink() |
-    \ call SetProjectRoot()
+    \ call FollowSymlink()
+    "\ call FollowSymlink() |
+    "\ call SetProjectRoot()
 
 " netrw: follow symlink and set working directory
 autocmd CursorMoved silent *
