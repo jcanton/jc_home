@@ -57,7 +57,7 @@ Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
-Plug 'udalov/kotlin-vim' " Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support 
+Plug 'udalov/kotlin-vim' " Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support
 Plug 'tpope/vim-dispatch' " Asynchronous build and test dispatcher
 Plug 'tpope/vim-commentary' " Comment stuff out
 Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
@@ -212,21 +212,21 @@ set autoread
 " Enable extended % matching (make it work with if/elseif/else/end)
 runtime macros/matchit.vim
 
-" Make undo be usable after closing the file - from Chavo
-" Keep undo history across sessions by storing it in a file
-if has('persistent_undo')
-    " define a path to store persistent_undo files.
-    let persistentUndoDir = expand(vimDir . '/undo')
-    " create the directory and any parent directories
-    " if the location does not exist.
-    if !isdirectory(persistentUndoDir)
-        call system('mkdir -p ' . persistentUndoDir)
-    endif
-    " point Vim to the defined undo directory.
-    let &undodir = persistentUndoDir
-    " finally, enable undo persistence.
-    set undofile
-endif
+" " Make undo be usable after closing the file - from Chavo
+" " Keep undo history across sessions by storing it in a file
+" if has('persistent_undo')
+"     " define a path to store persistent_undo files.
+"     let persistentUndoDir = expand(vimDir . '/undo')
+"     " create the directory and any parent directories
+"     " if the location does not exist.
+"     if !isdirectory(persistentUndoDir)
+"         call system('mkdir -p ' . persistentUndoDir)
+"     endif
+"     " point Vim to the defined undo directory.
+"     let &undodir = persistentUndoDir
+"     " finally, enable undo persistence.
+"     set undofile
+" endif
 
 " Turn on Rainbow parenthesis
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
@@ -440,7 +440,7 @@ endif
 " let g:airline_symbols.spell = 'Ꞩ'
 " let g:airline_symbols.notexists = 'Ɇ'
 " let g:airline_symbols.whitespace = 'Ξ'
-"✘   
+"✘  
 
 " powerline symbols
 let g:airline_left_sep = ''
