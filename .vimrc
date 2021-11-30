@@ -320,10 +320,34 @@ if exists('+termguicolors')
     set termguicolors
 endif
 
+function! ChangeColorScheme(msg)
+  if a:msg == "day\n"
+    colorscheme base16-solarized-light
+  else
+    colorscheme base16-solarized-dark
+  endif
+endfunction
+
+function! Sunshine()
+  if executable("sunshine")
+    let out = system('sunshine -s "@47 8"')
+    call ChangeColorScheme(out)
+  else
+    echo "fallback"
+    colorscheme base16-solarized-dark
+  endif
+endfunction
+
+function! AutoDarkModeSetup()
+  "let timer = timer_start(300000, 'Sunshine', {'repeat': -1})
+  call Sunshine()
+endfunction
+
 " Read base16-vim colorscheme
 if filereadable(expand("~/.vimrc_background"))
     let base16colorspace=256
-    source ~/.vimrc_background
+    "source ~/.vimrc_background
+    call AutoDarkModeSetup()
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
