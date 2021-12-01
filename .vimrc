@@ -321,10 +321,10 @@ if exists('+termguicolors')
 endif
 
 function! ChangeColorScheme(msg)
-  if a:msg == "day\n"
-    colorscheme base16-solarized-light
-  else
+  if a:msg[0:4] == "day"
     colorscheme base16-solarized-dark
+  else
+    colorscheme base16-solarized-light
   endif
 endfunction
 
