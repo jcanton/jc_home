@@ -321,10 +321,11 @@ if exists('+termguicolors')
 endif
 
 function! ChangeColorScheme(msg)
+  echo '_'.a:msg[0:4].'_'
   if a:msg[0:4] == "day"
-    colorscheme base16-solarized-dark
-  else
     colorscheme base16-solarized-light
+  else
+    colorscheme base16-solarized-dark
   endif
 endfunction
 
