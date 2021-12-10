@@ -25,6 +25,9 @@ map <M-d> :DeleteHiddenBuffers<CR>
 " Compile stuff
 map <F2> :CompileStuff<CR>
 
+" Sunshine
+map <M-q> :call Sunshine()<CR>
+
 "-------------------------------------------------------------------------------
 " Plugin calls
 "-------------------------------------------------------------------------------

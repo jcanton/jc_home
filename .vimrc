@@ -321,26 +321,26 @@ if exists('+termguicolors')
 endif
 
 function! ChangeColorScheme(msg)
-  if stridx(a:msg, "day") >= 0
-    colorscheme base16-solarized-light
-  else
-    colorscheme base16-solarized-dark
-  endif
+    if stridx(a:msg, "day") >= 0
+        colorscheme base16-solarized-light
+    else
+        colorscheme base16-solarized-dark
+    endif
 endfunction
 
 function! Sunshine()
-  if executable("sunshine")
-    let out = system('sunshine -s "@47 8"')
-    call ChangeColorScheme(out)
-  else
-    echo "fallback"
-    colorscheme base16-solarized-dark
-  endif
+    if executable("sunshine")
+        let out = system('sunshine -s "@47 8"')
+        call ChangeColorScheme(out)
+    else
+        echo "fallback"
+        colorscheme base16-solarized-dark
+    endif
 endfunction
 
 function! AutoDarkModeSetup()
-  "let timer = timer_start(300000, 'Sunshine', {'repeat': -1})
-  call Sunshine()
+    "let timer = timer_start(300000, 'Sunshine', {'repeat': -1})
+    call Sunshine()
 endfunction
 
 " Read base16-vim colorscheme
