@@ -54,7 +54,7 @@ Plug 'vim-airline/vim-airline' " Lean & mean status/tabline for vim that's light
 Plug 'vim-airline/vim-airline-themes' " This is the official theme repository for vim-airline
 Plug 'reedes/vim-pencil' " Rethinking Vim as a tool for writers
 "
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'octol/vim-cpp-enhanced-highlight' " Additional C++ syntax highlighting
 Plug 'rhysd/vim-clang-format' " Vim plugin for clang-format, a formatter for C, C++, Obj-C, Java, JavaScript etc.
 Plug 'udalov/kotlin-vim' " Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support
