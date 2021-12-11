@@ -85,7 +85,7 @@ if (system == 'Darwin'):
 # deploy git
 #
 check_delete_link('.gitconfig')
-check_delete_link('.git-completion.bash')
+# check_delete_link('.git-completion.bash')
 
 #------------------------------------------------------------------------------
 # deploy ipython config
@@ -99,24 +99,6 @@ if (system == 'Darwin'):
 	check_delete_link('.matplotlib', 'matplotlib')
 elif (system == 'Linux'):
 	check_delete_link('.config/matplotlib', 'matplotlib')
-
-##------------------------------------------------------------------------------
-## deploy atom (NOT FOR NOW)
-##
-#if (system == 'Darwin'):
-#	check_delete_link('.atom', 'atom')
-
-##------------------------------------------------------------------------------
-## deploy redshift (LET'S FORGET ABOUT THIS)
-##
-#if (system == 'Linux'):
-#	check_delete_link('.config/redshift.conf', 'redshift.conf.'+hostname)
-
-##------------------------------------------------------------------------------
-## deploy terminator (LET'S FORGET ABOUT THIS)
-##
-#if (system == 'Linux'):
-#	check_delete_link('.config/terminator', 'terminator')
 
 #------------------------------------------------------------------------------
 # deploy tmux
