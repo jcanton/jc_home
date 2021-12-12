@@ -20,9 +20,6 @@ if command -v "sunshine" >/dev/null; then
   fi
 fi
 
-# Ruby and gem stuff
-export PATH="/usr/local/opt/ruby@2.7/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$HOME/.local/share/gem/ruby/2.7.0/bin:$PATH"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
