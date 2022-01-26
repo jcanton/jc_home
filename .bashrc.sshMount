@@ -36,6 +36,12 @@ sshmount() {
         sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/o3/hymet_nobackup/jcanton  sshfsVolumes/o3  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/o3
 
+    elif [ "$1" == "pi" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/pi
+        sshfs pi:/home/pi  sshfsVolumes/pi  -o auto_cache,reconnect,defer_permissions,noappledouble
+        cd sshfsVolumes/pi
+
     elif [ "$1" == "erebos" ]; then
         cd
         diskutil umount force ./sshfsVolumes/erebos
