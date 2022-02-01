@@ -20,6 +20,9 @@ if command -v "sunshine" >/dev/null; then
   fi
 fi
 
+# Java
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
