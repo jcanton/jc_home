@@ -24,6 +24,12 @@ sshmount() {
         sshfs daint:/project/pr94/jcanton/  sshfsVolumes/daintProject  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/daintProject
 
+    elif [ "$1" == "daintStore" ]; then
+        cd
+        diskutil umount force ./sshfsVolumes/daintStore
+        sshfs daint:/store/g142/  sshfsVolumes/daintStore  -o auto_cache,reconnect,defer_permissions,noappledouble
+        cd sshfsVolumes/daintStore
+
     elif [ "$1" == "euler" ]; then
         cd
         diskutil umount force ./sshfsVolumes/euler
@@ -33,7 +39,7 @@ sshmount() {
     elif [ "$1" == "o3" ]; then
         cd
         diskutil umount force ./sshfsVolumes/o3
-        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/o3/hymet_nobackup/jcanton  sshfsVolumes/o3  -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/argon/hymet_nobackup/jcanton  sshfsVolumes/o3  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/o3
 
     elif [ "$1" == "pi" ]; then

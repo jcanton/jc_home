@@ -89,6 +89,7 @@ alias 2ela='ssh -Y jcanton@ela.cscs.ch'
 alias 2daint='ssh -Y jcanton@daint.cscs.ch'
 alias 2fog='ssh -X -Y fog'
 alias 2o3='ssh -X -Y o3'
+alias 2argon='ssh -X -Y argon'
 alias 2pi='ssh -Y pi@192.168.1.102'
 
 # my compiled software
