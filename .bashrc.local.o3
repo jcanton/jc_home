@@ -1,8 +1,13 @@
 # o3 setup
 
+export OMP_NUM_THREADS=1
+alias pj='cd /hymet_nobackup/jcanton/'
+
 module load gcc gfortran cdo netcdf openmpi
 
 export PATH="/home/jcanton/.gem/ruby/2.5.0/bin:$PATH"
+
+export PROJ_LIB="/Users/jcanton/miniconda3/share/proj"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
