@@ -30,6 +30,9 @@ if stridx(&runtimepath, expand(vimDir)) == -1
   let &runtimepath.=','.vimDir
 endif
 
+" set python exec
+let g:python3_host_prog = glob('~/miniconda3/bin/python')
+
 "------------------------------------------------------------------------------
 " => Vim-plug
 "------------------------------------------------------------------------------
