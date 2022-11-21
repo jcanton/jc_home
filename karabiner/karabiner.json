@@ -368,7 +368,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "mute"
+                            "key_code": "f9"
                         }
                     ]
                 },
@@ -378,7 +378,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "volume_decrement"
+                            "consumer_key_code": "mute"
                         }
                     ]
                 },
@@ -388,7 +388,7 @@
                     },
                     "to": [
                         {
-                            "consumer_key_code": "volume_increment"
+                            "consumer_key_code": "volume_decrement"
                         }
                     ]
                 },
@@ -398,7 +398,7 @@
                     },
                     "to": [
                         {
-                            "key_code": "f12"
+                            "consumer_key_code": "volume_increment"
                         }
                     ]
                 }

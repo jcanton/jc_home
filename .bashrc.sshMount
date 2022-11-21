@@ -21,7 +21,7 @@ sshmount() {
     elif [ "$1" == "daintProject" ]; then
         cd
         diskutil umount force ./sshfsVolumes/daintProject
-        sshfs daint:/project/pr94/jcanton/  sshfsVolumes/daintProject  -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs daint:/project/pr133/jcanton/  sshfsVolumes/daintProject  -o auto_cache,reconnect,defer_permissions,noappledouble
         cd sshfsVolumes/daintProject
 
     elif [ "$1" == "daintStore" ]; then
