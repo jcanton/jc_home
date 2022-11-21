@@ -10,15 +10,16 @@ BASE16_SHELL="$HOME/jc_home/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-# automatically change colors based on time of day
-if command -v "sunshine" >/dev/null; then
-  # Replace "@45 15" with your location string, e.g. "#Barcelona"
-  if [[ "$(sunshine -s "@47 8")" = "day" ]]; then
-    base16_solarized-light
-  else
-    base16_solarized-dark
-  fi
-fi
+# # automatically change colors based on time of day
+# if command -v "sunshine" >/dev/null; then
+#   # Replace "@45 15" with your location string, e.g. "#Barcelona"
+#   if [[ "$(sunshine -s "@47 8")" = "day" ]]; then
+#     base16_solarized-light
+#   else
+#     base16_solarized-dark
+#   fi
+# fi
+base16_solarized-light
 
 # Ruby and gem stuff
 export PATH="/usr/local/opt/ruby@2.7/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$HOME/.local/share/gem/ruby/2.7.0/bin:$PATH"
