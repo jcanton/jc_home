@@ -40,9 +40,14 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PROJ_LIB="/Users/jcanton/miniconda3/share/proj"
 
 # VisIt stuff
 export PATH="/Applications/VisIt.app/Contents/MacOS:$PATH"
 export PATH="/Applications/VisIt.app/Contents/Resources/bin:$PATH"
+
+# Vapor stuff
+export VAPOR_HOME="/Applications/vapor.app"
+export PATH="/Applications/vapor.app/Contents/MacOS:$PATH"
 
 alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
