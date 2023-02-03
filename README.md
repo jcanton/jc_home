@@ -24,3 +24,23 @@ Install language servers
 `pip install fortran-language-server`
 
 run :checkhealth in neovim
+
+## Setup conda
+
+Copy the following in the ~/.condarc file:
+
+```[bash]
+channel_priority: strict
+channels:
+  - conda-forge
+  - defaults
+```
+
+install miniconda3, then
+
+```[bash]
+conda update conda
+conda install -c conda-forge conda-libmamba-solver
+conda config --set solver libmamba
+conda install -c conda-forge ipython numpy matplotlib xarray scipy pynvim xesmf rasterio pynio pyngl psy-view psyplot proj pandas netcdf4 htop hdf4 hdf5 h5py geos geotiff gdal fortran-language-server esmf cdo cartopy requests folium
+```
