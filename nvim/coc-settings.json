@@ -6,10 +6,13 @@
     "diagnostic.warningSign": "",
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": "",
+    "diagnostic.level": "information",
+    "diagnostic.showUnused": true,
 
     "pyright.enable": true,
+    "python.analysis.typeCheckingMode": "basic",
     "python.linting.enabled": true,
-    "python.linting.flake8Enabled": true,
+    "python.linting.pylintEnabled": true,
     "python.formatting.provider": "autopep8",
 
     "languageserver": {
