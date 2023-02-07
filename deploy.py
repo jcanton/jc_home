@@ -27,34 +27,34 @@ print('\n')
 #==============================================================================
 #
 def delete(dpath):
-	if os.path.isdir(dpath):
-		shutil.rmtree(dpath)
-	else:
-		os.remove(dpath)
+    if os.path.isdir(dpath):
+        shutil.rmtree(dpath)
+    else:
+        os.remove(dpath)
 
 def check_delete_link(fname, lfname=''):
-	#  fname: file name that will be in the system (symlink)
-	# lfname: name of the same file here in the repo
-	if (lfname == ''):
-		lfname = fname
-	fpath  = os.path.join(homedir, fname)
-	lfpath = os.path.join(cdir,    lfname)
-	if os.path.exists(fpath):
-		if (not os.path.islink(fpath)):
-			# old file
-			usrIn = input('\tFound '+fname+' delete? y/[n] ')
-			if (usrIn == 'y'):
-				print('    Removing old '+fname)
-				delete(fpath)
-				os.symlink(lfpath, fpath)
-		else:
-			# symlink
-			if (not os.readlink(fpath) == lfpath):
-				delete(fpath)
-				os.symlink(lfpath, fpath)
-	else:
-		# did not exist
-		os.symlink(lfpath, fpath)
+    #  fname: file name that will be in the system (symlink)
+    # lfname: name of the same file here in the repo
+    if (lfname == ''):
+        lfname = fname
+    fpath  = os.path.join(homedir, fname)
+    lfpath = os.path.join(cdir,    lfname)
+    if os.path.exists(fpath):
+        if (not os.path.islink(fpath)):
+            # old file
+            usrIn = input('\tFound '+fname+' delete? y/[n] ')
+            if (usrIn == 'y'):
+                print('    Removing old '+fname)
+                delete(fpath)
+                os.symlink(lfpath, fpath)
+        else:
+            # symlink
+            if (not os.readlink(fpath) == lfpath):
+                delete(fpath)
+                os.symlink(lfpath, fpath)
+    else:
+        # did not exist
+        os.symlink(lfpath, fpath)
 
 #==============================================================================
 # Initialise git submodules
@@ -79,7 +79,7 @@ else:
     check_delete_link('.bashrc.local', '.bashrc.local.'+hostname)
 
 if (system == 'Darwin'):
-	check_delete_link('.bash_profile', '.bash_profile.osx')
+    check_delete_link('.bash_profile', '.bash_profile.osx')
 
 #------------------------------------------------------------------------------
 # deploy git
@@ -96,9 +96,9 @@ check_delete_link('.ipython')
 # deploy matplotlib
 #
 if (system == 'Darwin'):
-	check_delete_link('.matplotlib', 'matplotlib')
+    check_delete_link('.matplotlib', 'matplotlib')
 elif (system == 'Linux'):
-	check_delete_link('.config/matplotlib', 'matplotlib')
+    check_delete_link('.config/matplotlib', 'matplotlib')
 
 #------------------------------------------------------------------------------
 # deploy tmux
@@ -124,19 +124,19 @@ else:
 # deploy karabiner
 #
 if (system == 'Darwin'):
-	check_delete_link('.config/karabiner', 'karabiner')
+    check_delete_link('.config/karabiner', 'karabiner')
 
 #------------------------------------------------------------------------------
 # deploy neovim
 #
 if (system == 'Darwin'):
-	check_delete_link('.config/nvim', 'nvim')
+    check_delete_link('.config/nvim', 'nvim')
 
 #------------------------------------------------------------------------------
 # deploy CoC
 #
 if (system == 'Darwin'):
-	check_delete_link('.config/coc', 'coc')
+    check_delete_link('.config/coc', 'coc')
 
 #==============================================================================
 #==============================================================================
