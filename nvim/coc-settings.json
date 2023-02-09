@@ -11,8 +11,8 @@
 
     "pyright.enable": true,
     "python.analysis.typeCheckingMode": "basic",
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": false,
+    "python.linting.pylintEnabled": false,
     "python.formatting.provider": "autopep8",
 
     "languageserver": {
