@@ -32,12 +32,11 @@ HISTFILESIZE=20000
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias grep='grep  --color=auto'
-    alias grepl='grep -n'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias gr="grep --exclude='tags'"
 fi
+
+alias rg='rg --hidden --max-depth 0'
+alias grep='rg' # use ripgrep
+alias gr='rg' # use ripgrep
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
