@@ -34,10 +34,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
-alias rg='rg --hidden --max-depth 0'
-alias grep='rg' # use ripgrep
-alias gr='rg' # use ripgrep
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -117,5 +113,10 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+# needs to stay here as it's installed with conda
+alias rg='rg --hidden --max-depth 0'
+alias grep='rg' # use ripgrep
+alias gr='rg' # use ripgrep
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
