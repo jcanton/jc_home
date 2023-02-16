@@ -483,6 +483,8 @@ let g:airline_symbols.maxlinenr = ''
 " NERDtree
 "------------------------------------------------------------------------------
 
+" Hide extensions
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.mod$', '\.f90.d$']
 
 " open NERDTree automatically
 " autocmd VimEnter * NERDTree | wincmd p
