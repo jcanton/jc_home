@@ -10,16 +10,16 @@
 augroup Coc
 au!
 autocmd BufRead,BufNewFile
-            \ *.cpp,*.h,*.hpp,*.c,*.usr,SIZE,USERPAR,CHKPOINT,*.py,*.f,*.f90,*.vim
+            \ *.cpp,*.h,*.hpp,*.c,*.usr,SIZE,USERPAR,CHKPOINT,*.py,*.vim
             \ call coc#config("suggest.autoTrigger", "always") " Always show CoC
 autocmd BufRead,BufNewFile
-            \ *.tex,*.md
+            \ *.tex,*.md,*.f,*.f90
             \ call coc#config("suggest.autoTrigger", "none") " Only on trigger
 augroup END
 
 augroup Cpp
 au!
-autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp setlocal tw=80 cin noic autowrite
+autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp setlocal cin noic autowrite
 autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp setlocal expandtab shiftwidth=4 tabstop=4
 " Enable clang-format by default on write
 autocmd BufRead,BufNewFile *.c,*.cpp,*.h,*.hpp ClangFormatAutoEnable
@@ -27,7 +27,7 @@ augroup END
 
 augroup Fortran
 au!
-autocmd BufRead,BufNewFile *.f,*.f90 setlocal tw=80 noic autowrite
+autocmd BufRead,BufNewFile *.f,*.f90 setlocal tw=0 noic autowrite
 autocmd BufRead,BufNewFile *.f,*.f90 setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 
@@ -81,12 +81,12 @@ augroup END
 " FILE GROUPS
 "------------------------------------------------------------------------------
 
-augroup makable
-au!
-autocmd BufRead    *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :Make<CR>
-autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :Make<CR>
-autocmd BufEnter   *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :Make<CR>
-autocmd BufRead    *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
-autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
-autocmd BufEnter   *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
-augroup END
+" augroup makable
+" au!
+" autocmd BufRead    *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :Make<CR>
+" autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :Make<CR>
+" autocmd BufEnter   *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F2> :Make<CR>
+" autocmd BufRead    *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+" autocmd BufNewFile *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+" autocmd BufEnter   *.c,*.cc,*.C,*.cpp,*.h,*.hpp,*.l,*.y,*.f,*.f90 map <F5> :make clean<NL>
+" augroup END
