@@ -348,9 +348,12 @@ endfunction
 
 " Read base16-vim colorscheme
 if filereadable(expand("~/.vimrc_background"))
-    let base16colorspace=256
+    " let base16colorspace=256
     source ~/.vimrc_background
     "call AutoDarkModeSetup()
+    "
+    " Fix CoC's MenuSel
+    hi CocMenuSel guibg=#C8D7D7
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
