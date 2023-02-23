@@ -352,8 +352,9 @@ if filereadable(expand("~/.vimrc_background"))
     source ~/.vimrc_background
     "call AutoDarkModeSetup()
     "
-    " Fix CoC's MenuSel
+    " Fix CoC's colours
     hi CocMenuSel guibg=#C8D7D7
+    hi CocListLine guibg=#C8D7D7
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
