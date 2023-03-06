@@ -10,10 +10,10 @@
 augroup Coc
 au!
 autocmd BufRead,BufNewFile
-            \ *.cpp,*.h,*.hpp,*.c,*.usr,SIZE,USERPAR,CHKPOINT,*.py,*.vim
+            \ *.cpp,*.h,*.hpp,*.c,*.vim
             \ call coc#config("suggest.autoTrigger", "always") " Always show CoC
 autocmd BufRead,BufNewFile
-            \ *.tex,*.md,*.f,*.f90
+            \ *.tex,*.md,*.f,*.f90,*.py
             \ call coc#config("suggest.autoTrigger", "none") " Only on trigger
 augroup END
 
