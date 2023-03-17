@@ -1,9 +1,10 @@
 # ELA (Daint) specific settings:
 
 alias sc='cd $SCRATCH'
-alias pj='cd /project/pr133/jcanton'
-alias pe='cd /store/g142/jcanton'
-alias st='cd /store/c2sm/pr04/jcanton/data_lmp'
+alias pr133='cd /project/pr133/jcanton'
+alias g142='cd /store/g142/jcanton'
+alias d121='cd /project/d121/jcanton'
+alias st='cd /store/c2sm/pr04/jcanton'
 
 #module load daint-gpu ncview NCO CDO
 
