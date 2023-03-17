@@ -3,9 +3,6 @@ sshmount() {
     diskName=$1
     diskDir=/Users/jcanton/sshfsVolumes/$diskName
 
-    printf "Disk name: $diskName\n"
-    printf "Disk dir:  $diskDir\n"
-
     cd
     if [[ ! -e ${diskDir} ]]; then
         mkdir -p $diskDir
