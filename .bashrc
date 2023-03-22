@@ -103,8 +103,8 @@ fi
 #------------------------------------------------------------------------------
 # sshMount
 #
-if [ -f ~/jc_home/.bashrc.sshMount ]; then
-    . ~/jc_home/.bashrc.sshMount
+if [ -f ~/jc_home/.bashrc.sshMount.sh ]; then
+    . ~/jc_home/.bashrc.sshMount.sh
 fi
 
 #------------------------------------------------------------------------------
