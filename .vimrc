@@ -79,7 +79,7 @@ Plug 'preservim/tagbar' " Tagbar: a class outline viewer for Vim
 Plug 'simnalamburt/vim-mundo' " A Vim plugin to visualizes the Vim undo tree
 "
 Plug 'jpalardy/vim-slime', { 'for': 'python' }
-"Plug 'hanschen/vim-ipython-cell', { 'for': 'python' } # not working correctly for now
+"Plug 'hanschen/vim-ipython-cell', { 'for': 'python' } " not working correctly for now
 "
 Plug 'ryanoasis/vim-devicons' " ALWAYS LOAD LAST Adds file type icons to Vim plugins
 Plug 'honza/vim-snippets'  " snippets for the engines (somehow disappeared from CoC - seems to be back now, but not working without this?)
@@ -203,7 +203,7 @@ set splitright
 
 
 " Always autosave everything when focus is lost
-:au FocusLost * :wa
+:au FocusLost * :wa!
 
 " Sets how many lines of history VIM has to remember
 set history=700
@@ -540,7 +540,7 @@ autocmd TermOpen term://* startinsert
 " always use tmux
 let g:slime_target = 'tmux'
 " fix paste issues in ipython
-" let g:slime_python_ipython = 1
+"let g:slime_python_ipython = 1
 let g:slime_bracketed_paste = 1
 let g:slime_paste_file = expand("$HOME/.slime_paste")
 " always send text to the top-right pane in the current tmux tab without asking
@@ -548,6 +548,8 @@ let g:slime_default_config = {
             \ 'socket_name': get(split($TMUX, ','), 0),
             \ 'target_pane': '{top-right}' }
 let g:slime_dont_ask_default = 1
+"" map <Leader>c to execute the current cell
+"nnoremap <Leader>c :IPythonCellExecuteCell<CR>
 
 "------------------------------------------------------------------------------
 " Prettier configuration
