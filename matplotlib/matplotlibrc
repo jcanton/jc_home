@@ -124,7 +124,7 @@ lines.antialiased : True         # render lines in antialised (no jaggies)
 # The font.size property is the default font size for text, given in pts.
 # 12pt is the standard value.
 #
-font.family         : STIXGeneral
+font.family         : serif
 #font.style          : normal
 #font.variant        : normal
 #font.weight         : medium
@@ -140,6 +140,7 @@ font.serif          : Times, Times New Roman, Palatino, Bitstream Vera Serif, Ne
 #font.cursive        : Apple Chancery, Textile, Zapf Chancery, Sand, cursive
 #font.fantasy        : Comic Sans MS, Chicago, Charcoal, Impact, Western, fantasy
 #font.monospace      : Bitstream Vera Sans Mono, Andale Mono, Nimbus Mono L, Courier New, Courier, Fixed, Terminal, monospace
+pdf.fonttype:       42 # should be TrueType
 
 ## TEXT
 # text properties used by text.Text.  See

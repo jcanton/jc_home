@@ -120,3 +120,4 @@ alias grep='rg' # use ripgrep
 alias gr='rg' # use ripgrep
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export MATPLOTLIBRC="$HOME/jc_home/matplotlib/matplotlibrc"
