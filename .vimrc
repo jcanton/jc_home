@@ -67,6 +67,7 @@ Plug 'tpope/vim-fugitive' " A Git wrapper so awesome, it should be illegal
 Plug 'lervag/vimtex' " VimTeX is a modern Vim and Neovim filetype and syntax plugin for LaTeX files.
 Plug 'airblade/vim-gitgutter' " A Vim plugin which shows a git diff in the gutter (sign column) and stages/undoes hunks and partial hunks.
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'godlygeek/tabular' " table alignement
 Plug 'luochen1990/rainbow' " Rainbow Parentheses Improved
 Plug 'kshenoy/vim-signature' " Marks on the left side
 "
