@@ -175,19 +175,20 @@ function! SetProjectRoot()
     endif
 endfunction
 
-" follow symlink and set working directory
-autocmd BufRead *
-    \ call FollowSymlink()
-    "\ call FollowSymlink() |
-    "\ call SetProjectRoot()
-
-" netrw: follow symlink and set working directory
-autocmd CursorMoved silent *
-    " short circuit for non-netrw files
-    \ if &filetype == 'netrw' |
-    \     call FollowSymlink() |
-    \     call SetProjectRoot() |
-    \ endif
+" maybe this was creating issues?
+"" follow symlink and set working directory
+"autocmd BufRead *
+"    \ call FollowSymlink()
+"    "\ call FollowSymlink() |
+"    "\ call SetProjectRoot()
+"
+"" netrw: follow symlink and set working directory
+"autocmd CursorMoved silent *
+"    " short circuit for non-netrw files
+"    \ if &filetype == 'netrw' |
+"    \     call FollowSymlink() |
+"    \     call SetProjectRoot() |
+"    \ endif
 
 "------------------------------------------------------------------------------
 " General
