@@ -419,6 +419,9 @@ autocmd BufReadPost *
 " Remember info about open buffers on close
 set viminfo^=%
 
+" Reduce updatetime (from airblad/vim-gitgutter's README)
+set updatetime=100
+
 "------------------------------------------------------------------------------
 " Status line
 "------------------------------------------------------------------------------
