@@ -53,8 +53,6 @@ autocmd BufRead,BufNewFile *.tex setlocal noic autowrite cc=81 "spell
 autocmd BufRead,BufNewFile *.tex call pencil#init()
 autocmd BufRead,BufNewFile *.tex setlocal conceallevel=0
 autocmd BufRead,BufNewFile *.tex nmap <C-i> <Plug>IMAP_JumpForward
-autocmd BufRead,BufNewFile *.tex map <F2> <ESC>:w<CR><leader>ll
-autocmd BufRead,BufNewFile *.tex map <F3> <ESC>:w<CR><leader>lv
 augroup END
 
 function CheckKate()
