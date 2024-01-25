@@ -28,7 +28,7 @@ augroup END
 augroup Fortran
 au!
 autocmd BufRead,BufNewFile *.f,*.f90 setlocal tw=0 noic autowrite
-autocmd BufRead,BufNewFile *.f,*.f90 setlocal expandtab shiftwidth=2 tabstop=2
+autocmd BufRead,BufNewFile *.f,*.f90 setlocal expandtab shiftwidth=4 tabstop=4
 augroup END
 
 augroup Nek
@@ -45,6 +45,7 @@ au!
 autocmd BufRead,BufNewFile *.py setlocal tw=0 noic autowrite
 autocmd BufRead,BufNewFile *.py setlocal expandtab shiftwidth=4 tabstop=4
 autocmd BufRead,BufNewFile *.py setlocal foldmethod=indent foldlevel=99
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
 augroup END
 
 augroup tex
