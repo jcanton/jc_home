@@ -115,6 +115,7 @@ if [ -f ~/.bashrc.local ]; then
 fi
 
 # needs to stay here as it's installed with conda
+alias rgg='rg --hidden'
 alias rg='rg --hidden --max-depth 0'
 alias grep='rg' # use ripgrep
 alias gr='rg' # use ripgrep
