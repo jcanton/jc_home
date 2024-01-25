@@ -70,7 +70,7 @@ git pull
 # make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX=$TARGET -j$JOBS
 # make install
 
-# nodejs and npm (https://gist.github.com/isaacs/579814)
+# # nodejs and npm manually compiling - fails - (https://gist.github.com/isaacs/579814) 
 # cd $TARGET/repo
 # mkdir node-latest-install
 # cd node-latest-install
@@ -79,7 +79,26 @@ git pull
 # make install # ok, fine, this step probably takes more than 30 seconds...
 # curl https://www.npmjs.org/install.sh | sh
 #
-wget https://nodejs.org/dist/v14.17.0/node-v14.17.0-linux-x64.tar.xz # and link in .local
+# # precompiled
+# cd $TARGET/repo
+# mkdir node-latest
+# wget https://nodejs.org/dist/v20.11.0/node-v20.11.0-linux-x64.tar.xz
+# tar xvf node-v20.11.0-linux-x64.tar.xz -C node-latest --strip-components 1
+# echo PATH="$HOME/.local/repo/node-latest/bin:$PATH" > ~/.bashrc.local
+#
+# try with nvm
+cd $TARGET/repo
+mkdir nvm
+ln -s $TARGET/repo/nvm $HOME/.nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# then move the following lines from .bashrc to .bashrc.local
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# then install 16.20.2 (latest compatible on daint due to old glibc, see `ldd --version`)
+nvm install 16.20.2
+nvm alias default 16.20.2
+
 
 # libffi on daint
 cd $TARGET/repo
