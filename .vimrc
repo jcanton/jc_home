@@ -581,6 +581,9 @@ let g:prettier#config#parser = ''
 " Vimtex configuration
 "------------------------------------------------------------------------------
 let g:vimtex_view_method='skim'
+noremap <leader>ll :VimtexCompileSS<cr>
+autocmd BufRead,BufNewFile *.tex map <F2> <ESC>:w<CR><leader>ll
+autocmd BufRead,BufNewFile *.tex map <F3> <ESC>:w<CR><leader>lv
 
 "------------------------------------------------------------------------------
 " Load CoC configuration
