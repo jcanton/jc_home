@@ -42,3 +42,5 @@ unset __conda_setup
 
 export PATH="/Applications/VisIt.app/Contents/MacOS:$PATH"
 export PATH="/Applications/VisIt.app/Contents/Resources/bin:$PATH"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
