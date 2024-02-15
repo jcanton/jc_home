@@ -21,9 +21,6 @@ BASE16_SHELL="$HOME/jc_home/base16-shell/"
 # fi
 base16_solarized-light
 
-# Ruby and gem stuff
-export PATH="/usr/local/opt/ruby@2.7/bin:/usr/local/lib/ruby/gems/2.7.0/bin:$HOME/.local/share/gem/ruby/2.7.0/bin:$PATH"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -51,3 +48,7 @@ export VAPOR_HOME="/Applications/vapor.app"
 export PATH="/Applications/vapor.app/Contents/MacOS:$PATH"
 
 alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
+
+# Flutter stuff
+export PATH="/Users/jcanton/VScode/flutter:$PATH"
+export PATH="/Users/jcanton/VScode/flutter/bin:$PATH"

@@ -21,9 +21,6 @@ BASE16_SHELL="$HOME/jc_home/base16-shell/"
 # fi
 base16_solarized-light
 
-# Java
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -43,4 +40,8 @@ unset __conda_setup
 export PATH="/Applications/VisIt.app/Contents/MacOS:$PATH"
 export PATH="/Applications/VisIt.app/Contents/Resources/bin:$PATH"
 
+# Ski# Skim
+alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
+
+# homebrew "new" location
 eval "$(/opt/homebrew/bin/brew shellenv)"
