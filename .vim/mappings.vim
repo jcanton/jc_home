@@ -9,11 +9,11 @@ noremap <M-m> :exec 'pedit $HOME/.vim/mappings.vim'<CR>
 " Function calls
 "-------------------------------------------------------------------------------
 
-" Enhanced add/subtract
-nnoremap <silent>         <M-]> :<C-u>call AddSubtract("\<C-a>", '')<CR>
-nnoremap <silent> <Leader><M-]> :<C-u>call AddSubtract("\<C-a>", 'b')<CR>
-nnoremap <silent>         <M-[> :<C-u>call AddSubtract("\<C-x>", '')<CR>
-nnoremap <silent> <Leader><M-[> :<C-u>call AddSubtract("\<C-x>", 'b')<CR>
+" " Enhanced add/subtract
+" nnoremap <silent>         <M-]> :<C-u>call AddSubtract("\<C-a>", '')<CR>
+" nnoremap <silent> <Leader><M-]> :<C-u>call AddSubtract("\<C-a>", 'b')<CR>
+" nnoremap <silent>         <M-[> :<C-u>call AddSubtract("\<C-x>", '')<CR>
+" nnoremap <silent> <Leader><M-[> :<C-u>call AddSubtract("\<C-x>", 'b')<CR>
 
 " Delete all trailing whitespaces
 map <M-s> :DeleteTrailingWhitespace<CR>
