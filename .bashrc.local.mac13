@@ -44,4 +44,6 @@ export PATH="/Applications/VisIt.app/Contents/Resources/bin:$PATH"
 alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
 
 # homebrew "new" location
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [ -d "/opt/homebrew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
