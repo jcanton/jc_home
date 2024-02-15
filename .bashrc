@@ -122,6 +122,8 @@ alias gr='rg' # use ripgrep
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export MATPLOTLIBRC="$HOME/jc_home/matplotlib/matplotlibrc"
 
-eval "$(zoxide init bash)"
-alias cd='z'
-alias cdi='zi'
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init bash)"
+    alias cd='z'
+    alias cdi='zi'
+fi
