@@ -11,11 +11,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#module load daint-gpu ncview NCO CDO
-# COSMO
-#PATH="/oprusers/osm/bin:$PATH"
-#module load daint-gpu ncview NCO CDO
-
 # PALM
 export LD_LIBRARY_PATH="/store/g142/jcanton/repos/palm_build/rrtmg/lib:${LD_LIBRARY_PATH}"
 export PATH="/store/g142/jcanton/repos/palm_build/bin:${PATH}"
@@ -33,19 +28,42 @@ export PATH="/store/g142/jcanton/repos/palm_build/bin:${PATH}"
 # alias fieldextra='/project/s83c/fieldextra/daint/bin/fieldextra_gnu_opt_omp'
 # alias grins='/project/s83c/fieldextra/daint/tools/grins'
 
-loadSpack() {
-    #module load cray-python
-    source /project/g110/spack/user/daint/spack/share/spack/setup-env.sh
-    export PATH="/project/g110/spack-install/daint/icontools/c2sm-master/gcc/mxikzrglofw6sz6ew25bowqwdenvmpzd/bin:$PATH"
+loadMyPythonEnv() {
+    if ! [[ ":$PATH:" == *"miniconda3"* ]]; then
+        export NON_CONDA_PATH="$PATH"
+        export NON_CONDA_PYTHONPATH=""
+        #
+        export PATH="/users/jcanton/miniconda3/bin:$PATH"
+        export PYTHONPATH="/users/jcanton/miniconda3/lib/python3.11/site-packages:$PYTHONPATH"
+        export MPLCONFIGDIR="/scratch/snx3000/jcanton/.matplotlib"
+    fi
+}
+unloadMyPythonEnv() {
+    export PATH="$NON_CONDA_PATH"
+    export PYTHONPATH="$NON_CONDA_PYTHONPATH"
 }
 
-loadMyPythonEnv() {
-    # Ruby
-    #export PATH="/users/jcanton/.gem/ruby/2.5.0/bin:$PATH"
-    # Python
-    export PATH="/users/jcanton/miniconda3/bin:$PATH"
-    export PYTHONPATH="/users/jcanton/miniconda3/lib/python3.11/site-packages:$PYTHONPATH"
-    export MPLCONFIGDIR="/scratch/snx3000/jcanton/.matplotlib"
+loadIcon4py() {
+    #
+    unloadMyPythonEnv
+    #
+    module load daint-mc
+    module swap PrgEnv-cray PrgEnv-gnu
+    module load Boost
+    #
+    # Install
+    ##git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    ##cd ~/.pyenv && src/configure && make -C src
+    ##export PYENV_ROOT="$HOME/.pyenv"
+    ##command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    ##eval "$(pyenv init -)"
+    ##pyenv install 3.10.4
+    #
+    # Load
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    pyenv shell 3.10.4
 }
 
 
