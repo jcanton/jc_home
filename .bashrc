@@ -127,12 +127,6 @@ loadMyPythonEnv
 loadIcon4py() {
     #
     unloadMyPythonEnv
-
-    if [[ $(hostname -s) = daint* ]]; then
-        module load daint-mc
-        module swap PrgEnv-cray PrgEnv-gnu
-        module load Boost
-    fi
     #
     if ! [ -d "$HOME/.pyenv" ]; then
         # Install
@@ -149,6 +143,15 @@ loadIcon4py() {
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
     pyenv shell 3.10.4
+
+    if [[ $(hostname -s) = daint* ]]; then
+        module load daint-mc
+        module swap PrgEnv-cray PrgEnv-gnu
+        module load Boost
+    elif [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]]; then
+        export CC=$HOME/.local/bin/gcc
+        export CXX=$HOME/.local/bin/g++
+    fi
 }
 
 #------------------------------------------------------------------------------
