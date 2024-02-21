@@ -28,44 +28,6 @@ export PATH="/store/g142/jcanton/repos/palm_build/bin:${PATH}"
 # alias fieldextra='/project/s83c/fieldextra/daint/bin/fieldextra_gnu_opt_omp'
 # alias grins='/project/s83c/fieldextra/daint/tools/grins'
 
-loadMyPythonEnv() {
-    if ! [[ ":$PATH:" == *"miniconda3"* ]]; then
-        export NON_CONDA_PATH="$PATH"
-        export NON_CONDA_PYTHONPATH=""
-        #
-        export PATH="/users/jcanton/miniconda3/bin:$PATH"
-        export PYTHONPATH="/users/jcanton/miniconda3/lib/python3.11/site-packages:$PYTHONPATH"
-        export MPLCONFIGDIR="/scratch/snx3000/jcanton/.matplotlib"
-    fi
-}
-unloadMyPythonEnv() {
-    export PATH="$NON_CONDA_PATH"
-    export PYTHONPATH="$NON_CONDA_PYTHONPATH"
-}
-
-loadIcon4py() {
-    #
-    unloadMyPythonEnv
-    #
-    module load daint-mc
-    module swap PrgEnv-cray PrgEnv-gnu
-    module load Boost
-    #
-    # Install
-    ##git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-    ##cd ~/.pyenv && src/configure && make -C src
-    ##export PYENV_ROOT="$HOME/.pyenv"
-    ##command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    ##eval "$(pyenv init -)"
-    ##pyenv install 3.10.4
-    #
-    # Load
-    export PYENV_ROOT="$HOME/.pyenv"
-    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    pyenv shell 3.10.4
-}
-
 
 case $HOSTNAME in
     daint???)
@@ -74,12 +36,8 @@ case $HOSTNAME in
         function wsq {
             watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
         }
-        loadMyPythonEnv
         ;;
     nid*)
-        # Python
-        #loadMyPythonEnv
-        #module load cray-python
         alias pyNode='source ~/.pythonComputeNode.env'
         ;;
     ela?)

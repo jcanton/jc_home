@@ -1,4 +1,4 @@
-# MAC13 specific settings:
+# mac specific settings:
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -21,26 +21,7 @@ BASE16_SHELL="$HOME/jc_home/base16-shell/"
 # fi
 base16_solarized-light
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/jcanton/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    #eval "$__conda_setup"
-    export PATH="/Users/jcanton/miniconda3/bin:$PATH"
-else
-    if [ -f "/Users/jcanton/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/jcanton/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/jcanton/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="/Applications/VisIt.app/Contents/MacOS:$PATH"
-export PATH="/Applications/VisIt.app/Contents/Resources/bin:$PATH"
-
-# Ski# Skim
+# Skim
 alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
 
 # homebrew "new" location

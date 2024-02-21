@@ -70,15 +70,6 @@ alias gia='git add'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 
-alias tm='tmux -u'
-alias tml='tmux ls'
-alias tmn='tmux -u new -s'
-alias tma='tmux -u attach -t'
-
-alias 2erebos='ssh -Y jcanton@erebos.mech.kth.se'
-alias 2panda='ssh -Y jcanton@panda.ethz.ch'
-alias 2falcon='ssh -Y jcanton@falcon.ethz.ch'
-alias 2barry='ssh -Y jcanton@barry.ethz.ch'
 alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
 alias 2ela='ssh -Y jcanton@ela.cscs.ch'
 alias 2daint='ssh -Y jcanton@daint.cscs.ch'
@@ -92,6 +83,73 @@ PATH="$HOME/.local/bin:$PATH"
 INCLUDE="$HOME/.local/include:$INCLUDE"
 LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 
+#------------------------------------------------------------------------------
+# conda and software installed through it
+#
+loadMyPythonEnv() {
+    if ! [[ ":$PATH:" == *"miniconda3"* ]]; then
+        export NON_CONDA_PATH="$PATH"
+        export NON_CONDA_PYTHONPATH=""
+        #
+        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PYTHONPATH="$HOME/miniconda3/lib/python3.11/site-packages:$PYTHONPATH"
+        export PROJ_LIB="$HOME/miniconda3/share/proj"
+        export MATPLOTLIBRC="$HOME/jc_home/matplotlib/matplotlibrc"
+    fi
+    if command -v tmux &> /dev/null; then
+        alias tm='tmux -u'
+        alias tml='tmux ls'
+        alias tmn='tmux -u new -s'
+        alias tma='tmux -u attach -t'
+    fi
+    if command -v rg &> /dev/null; then
+        alias rgg='rg --max-depth 1'
+        alias grep='rg'
+        alias gr='rg'
+    fi
+    if command -v zoxide &> /dev/null; then
+        eval "$(zoxide init bash)"
+        alias cd='z'
+        alias cdi='zi'
+    fi
+}
+unloadMyPythonEnv() {
+    export PATH="$NON_CONDA_PATH"
+    export PYTHONPATH="$NON_CONDA_PYTHONPATH"
+    unalias tm tml tmn tma
+    unalias rgg grep gr
+    unalias cd cdi
+}
+
+loadMyPythonEnv
+
+#------------------------------------------------------------------------------
+loadIcon4py() {
+    #
+    unloadMyPythonEnv
+
+    if [[ $(hostname -s) = daint* ]]; then
+        module load daint-mc
+        module swap PrgEnv-cray PrgEnv-gnu
+        module load Boost
+    fi
+    #
+    if ! [ -d "$HOME/.pyenv" ]; then
+        # Install
+        git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+        cd ~/.pyenv && src/configure && make -C src
+        export PYENV_ROOT="$HOME/.pyenv"
+        command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+        pyenv install 3.10.4
+    fi
+    #
+    # Load
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+    pyenv shell 3.10.4
+}
 
 #------------------------------------------------------------------------------
 # git autocompletion
@@ -112,18 +170,4 @@ fi
 #
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
-fi
-
-# needs to stay here as it's installed with conda
-alias rgg='rg --max-depth 1'
-alias grep='rg' # use ripgrep
-alias gr='rg' # use ripgrep
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export MATPLOTLIBRC="$HOME/jc_home/matplotlib/matplotlibrc"
-
-if command -v zoxide &> /dev/null; then
-    eval "$(zoxide init bash)"
-    alias cd='z'
-    alias cdi='zi'
 fi
