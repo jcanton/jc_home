@@ -42,5 +42,5 @@ install miniconda3, then
 conda update conda
 conda install conda-forge::conda-libmamba-solver
 conda config --set solver libmamba
-conda install -c conda-forge ipython numpy matplotlib xarray scipy pynvim xesmf rasterio pyngl psy-view psyplot proj pandas netcdf4 htop hdf4 hdf5 h5py geos geotiff gdal fortran-language-server esmf cdo cartopy requests folium tmux htop pylint ripgrep mscorefonts f90nml zoxide fzf
+conda install -c conda-forge ipython numpy matplotlib xarray uxarray scipy pynvim xesmf rasterio pyngl psy-view psyplot proj pandas netcdf4 htop hdf4 hdf5 h5py geos geotiff gdal fortran-language-server esmf cdo cartopy requests folium tmux htop pylint ripgrep mscorefonts f90nml zoxide fzf
 ```
