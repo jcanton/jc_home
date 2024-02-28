@@ -27,4 +27,9 @@ alias skim="/Applications/Skim.app/Contents/MacOS/Skim"
 # homebrew "new" location
 if [ -d "/opt/homebrew" ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
+    # and java
+    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+else
+    export PATH="/usr/local/opt/openjdk/bin:$PATH"
 fi
