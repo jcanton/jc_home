@@ -36,6 +36,13 @@ case $HOSTNAME in
         function wsq {
             watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
         }
+        if [ -n "${VSCODE_INVOKING}" ]; then
+            #echo "invoked by vscode"
+            # set colors
+            export CLICOLOR=1
+            # Base16 Shell
+            /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
+        fi
         ;;
     nid*)
         alias pyNode='source ~/.pythonComputeNode.env'
