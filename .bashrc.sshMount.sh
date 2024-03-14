@@ -28,8 +28,8 @@ sshmount() {
     elif [ "$diskName" == "d121" ]; then
         sshfs daint:/project/d121/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
-    elif [ "$diskName" == "o3" ]; then
-        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/argon/hymet_nobackup/jcanton  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
+    elif [ "$diskName" == "co2" ]; then
+        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/co2/exclaim/jcanton  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
     elif [ "$diskName" == "pi" ]; then
         sshfs pi:/home/pi  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble

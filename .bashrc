@@ -75,6 +75,7 @@ alias 2ela='ssh -Y jcanton@ela.cscs.ch'
 alias 2daint='ssh -Y jcanton@daint.cscs.ch'
 alias 2fog='ssh -X -Y fog'
 alias 2o3='ssh -X -Y o3'
+alias 2co2='ssh -X -Y co2'
 alias 2argon='ssh -X -Y argon'
 alias 2pi='ssh -Y pi@192.168.1.102'
 
@@ -107,11 +108,11 @@ loadMyPythonEnv() {
         alias grep='rg'
         alias gr='rg'
     fi
-    if command -v zoxide &> /dev/null; then
-        eval "$(zoxide init bash)"
-        alias cd='z'
-        alias cdi='zi'
-    fi
+    # if command -v zoxide &> /dev/null; then
+    #     eval "$(zoxide init bash)"
+    #     alias cd='z'
+    #     alias cdi='zi'
+    # fi
 }
 unloadMyPythonEnv() {
     export PATH="$NON_CONDA_PATH"
@@ -128,6 +129,15 @@ loadIcon4py() {
     #
     unloadMyPythonEnv
     #
+    if [[ $(hostname -s) = daint* ]]; then
+        module load daint-mc
+        module swap PrgEnv-cray PrgEnv-gnu
+        module load Boost
+    elif [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
+        export CC=$HOME/.local/bin/gcc
+        export CXX=$HOME/.local/bin/g++
+    fi
+    #
     if ! [ -d "$HOME/.pyenv" ]; then
         # Install
         git clone https://github.com/pyenv/pyenv.git ~/.pyenv
@@ -143,15 +153,6 @@ loadIcon4py() {
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
     pyenv shell 3.10.4
-
-    if [[ $(hostname -s) = daint* ]]; then
-        module load daint-mc
-        module swap PrgEnv-cray PrgEnv-gnu
-        module load Boost
-    elif [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]]; then
-        export CC=$HOME/.local/bin/gcc
-        export CXX=$HOME/.local/bin/g++
-    fi
 }
 
 #------------------------------------------------------------------------------
