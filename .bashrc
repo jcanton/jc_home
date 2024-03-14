@@ -119,7 +119,7 @@ unloadMyPythonEnv() {
     export PYTHONPATH="$NON_CONDA_PYTHONPATH"
     unalias tm tml tmn tma
     unalias rgg grep gr
-    unalias cd cdi
+    # unalias cd cdi
 }
 
 loadMyPythonEnv
