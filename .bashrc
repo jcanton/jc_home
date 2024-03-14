@@ -108,11 +108,11 @@ loadMyPythonEnv() {
         alias grep='rg'
         alias gr='rg'
     fi
-    if command -v zoxide &> /dev/null; then
-        eval "$(zoxide init bash)"
-        alias cd='z'
-        alias cdi='zi'
-    fi
+    # if command -v zoxide &> /dev/null; then
+    #     eval "$(zoxide init bash)"
+    #     alias cd='z'
+    #     alias cdi='zi'
+    # fi
 }
 unloadMyPythonEnv() {
     export PATH="$NON_CONDA_PATH"
