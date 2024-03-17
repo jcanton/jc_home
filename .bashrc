@@ -77,7 +77,8 @@ alias 2fog='ssh -X -Y fog'
 alias 2o3='ssh -X -Y o3'
 alias 2co2='ssh -X -Y co2'
 alias 2argon='ssh -X -Y argon'
-alias 2pi='ssh -Y pi@192.168.1.102'
+alias 2pi='ssh -X -Y pi'
+alias 2ciccia='ssh -X -Y ciccia'
 
 # my compiled software
 PATH="$HOME/.local/bin:$PATH"
