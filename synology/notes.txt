@@ -1,0 +1,6 @@
+these files are located here:
+
+~/Library/Application\ Support/SynologyDrive/SynologyDrive.app/Contents/Resources/conf/blacklist.filter main_blacklist.filter
+
+~/Library/Application\ Support/SynologyDrive/data/session/1/conf/blacklist.filter session1_blacklist.filter
+~/Library/Application\ Support/SynologyDrive/data/session/2/conf/blacklist.filter session2_blacklist.filter

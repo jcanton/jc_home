@@ -1,0 +1,23 @@
+[Version]
+major = 1
+minor = 1
+
+[Common]
+black_dir_prefix = "/albums", "/lightroom/SD_card_tioImport_Agnese", "/lightroom/agnese", "/lightroom/jacopo/2014_2015_catalog", "/lightroom/jacopo/2016", 
+"/lightroom/jacopo/2016_2017_catalog", "/lightroom/jacopo/2017", "/lightroom/jacopo/2018", "/lightroom/jacopo/2018_catalog", "/lightroom/jacopo/2019", 
+"/lightroom/jacopo/2019_catalog", "/lightroom/jacopo/2020", "/lightroom/jacopo/2020_catalog", "/lightroom/jacopo/2021", "/lightroom/jacopo/2021_catalog", 
+"/lightroom/jacopo/2022", "/lightroom/jacopo/2022_catalog", "/onephotoaday", "/phoneAgnese", "/phoneJacopo", 
+"/photo_exports", "/tablet", "/todo"
+max_length = 0
+max_path = 0
+
+[File]
+black_suffix = ".lnk", ".pst", ".swp", ".temp", ".tmp"
+
+max_size = 0
+
+[Directory]
+black_name = ".cache", ".node-gyp", "bower_components", "node_modules", ".venv", ".mypy_cache", ".pytest_cache", "__pycache__"
+
+[EA]
+

@@ -1,0 +1,11 @@
+[Version]
+major = 1 
+minor = 1
+
+[File]
+black_ext_selective_sync = "tmp", "temp", "swp", "lnk", "pst"
+max_size_selective_sync = 0
+
+[Directory]
+black_name = ".cache", ".node-gyp", "bower_components", "node_modules", ".venv", ".mypy_cache", ".pytest_cache", "__pycache__"
+
