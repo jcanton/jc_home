@@ -129,31 +129,45 @@ loadMyPythonEnv
 #------------------------------------------------------------------------------
 loadIcon4py() {
     #
+    deactivate
     unloadMyPythonEnv
     #
-    export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
     #
     if [[ $(hostname -s) = daint* ]]; then
         module load daint-mc
         module swap PrgEnv-cray PrgEnv-gnu
         module load Boost
+    elif [[ $(hostname -s) = tsa* ]]; then
+        module use /apps/common/UES/sandbox/kraushm/tsa-nvhpc/easybuild/modules/all
+        module load gcc/8.3.0
+        module use /project/g110/install/tsa/python-3.10/module/
+        module load python/3.10.4
+        module load git
+        module load cmake
+        source /project/g110/spack/user/tsa/spack/share/spack/setup-env.sh
+        spack load openmpi@4.0.2 %gcc    # need mpi.h in order to build mpi4py
+        spack load --first cmake@3.18.1
+        spack load --first boost@1.77.0 # need boost in order to build serialbox
     fi
     #
-    if ! [ -d "$HOME/.pyenv" ]; then
-        # Install
-        git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-        cd ~/.pyenv && src/configure && make -C src
+    if  [[ $(hostname -s) = daint* ]] || [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
+        # not on tsa because that loads it from spack...
+        if ! [ -d "$HOME/.pyenv" ]; then
+            # Install
+            git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+            cd ~/.pyenv && src/configure && make -C src
+            export PYENV_ROOT="$HOME/.pyenv"
+            command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+            eval "$(pyenv init -)"
+            pyenv install 3.10.4
+        fi
+        #
+        # Load
         export PYENV_ROOT="$HOME/.pyenv"
         command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
         eval "$(pyenv init -)"
-        pyenv install 3.10.4
+        pyenv shell 3.10.4
     fi
-    #
-    # Load
-    export PYENV_ROOT="$HOME/.pyenv"
-    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-    pyenv shell 3.10.4
 }
 
 #------------------------------------------------------------------------------

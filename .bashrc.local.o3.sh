@@ -1,9 +1,11 @@
 # o3/argon/co2 specific settings:
 #
-export OMP_NUM_THREADS=6
+export OMP_NUM_THREADS=12
 
 export CC=$HOME/.local/bin/gcc
 export CXX=$HOME/.local/bin/g++
+
+export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
 export GT4PY_BUILD_CACHE_DIR=/exclaim/jcanton/icon4py_tmp
 
 export NVM_DIR="$HOME/.nvm"
