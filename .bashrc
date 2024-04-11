@@ -137,11 +137,6 @@ loadIcon4py() {
         module load daint-mc
         module swap PrgEnv-cray PrgEnv-gnu
         module load Boost
-        export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
-    elif [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
-        export CC=$HOME/.local/bin/gcc
-        export CXX=$HOME/.local/bin/g++
-        export GT4PY_BUILD_CACHE_DIR=/exclaim/jcanton/icon4py_tmp
     fi
     #
     if ! [ -d "$HOME/.pyenv" ]; then

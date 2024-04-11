@@ -43,6 +43,7 @@ case $HOSTNAME in
             # Base16 Shell
             /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
         fi
+        export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
         ;;
     tsa*)
         if [ -n "${VSCODE_INVOKING}" ]; then
@@ -52,6 +53,7 @@ case $HOSTNAME in
             # Base16 Shell
             /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
         fi
+        export GT4PY_BUILD_CACHE_DIR=/scratch/jcanton/icon4py_tmp
         ;;
     nid*)
         alias pyNode='source ~/.pythonComputeNode.env'
