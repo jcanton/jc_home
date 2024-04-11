@@ -11,9 +11,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# PALM
-export LD_LIBRARY_PATH="/store/g142/jcanton/repos/palm_build/rrtmg/lib:${LD_LIBRARY_PATH}"
-export PATH="/store/g142/jcanton/repos/palm_build/bin:${PATH}"
+# # PALM
+# export LD_LIBRARY_PATH="/store/g142/jcanton/repos/palm_build/rrtmg/lib:${LD_LIBRARY_PATH}"
+# export PATH="/store/g142/jcanton/repos/palm_build/bin:${PATH}"
 
 # # MCH stuff
 # # source /users/osm/.opr_setup_dir
@@ -43,9 +43,16 @@ case $HOSTNAME in
             # Base16 Shell
             /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
         fi
+        rm $HOME/.vscode-server
+        ln -s $HOME/.vscode-server.daint $HOME/.vscode-server
         export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
         ;;
     tsa*)
+        alias sq='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E"'
+        # alias sql='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.50j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E"'
+        # function wsq {
+        #     watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
+        # }
         if [ -n "${VSCODE_INVOKING}" ]; then
             #echo "invoked by vscode"
             # set colors
@@ -53,6 +60,8 @@ case $HOSTNAME in
             # Base16 Shell
             /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
         fi
+        rm $HOME/.vscode-server
+        ln -s $HOME/.vscode-server.tsa $HOME/.vscode-server
         export GT4PY_BUILD_CACHE_DIR=/scratch/jcanton/icon4py_tmp
         ;;
     nid*)
