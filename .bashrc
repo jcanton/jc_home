@@ -129,7 +129,7 @@ loadMyPythonEnv
 #------------------------------------------------------------------------------
 loadIcon4py() {
     #
-    deactivate
+    #deactivate
     unloadMyPythonEnv
     #
     #
@@ -150,7 +150,7 @@ loadIcon4py() {
         spack load --first boost@1.77.0 # need boost in order to build serialbox
     fi
     #
-    if  [[ $(hostname -s) = daint* ]] || [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
+    if [[ $(hostname -s) = *13 ]] || [[ $(hostname -s) = daint* ]] || [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
         # not on tsa because that loads it from spack...
         if ! [ -d "$HOME/.pyenv" ]; then
             # Install
