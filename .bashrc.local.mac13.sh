@@ -2,6 +2,10 @@
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+export OMP_NUM_THREADS=12
+export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
+export GT4PY_BUILD_CACHE_DIR=/Users/jcanton/Downloads/icon4py_tmp
+
 # set colors
 export CLICOLOR=1
 
