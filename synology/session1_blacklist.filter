@@ -13,7 +13,7 @@ black_suffix = ".lnk", ".pst", ".swp", ".temp", ".tmp", ".pyc"
 max_size = 0
 
 [Directory]
-black_name = ".cache", ".node-gyp", "bower_components", "node_modules", ".venv", ".mypy_cache", ".pytest_cache", "__pycache__"
+black_name = ".cache", ".node-gyp", "bower_components", "node_modules", ".venv", ".mypy_cache", ".pytest_cache", "__pycache__", "_external_src"
 
 [EA]
 
