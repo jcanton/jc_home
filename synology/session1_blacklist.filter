@@ -8,7 +8,7 @@ max_length = 0
 max_path = 0
 
 [File]
-black_suffix = ".lnk", ".pst", ".swp", ".temp", ".tmp"
+black_suffix = ".lnk", ".pst", ".swp", ".temp", ".tmp", ".pyc"
 
 max_size = 0
 
