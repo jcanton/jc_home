@@ -169,6 +169,9 @@ loadIcon4py() {
         pyenv shell 3.10.4
     fi
 }
+if [ -n "${VSCODE_INVOKING}" ]; then
+    unloadMyPythonEnv
+fi
 
 #------------------------------------------------------------------------------
 # git autocompletion
