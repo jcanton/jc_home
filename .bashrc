@@ -170,7 +170,6 @@ loadIcon4py() {
     fi
 }
 if [ -n "${VSCODE_ICON4PY}" ]; then
-    echo "unloading miniconda"
     unloadMiniconda
     alias rg="${HOME}/miniconda3/bin/rg"
     alias htop="${HOME}/miniconda3/bin/htop"
