@@ -29,7 +29,7 @@ export NVM_DIR="$HOME/.nvm"
 # alias grins='/project/s83c/fieldextra/daint/tools/grins'
 
 if [ -n "${VSCODE_INVOKING}" ]; then
-    echo "invoked by vscode"
+    #echo "invoked by vscode"
     # set colors
     export CLICOLOR=1
     # Base16 Shell
