@@ -28,25 +28,25 @@ export NVM_DIR="$HOME/.nvm"
 # alias fieldextra='/project/s83c/fieldextra/daint/bin/fieldextra_gnu_opt_omp'
 # alias grins='/project/s83c/fieldextra/daint/tools/grins'
 
+if [ -n "${VSCODE_INVOKING}" ]; then
+    echo "invoked by vscode"
+    # set colors
+    export CLICOLOR=1
+    # Base16 Shell
+    /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
+fi
+export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
 
 case $HOSTNAME in
-    daint???)
+    daint*)
         export OMP_NUM_THREADS=12
         alias sq='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E"'
         alias sql='squeue -u jcanton -o "%.8i %.8u %.7a %.9P %.50j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E"'
         function wsq {
             watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
         }
-        if [ -n "${VSCODE_INVOKING}" ]; then
-            #echo "invoked by vscode"
-            # set colors
-            export CLICOLOR=1
-            # Base16 Shell
-            /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
-        fi
         rm $HOME/.vscode-server
         ln -s $HOME/.vscode-server.daint $HOME/.vscode-server
-        export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
         export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
         ;;
     tsa*)
@@ -56,16 +56,8 @@ case $HOSTNAME in
         # function wsq {
         #     watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
         # }
-        if [ -n "${VSCODE_INVOKING}" ]; then
-            #echo "invoked by vscode"
-            # set colors
-            export CLICOLOR=1
-            # Base16 Shell
-            /bin/sh $HOME/jc_home/base16-shell/scripts/base16-solarized-light.sh
-        fi
         rm $HOME/.vscode-server
         ln -s $HOME/.vscode-server.tsa $HOME/.vscode-server
-        export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
         export GT4PY_BUILD_CACHE_DIR=/scratch/jcanton/icon4py_tmp
         ;;
     nid*)

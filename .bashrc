@@ -89,7 +89,7 @@ LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 #------------------------------------------------------------------------------
 # conda and software installed through it
 #
-loadMyPythonEnv() {
+loadMiniconda() {
     if ! [[ ":$PATH:" == *"miniconda3"* ]]; then
         export NON_CONDA_PATH="$PATH"
         export NON_CONDA_PYTHONPATH=""
@@ -116,7 +116,7 @@ loadMyPythonEnv() {
     #     alias cdi='zi'
     # fi
 }
-unloadMyPythonEnv() {
+unloadMiniconda() {
     export PATH="$NON_CONDA_PATH"
     export PYTHONPATH="$NON_CONDA_PYTHONPATH"
     unalias tm tml tmn tma
@@ -124,13 +124,13 @@ unloadMyPythonEnv() {
     # unalias cd cdi
 }
 
-loadMyPythonEnv
+loadMiniconda
 
 #------------------------------------------------------------------------------
 loadIcon4py() {
     #
     #deactivate
-    unloadMyPythonEnv
+    unloadMiniconda
     #
     #
     if [[ $(hostname -s) = daint* ]]; then
@@ -169,8 +169,14 @@ loadIcon4py() {
         pyenv shell 3.10.4
     fi
 }
-if [ -n "${VSCODE_INVOKING}" ]; then
-    unloadMyPythonEnv
+if [ -n "${VSCODE_ICON4PY}" ]; then
+    echo "unloading miniconda"
+    unloadMiniconda
+    alias rg="${HOME}/miniconda3/bin/rg"
+    alias htop="${HOME}/miniconda3/bin/htop"
+    alias fortls="${HOME}/miniconda3/bin/fortls"
+    alias austin="${HOME}/miniconda3/bin/austin"
+    alias austinp="${HOME}/miniconda3/bin/austinp"
 fi
 
 #------------------------------------------------------------------------------
