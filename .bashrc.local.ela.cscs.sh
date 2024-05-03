@@ -45,8 +45,8 @@ case $HOSTNAME in
         function wsq {
             watch -n 1 "squeue -u jcanton -o '%.8i %.8u %.7a %.9P %.30j %.8T %.13S %.10M %.10L %.6D %.5C %.11r %E'"
         }
-        rm $HOME/.vscode-server
-        ln -s $HOME/.vscode-server.daint $HOME/.vscode-server
+        # rm $HOME/.vscode-server
+        # ln -s $HOME/.vscode-server.daint $HOME/.vscode-server
         export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
         ;;
     tsa*)
