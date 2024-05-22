@@ -8,4 +8,3 @@ max_size_selective_sync = 0
 
 [Directory]
 black_name = ".cache", ".node-gyp", "bower_components", "node_modules", ".venv", ".mypy_cache", ".pytest_cache", "__pycache__"
-

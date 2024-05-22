@@ -23,10 +23,10 @@ sshmount() {
         sshfs daint:/project/pr133/jcanton/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
     elif [ "$diskName" == "g142" ]; then
-        sshfs daint:/store/g142/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs daint:/store/g142/jcanton/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
     elif [ "$diskName" == "d121" ]; then
-        sshfs daint:/project/d121/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
+        sshfs daint:/project/d121/jcanton/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
     elif [ "$diskName" == "tsa" ]; then
         sshfs tsa:/scratch/jcanton/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
