@@ -34,7 +34,7 @@ case $HOSTNAME in
         export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
         #
         rm $HOME/miniconda3
-        ln -s /scratch/jcanton/miniconda3 $HOME/miniconda3
+        ln -s /store/g142/jcanton/miniconda3 $HOME/miniconda3
         ;;
     tsa*)
         rm $HOME/.vscode-server
