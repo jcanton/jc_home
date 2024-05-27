@@ -74,6 +74,7 @@ alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
 alias 2ela='ssh -X -Y ela'
 alias 2daint='ssh -X -Y daint'
 alias 2tsa='ssh -X -Y tsa'
+alias 2balfrin='ssh -X -Y balfrin'
 alias 2fog='ssh -X -Y fog'
 alias 2o3='ssh -X -Y o3'
 alias 2co2='ssh -X -Y co2'
@@ -198,3 +199,7 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

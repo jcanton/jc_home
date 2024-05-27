@@ -44,6 +44,8 @@ case $HOSTNAME in
         rm $HOME/miniconda3
         ln -s /scratch/jcanton/miniconda3 $HOME/miniconda3
         ;;
+    balfrin*)
+        ;;
     nid*)
         alias pyNode='source ~/.pythonComputeNode.env'
         ;;
