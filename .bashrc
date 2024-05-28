@@ -149,6 +149,11 @@ loadIcon4py() {
         spack load openmpi@4.0.2 %gcc    # need mpi.h in order to build mpi4py
         spack load --first cmake@3.18.1
         spack load --first boost@1.77.0 # need boost in order to build serialbox
+    elif [[ $(hostname -s) = balfrin* ]]; then
+        module use /mch-environment/v5/modules
+        module load netcdf-c/4.8.1-nvhpc
+        module load hdf5/1.12.2-nvhpc
+        module load python/3.10.8
     fi
     #
     if [[ $(hostname -s) = *13 ]] || [[ $(hostname -s) = daint* ]] || [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
