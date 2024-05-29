@@ -31,6 +31,7 @@ case $HOSTNAME in
     daint*)
         rm $HOME/.vscode-server
         ln -s $HOME/.vscode-server.daint $HOME/.vscode-server
+        export PATH="/users/jcanton/.vscode-server/bin/8b3775030ed1a69b13e4f4c628c612102e30a681/bin/remote-cli:$PATH"
         export GT4PY_BUILD_CACHE_DIR=/scratch/snx3000/jcanton/icon4py_tmp
         #
         rm $HOME/miniconda3
@@ -39,6 +40,7 @@ case $HOSTNAME in
     tsa*)
         rm $HOME/.vscode-server
         ln -s $HOME/.vscode-server.tsa $HOME/.vscode-server
+        export PATH="/users/jcanton/.vscode-server/bin/8b3775030ed1a69b13e4f4c628c612102e30a681/bin/remote-cli:$PATH"
         export GT4PY_BUILD_CACHE_DIR=/scratch/jcanton/icon4py_tmp
         #
         rm $HOME/miniconda3
