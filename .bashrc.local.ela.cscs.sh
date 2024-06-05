@@ -1,4 +1,4 @@
-# ELA (Daint/Tsa) specific settings:
+# CSCS specific settings:
 
 alias sc='cd $SCRATCH'
 alias pr133='cd /project/pr133/jcanton'
@@ -47,6 +47,8 @@ case $HOSTNAME in
         ln -s /scratch/jcanton/miniconda3 $HOME/miniconda3
         ;;
     balfrin*)
+        export CC="$HOME/.local/bin/gcc"
+        export CXX="$HOME/.local/bin/g++"
         ;;
     nid*)
         alias pyNode='source ~/.pythonComputeNode.env'
