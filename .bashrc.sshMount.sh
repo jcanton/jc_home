@@ -31,6 +31,9 @@ sshmount() {
     elif [ "$diskName" == "tsa" ]; then
         sshfs tsa:/scratch/jcanton/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
+    elif [ "$diskName" == "balfrin" ]; then
+        sshfs balfrin:/scratch/mch/jcanton/  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
+
     elif [ "$diskName" == "co2" ]; then
         sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@fog2.ethz.ch:/net/co2/exclaim/jcanton  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
