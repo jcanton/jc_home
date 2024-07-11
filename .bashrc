@@ -174,14 +174,15 @@ loadIcon4py() {
         eval "$(pyenv init -)"
         pyenv shell 3.10.4
     fi
+    export ICON4PY="yes"
 }
 if [ -n "${VSCODE_ICON4PY}" ]; then
-    alias code='$(which code)'
-    alias rg='${HOME}/miniconda3/bin/rg'
-    alias htop='${HOME}/miniconda3/bin/htop'
-    alias fortls='${HOME}/miniconda3/bin/fortls'
-    alias austin='${HOME}/miniconda3/bin/austin'
-    alias austinp='${HOME}/miniconda3/bin/austinp'
+    alias code=`which code`
+    alias rg="${HOME}/miniconda3/bin/rg"
+    alias htop="${HOME}/miniconda3/bin/htop"
+    alias fortls="${HOME}/miniconda3/bin/fortls"
+    alias austin="${HOME}/miniconda3/bin/austin"
+    alias austinp="${HOME}/miniconda3/bin/austinp"
     loadIcon4py
 fi
 
