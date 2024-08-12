@@ -100,12 +100,10 @@ loadMiniconda() {
         export PROJ_LIB="$HOME/miniconda3/share/proj"
         export MATPLOTLIBRC="$HOME/jc_home/matplotlib/matplotlibrc"
     fi
-    if command -v tmux &> /dev/null; then
-        alias tm='tmux -u'
-        alias tml='tmux ls'
-        alias tmn='tmux -u new -s'
-        alias tma='tmux -u attach -t'
-    fi
+    alias tm='tmux -u'
+    alias tml='tmux ls'
+    alias tmn='tmux -u new -s'
+    alias tma='tmux -u attach -t'
     if command -v rg &> /dev/null; then
         alias rgg='rg --max-depth 1'
         alias grep='rg'
