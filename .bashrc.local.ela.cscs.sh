@@ -49,6 +49,7 @@ case $HOSTNAME in
     balfrin*)
         export CC="$HOME/.local/bin/gcc"
         export CXX="$HOME/.local/bin/g++"
+        export GT4PY_BUILD_CACHE_DIR=/scratch/mch/jcanton/icon4py_tmp
         ;;
     nid*)
         alias pyNode='source ~/.pythonComputeNode.env'
