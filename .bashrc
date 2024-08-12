@@ -70,18 +70,6 @@ alias gia='git add'
 alias vim='nvim'
 alias vimdiff='nvim -d'
 
-alias 2euler='ssh -Y jcanton@129.132.93.102' #'ssh -Y jcanton@euler.ethz.ch'
-alias 2ela='ssh -X -Y ela'
-alias 2daint='ssh -X -Y daint'
-alias 2tsa='ssh -X -Y tsa'
-alias 2balfrin='ssh -X -Y balfrin'
-alias 2fog='ssh -X -Y fog'
-alias 2o3='ssh -X -Y o3'
-alias 2co2='ssh -X -Y co2'
-alias 2argon='ssh -X -Y argon'
-alias 2pi='ssh -X -Y pi'
-alias 2ciccia='ssh -X -Y ciccia'
-
 # my compiled software
 PATH="$HOME/.local/bin:$PATH"
 INCLUDE="$HOME/.local/include:$INCLUDE"
