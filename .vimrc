@@ -194,6 +194,8 @@ endfunction
 " General
 "------------------------------------------------------------------------------
 
+set noswapfile
+
 " Default splits below and to the right
 set splitbelow
 set splitright
