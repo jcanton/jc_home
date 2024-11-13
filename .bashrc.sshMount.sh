@@ -40,8 +40,8 @@ sshmount() {
     elif [ "$diskName" == "pi" ]; then
         sshfs pi:/home/pi  $diskDir  -o auto_cache,reconnect,defer_permissions,noappledouble
 
-    elif [ "$diskName" == "erebos" ]; then
-        sshfs -o allow_other,defer_permissions,IdentityFile=~/.ssh/id_rsa jcanton@erebos.mech.kth.se:/scratch/jcanton ./$diskDir
+    elif [ "$diskName" == "ciccia" ]; then
+        sshfs ciccia:/var/services/homes/jacopo $diskDir -o auto_cache,reconnect,defer_permissions,noappledouble
 
     else
         echo "Unknown host name"
