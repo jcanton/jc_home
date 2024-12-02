@@ -4,7 +4,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export OMP_NUM_THREADS=12
 export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
-export GT4PY_BUILD_CACHE_DIR=/Volumes/littleblue/gt4py_cache
+export GT4PY_BUILD_CACHE_DIR=/Users/jcanton/localRepos/related_icon4py/gt4py_cache
 
 # set colors
 export CLICOLOR=1
