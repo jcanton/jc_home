@@ -67,6 +67,12 @@ case $HOSTNAME in
         ;;
 esac
 
+loadUenv() {
+    # configure the user-environment (uenv) utility
+    source /users/jcanton/.local/bin/activate-uenv
+    uenv start --view=icon-wcp:icon /scratch/mch/leclairm/uenvs/images/icon.v1.rc4.sqfs
+}
+
 # # PALM
 # export LD_LIBRARY_PATH="/store/g142/jcanton/repos/palm_build/rrtmg/lib:${LD_LIBRARY_PATH}"
 # export PATH="/store/g142/jcanton/repos/palm_build/bin:${PATH}"
