@@ -107,7 +107,7 @@ unloadMiniconda() {
     export PATH="$NON_CONDA_PATH"
     export PYTHONPATH="$NON_CONDA_PYTHONPATH"
     unalias tm tml tmn tma
-    unalias rgg grep gr
+    # unalias rgg grep gr
     # unalias cd cdi
 }
 
