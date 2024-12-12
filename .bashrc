@@ -7,9 +7,9 @@ fi
 #                 My settings                  #
 ################################################
 
-export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LANGUAGE="en_US.UTF-8"
+#export LC_ALL="en_US.UTF-8"
+#export LANG="en_US.UTF-8"
+#export LANGUAGE="en_US.UTF-8"
 
 # Set the title to user@host dir
 PS1='[\u@\h \W]\$ '
@@ -142,7 +142,7 @@ loadIcon4py() {
         module load python/3.10.8
     fi
     #
-    if [[ $(hostname -s) = *13 ]] || [[ $(hostname -s) = daint* ]] || [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
+    if [[ $(hostname -s) = *13 ]] || [[ $(hostname -s) = pi ]] || [[ $(hostname -s) = daint* ]] || [[ $(hostname -s) = argon ]] || [[ $(hostname -s) = o3 ]] || [[ $(hostname -s) = co2 ]]; then
         # not on tsa because that loads it from spack...
         if ! [ -d "$HOME/.pyenv" ]; then
             # Install
@@ -192,7 +192,3 @@ fi
 if [ -f ~/.bashrc.local ]; then
     . ~/.bashrc.local
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
