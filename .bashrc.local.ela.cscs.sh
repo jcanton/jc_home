@@ -48,9 +48,9 @@ case $HOSTNAME in
         SERIALBOX2_ROOT="/scratch/mch/jcanton/repo/serialbox2/install"
         ;;
     balfrin*)
-        export CC="$HOME/.local/bin/gcc"
-        export CXX="$HOME/.local/bin/g++"
-        export GT4PY_BUILD_CACHE_DIR=/scratch/mch/jcanton/icon4py_tmp
+        #export CC="$HOME/.local/bin/gcc"
+        #export CXX="$HOME/.local/bin/g++"
+        export GT4PY_BUILD_CACHE_DIR=/scratch/mch/jcanton/gt4py_cache
         ## configure the user-environment (uenv) utility
         # source /users/jcanton/.local/bin/activate-uenv
         # uenv start --view=icon-wcp:icon /scratch/mch/leclairm/uenvs/images/icon.v1.rc4.sqfs
