@@ -2,11 +2,14 @@
 #
 export OMP_NUM_THREADS=12
 
+export SCRATCH="/exclaim/jcanton/"
+alias sc="cd ${SCRATCH}"
+
 export CC=$HOME/.local/bin/gcc
 export CXX=$HOME/.local/bin/g++
 
 export GT4PY_BUILD_CACHE_LIFETIME=PERSISTENT
-export GT4PY_BUILD_CACHE_DIR=/exclaim/jcanton/icon4py_tmp
+export GT4PY_BUILD_CACHE_DIR=${SCRATCH}/repos/gt4py_cache
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
