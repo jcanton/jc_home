@@ -116,7 +116,8 @@ unloadMiniconda() {
     export CONDA_LOADED="no"
 }
 
-if [[ $(hostname -s) = balfrin* ]] || [[ $(hostname -s) = co2 ]]; then
+#if [[ $(hostname -s) = balfrin* ]] || [[ $(hostname -s) = co2 ]]; then
+if [[ $(hostname -s) = balfrin* ]]; then
     export CONDA_LOADED="no"
 else
     loadMiniconda
