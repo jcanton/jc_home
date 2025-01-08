@@ -2,10 +2,10 @@
   input  (device-file "/dev/input/by-id/usb-04d9_USB-HID_Keyboard-event-kbd")
   output (uinput-sink "KMonad kbd")
   )
-;; (defcfg
-;;   input  (device-file "/dev/input/by-id/usb-SONiX_USB_Keyboard-event-kbd")
-;;   output (uinput-sink "KMonad kbd")
-;;   )
+;;(defcfg
+;;  input  (device-file "/dev/input/by-id/usb-SONiX_USB_Keyboard-event-kbd")
+;;  output (uinput-sink "KMonad kbd")
+;;  )
 
 (defsrc
   esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11   f12    nlck   del

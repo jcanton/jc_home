@@ -355,15 +355,20 @@ function! AutoDarkModeSetup()
     call Sunshine()
 endfunction
 
-" Read base16-vim colorscheme
-if filereadable(expand("~/.vimrc_background"))
-    " let base16colorspace=256
-    source ~/.vimrc_background
-    "call AutoDarkModeSetup()
-    "
-    " Fix CoC's colours
-    hi CocMenuSel guibg=#C8D7D7
-    hi CocListLine guibg=#C8D7D7
+" Setup colorscheme
+let term = $TERM
+if term == "xterm-256color" || term == "screen-256color"
+    if filereadable(expand("~/.vimrc_background"))
+        " let base16colorspace=256
+        source ~/.vimrc_background
+        "call AutoDarkModeSetup()
+        "
+        " " Fix CoC's colours
+        " hi CocMenuSel guibg=#C8D7D7
+        " hi CocListLine guibg=#C8D7D7
+    endif
+else
+    colorscheme elflord
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
