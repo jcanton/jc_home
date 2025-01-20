@@ -1,0 +1,34 @@
+[
+  {
+    "command": [
+      "/usr/lib/chromium/chromium",
+      "--force-renderer-accessibility",
+      "--enable-remote-extensions",
+      "--show-component-extension-options",
+      "--enable-gpu-rasterization",
+      "--no-default-browser-check",
+      "--disable-pings",
+      "--media-router=0",
+      "--enable-remote-extensions",
+      "--load-extension",
+      "--use-angle=gles"
+    ],
+    "working_directory": "/home/jcanton"
+  },
+  {
+    "command": [
+      "/usr/lib/chromium/chromium",
+      "--force-renderer-accessibility",
+      "--enable-remote-extensions",
+      "--show-component-extension-options",
+      "--enable-gpu-rasterization",
+      "--no-default-browser-check",
+      "--disable-pings",
+      "--media-router=0",
+      "--enable-remote-extensions",
+      "--load-extension",
+      "--use-angle=gles"
+    ],
+    "working_directory": "/home/jcanton"
+  }
+]

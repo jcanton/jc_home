@@ -1,0 +1,79 @@
+{
+  "border": "normal",
+  "current_border_width": -1,
+  "floating": "auto_off",
+  "fullscreen_mode": 0,
+  "geometry": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "layout": "splith",
+  "marks": [],
+  "name": "1",
+  "orientation": "horizontal",
+  "percent": 0.5,
+  "scratchpad_state": "none",
+  "sticky": false,
+  "type": "workspace",
+  "workspace_layout": "default",
+  "nodes": [
+    {
+      "border": "normal",
+      "current_border_width": 2,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 642,
+        "height": 434
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "1:bash",
+      "orientation": "none",
+      "percent": 0.5,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^X\\-terminal\\-emulator$",
+          "instance": "^x\\-terminal\\-emulator$",
+          "title": "^1:bash$"
+        }
+      ]
+    },
+    {
+      "border": "normal",
+      "current_border_width": 2,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 1722,
+        "y": 18,
+        "width": 1716,
+        "height": 1401
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "Welcome - Visual Studio Code",
+      "orientation": "none",
+      "percent": 0.5,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^Code$",
+          "instance": "^code$",
+          "title": "^Welcome\\ \\-\\ Visual\\ Studio\\ Code$"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "command": [
+      "/usr/bin/python3.11",
+      "/usr/bin/x-terminal-emulator"
+    ],
+    "working_directory": "/home/jcanton"
+  },
+  {
+    "command": [
+      "/usr/share/code/code"
+    ],
+    "working_directory": "/home/jcanton"
+  }
+]

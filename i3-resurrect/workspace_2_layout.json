@@ -1,0 +1,79 @@
+{
+  "border": "normal",
+  "current_border_width": -1,
+  "floating": "auto_off",
+  "fullscreen_mode": 1,
+  "geometry": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "layout": "splith",
+  "marks": [],
+  "name": "2",
+  "orientation": "horizontal",
+  "percent": null,
+  "scratchpad_state": "none",
+  "sticky": false,
+  "type": "workspace",
+  "workspace_layout": "default",
+  "nodes": [
+    {
+      "border": "normal",
+      "current_border_width": 2,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 1722,
+        "y": 18,
+        "width": 1716,
+        "height": 1401
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "icon4py (Channel) - EXCLAIM - Slack - Chromium",
+      "orientation": "none",
+      "percent": 0.5,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^Chromium\\-browser$",
+          "instance": "^chromium\\-browser$",
+          "title": "^icon4py\\ \\(Channel\\)\\ \\-\\ EXCLAIM\\ \\-\\ Slack\\ \\-\\ Chromium$"
+        }
+      ]
+    },
+    {
+      "border": "none",
+      "current_border_width": 2,
+      "floating": "auto_off",
+      "fullscreen_mode": 0,
+      "geometry": {
+        "x": 2042,
+        "y": 0,
+        "width": 508,
+        "height": 1421
+      },
+      "layout": "splith",
+      "marks": [],
+      "name": "Spotify - Always in Blossom \u2022 Stanton Lanier",
+      "orientation": "none",
+      "percent": 0.5,
+      "scratchpad_state": "none",
+      "sticky": false,
+      "type": "con",
+      "workspace_layout": "default",
+      "swallows": [
+        {
+          "class": "^Chromium\\-browser$",
+          "instance": "^crx_pjibgclleladliembfgfagdaldikeohf$",
+          "title": "^Spotify\\ \\-\\ Always\\ in\\ Blossom\\ \u2022\\ Stanton\\ Lanier$"
+        }
+      ]
+    }
+  ]
+}
