@@ -358,15 +358,11 @@ endfunction
 " Setup colorscheme
 let term = $TERM
 if term == "xterm-256color" || term == "screen-256color"
-    if filereadable(expand("~/.vimrc_background"))
-        " let base16colorspace=256
-        source ~/.vimrc_background
-        "call AutoDarkModeSetup()
-        "
-        " " Fix CoC's colours
-        " hi CocMenuSel guibg=#C8D7D7
-        " hi CocListLine guibg=#C8D7D7
-    endif
+    try
+        colorscheme base16-solarized-light
+    catch
+        colorscheme elflord
+    endtry
 else
     colorscheme elflord
 endif
