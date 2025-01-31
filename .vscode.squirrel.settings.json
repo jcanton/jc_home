@@ -1,0 +1,5 @@
+{
+    "http.proxy" : "http://proxy.ethz.ch:3128",
+    "https.proxy" : "https://proxy.ethz.ch:3128",
+    "http.proxyStrictSSL": false
+}
