@@ -75,12 +75,10 @@ PATH="$HOME/.local/bin:$PATH"
 INCLUDE="$HOME/.local/include:$INCLUDE"
 LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 
-if command -v tmux &> /dev/null; then
-    alias tm='tmux -u'
-    alias tml='tmux ls'
-    alias tmn='tmux -u new -s'
-    alias tma='tmux -u attach -t'
-fi
+alias tm='tmux -u'
+alias tml='tmux ls'
+alias tmn='tmux -u new -s'
+alias tma='tmux -u attach -t'
 if command -v rg &> /dev/null; then
     alias rgg='rg --max-depth 1'
     alias grep='rg'
