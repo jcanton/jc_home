@@ -8,12 +8,12 @@ export HTTPS_PROXY=proxy.ethz.ch:3128
 export FTP_PROXY=proxy.ethz.ch:3128
 export NO_PROXY="localhost,127.0.0.1,::1"
 
-# Base16 Shell
-BASE16_SHELL="$HOME/jc_home/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        source "$BASE16_SHELL/profile_helper.sh"
-base16_solarized-light
+# # Base16 Shell
+# BASE16_SHELL="$HOME/jc_home/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         source "$BASE16_SHELL/profile_helper.sh"
+# base16_solarized-light
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
